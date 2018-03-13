@@ -2,6 +2,7 @@ from tools.db import db
 from tools import machinelearning as ml
 import time
 import random
+import os, sys, sqlite3
 
 def output(msg):
     for line in msg.splitlines():
@@ -30,73 +31,91 @@ def check_db_data(tmp_tuple, db_data):
             
     output("Lists are equivalent")
     
-    
+def db_anlegen():
+    my_db = db("test_db.db", ["Period1","Period2","Deadline_Reached"],["int", "int", "bool"])
+    return my_db
 #
 # Start of main program
 #                
+def main():
 
-my_db = db("test_db.db", 
-           ["Period1","Period2","Deadline_Reached"],
-           ["int", "int", "bool"])
-#["ID","Priority","Period","ID2","Deadline_Reached"],
-#["int", "int", "int", "int", "bool"])
-
-
-#total number of sets
-num_sets1 = 30
-#num_sets2 = 50
-num_trainingsets = num_sets1 #+ num_sets2
-data_per_set = len(my_db.attr)
-
-tmp_tuple = []
-
-start = time.time()
+    #if not os.path.exists("db_test.db"):
+    #    print "Datenbank db_test.db nicht vorhanden - Datenbank wird anglegt."
+    #    my_db= db_anlegen()
+    my_db = db("test_db.db",
+               ["Period1","Period2","Deadline_Reached"],
+               ["int", "int", "bool"])
+    #["ID","Priority","Period","ID2","Deadline_Reached"],
+    #["int", "int", "int", "int", "bool"])
 
 
-# change to 2 for more test data
-num_tests = 2
-
-#fill tuple data
-for i in range(int(num_sets1*0.5*num_tests)):
-    for j in range(int(num_sets1*0.5*num_tests)):
-        period1 = 200+i*20/num_tests + int(random.random()*10)
-        period2 = 240+j*20/num_tests + int(random.random()*10) 
-        
-        tmp_tuple.append((period1, period2, period1 * i * period1 + period2 * period2 * j  <  2500000.0 * num_tests + random.random() * 500000))
-        #tmp_tuple.append((period1, period2, period1 + period2  <  750.0 * num_tests + random.random() * 10))
-
-end = time.time()
-output("Test data generated! Time needed: "+str(end-start))
-    
 
 
-#Write tmp_data to db
-output("Write tmp data to database!")
-my_db.write(tmp_tuple)
+    #total number of sets
+    num_sets1 = 30
+    #num_sets2 = 50
+    num_trainingsets = num_sets1 #+ num_sets2
+    data_per_set = len(my_db.attr)
 
-db_output = []
+    tmp_tuple = []
 
-#Read values from db
-output("Read data from database!")
-#db_output = my_db.read()
-
-#check_db_data(tmp_tuple, db_output)
+    start = time.time()
 
 
-#Machine Learning and output
+    # change to 2 for more test data
+    num_tests = 1
 
-#Get data from database 
-output_data = my_db.read_output()
-input_data = my_db.read_input()
+    #fill tuple data
+    for i in range(int(num_sets1*0.5*num_tests)):
+        for j in range(int(num_sets1*0.5*num_tests)):
+            period1 = 200+i*20/num_tests + int(random.random()*10)
+            period2 = 240+j*20/num_tests + int(random.random()*10)
 
-output("Create machinelearning")
+            tmp_tuple.append((period1, period2, period1 * i * period1 + period2 * period2 * j  <  2500000.0 * num_tests + random.random() * 500000))
+            #tmp_tuple.append((period1, period2, period1 + period2  <  750.0 * num_tests + random.random() * 10))
 
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.25, random_state=0)
+    end = time.time()
+    output("Test data generated! Time needed: "+str(end-start))
 
-machine_learning = ml.machinelearning(data_per_set, num_trainingsets)
-machine_learning.training_phase(X_train, y_train)
-machine_learning.evaluate(X_test,y_test)
-#machine_learning.plot(h=5)
+
+
+    #Write tmp_data to db
+    output("Write tmp data to database!")
+    my_db.write(tmp_tuple)
+
+    db_output = []
+
+    #Read values from db
+    output("Read data from database!")
+    #db_output = my_db.read()
+
+    #check_db_data(tmp_tuple, db_output)
+
+
+    #Machine Learning and output
+
+    #Get data from database
+    output_data = my_db.read_output()
+    input_data = my_db.read_input()
+
+    output("Create machinelearning")
+
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.25, random_state=0)
+
+    machine_learning = ml.machinelearning(data_per_set, num_trainingsets)
+    machine_learning.training_phase(X_train, y_train)
+    machine_learning.evaluate(X_test,y_test)
+    machine_learning.plot(h=5)
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
 
 

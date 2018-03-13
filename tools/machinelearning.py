@@ -94,7 +94,6 @@ class machinelearning:
         
         self.output("Training time for " + str(len(self.output_1dvector)) + " sets: " + str(end-start))
 
-        
 
     # plots 2D plot, throws error for 3D data
     def plot2D(self, h):
@@ -105,7 +104,7 @@ class machinelearning:
         #only plot results, if data equals 2. In other cases no proper visualisation is possible
         if(self.data_per_set==2):
             xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-            
+
         #get predicted data for three kernels
         Z_lin = self.lin_svc.predict(np.c_[xx.ravel(), yy.ravel()])
         Z_poly = self.poly_svc.predict(np.c_[xx.ravel(), yy.ravel()])
@@ -113,6 +112,7 @@ class machinelearning:
         
         
         for i, Z_ in enumerate((Z_lin, Z_poly, Z_rbf, Z_rbf)):
+
             # Plot the decision boundary. For that, we will assign a color to each
             # point in the mesh [x_min, x_max]x[y_min, y_max].
             plt.subplot(2, 2, i + 1)

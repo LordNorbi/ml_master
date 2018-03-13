@@ -9,6 +9,8 @@ class db:
     table_name = "training_set"
     
     def __init__(self, filename, attr, attr_type):
+        print attr
+        print attr_type
         self.attr=attr
         self.attr_type = attr_type
         self.filename=filename
@@ -19,7 +21,7 @@ class db:
         tmp_str = """Initialize database """+self.filename+""" with attributes """+str(self.attr)+""" and types """+str(self.attr_type)
                 
         self.output(tmp_str)
-                
+
     def output(self, msg):
         for line in msg.splitlines():
             print "DB: "+line
@@ -77,13 +79,13 @@ class db:
         command = "INSERT INTO "+self.table_name+"('"
         for i in range(len(self.attr)-1):
             command += self.attr[i]+"', '"
-        
+
         command +=self.attr[len(self.attr)-1]+"')VALUES ("
         for i in range(len(self.attr)-1):
             command += "?, "
             
         command += "?)"
-        
+        print command
         
         c.executemany(command,tmp_tuple)
 
