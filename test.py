@@ -1,6 +1,7 @@
 import os, sys, sqlite3
 import time
 import random
+from tools import ml_machine as ml
 
 db_name = "ml_data"+".db" #name of the db created and used
 amount_of_data = 30
@@ -29,6 +30,7 @@ def createDB():
     db_connection = sqlite3.connect(db_name)
     output("DB created!")
     createTable()
+    createMLTable()
 
 def createTable():
 
@@ -53,6 +55,13 @@ def createTable():
 
     output("Table "+db_name+" mit "+ sql +" angelegt")
     return()
+
+def createMLTable():
+    db_cursor = db_connection.cursor()
+    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Precision FLOAT, Recall FLOAT, F1 FLOAT, Support FLOAT, Duration FLOAT, Time TIMESTAMP)"
+    db_cursor.execute(sql)
+    db_connection.commit()
+    output("Machine Table succesfully created")
 
 def eraseData():
     output("Start DB erase.")
@@ -137,13 +146,24 @@ def getNumberOfEntries():
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
 
+def getData():
+    sql = "SELECT * FROM Data where ID = 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+    print db_cursor.fetchone
+    print db_cursor.fetchone
+
 def main():
     checkDB()
     if create_new_data:
         eraseData()
         createData()
 
+    X_data = getData()
+    y_data = []
 
+    #m = ml.ml_machine(X_data, y_data)
+    #m.createSVM_poly()
 
     closeDB()
 
