@@ -12,6 +12,7 @@ from matplotlib.cbook import Null
 from joblib import Parallel, delayed
 #import joblib
 from Crypto.SelfTest.Random.test__UserFriendlyRNG import multiprocessing
+#from Crypto import multiprocessing
 
 if False: plt=None
 
@@ -33,6 +34,7 @@ class machinelearning:
     
    
     def __init__(self, data_per_set, AmountRows):
+
         self.input_2dvector = np.ndarray(shape=(AmountRows,data_per_set-1)) # Input parameter
         self.output_1dvector = np.ndarray(shape=[AmountRows]) # Output parameter
         self.data_per_set = data_per_set-1 # dimensions of plot and data
@@ -79,15 +81,15 @@ class machinelearning:
         indv_start = time.time()
         self.lin_svc = svm.LinearSVC(dual=False, tol=0.00001, C=1.0, multi_class='ovr', fit_intercept=True, intercept_scaling=1, class_weight={0: 9}, verbose=0, random_state=None, max_iter=1000000).fit(self.input_2dvector,  self.output_1dvector)
         indv_end = time.time()
-        self.output("2nd done: " + str(indv_end - indv_start) + " s")
+        self.output("2nd done (lin): " + str(indv_end - indv_start) + " s")
         indv_start = time.time()
         self.rbf_svc = svm.SVC(kernel='rbf', cache_size=7000, tol=0.00001, class_weight={0: 20}, gamma=0.01, C=1).fit(self.input_2dvector, self.output_1dvector)
         indv_end = time.time()
-        self.output("3rd done: " + str(indv_end - indv_start) + " s")
+        self.output("3rd done (rbf): " + str(indv_end - indv_start) + " s")
         indv_start = time.time()
         self.poly_svc = svm.SVC(kernel='poly', degree=2,cache_size=7000, tol=0.0001, class_weight={1: 20}, C=CC).fit(self.input_2dvector, self.output_1dvector)
         indv_end = time.time()
-        self.output("4th done: " + str(indv_end - indv_start) + " s")
+        self.output("4th done (pol): " + str(indv_end - indv_start) + " s")
         end = time.time()
         
         self.output("Training time for " + str(len(self.output_1dvector)) + " sets: " + str(end-start))
@@ -132,7 +134,7 @@ class machinelearning:
                 plt.xlim(x_min, x_max)
                 plt.ylim(y_min, y_max)
 
-            # Plot also the training points
+            # Plot also the (training) points
             plt.scatter(self.input_2dvector[:, 0], self.input_2dvector[:, 1], c=self.output_1dvector, cmap=plt.cm.coolwarm_r, alpha=0.5)
             plt.xlabel('Period Task 1')
             plt.ylabel('Period Task 2')
@@ -144,67 +146,13 @@ class machinelearning:
         plt.show()
     
 
-        
-# plots 3D plot, throws error for 2D data    
-    def plot3D(self, h):        
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        
-        # map points to red and blue
-        def outputc(x):
-            if(x==0.0):
-                return 'r'
-            else:
-                return 'b'
-        color = map(outputc, self.output_1dvector)
-        # print points
-        ax.scatter(self.input_2dvector[:, 0], self.input_2dvector[:, 1], self.input_2dvector[:, 2], c=color, marker='o')
-        
-        #no surface plotting for 3D        
-        # create a mesh to plot in        
-        '''x_min, x_max = self.input_2dvector[:, 0].min() - 1, self.input_2dvector[:, 0].max() + 1
-        y_min, y_max = self.input_2dvector[:, 1].min() - 1, self.input_2dvector[:, 1].max() + 1
-        z_min, z_max = self.input_2dvector[:, 2].min() - 1, self.input_2dvector[:, 2].max() + 1
-        
-
-        xx, yy, zz = np.meshgrid(np.arange(x_min, x_max, h),
-                                 np.arange(y_min, y_max, h),
-                                 np.arange(z_min, z_max, h))
-
-        Z = self.svc.predict(np.c_[xx.ravel(), yy.ravel(), zz.ravel()])
-        Z = Z.reshape(xx.shape)
-        
-        
-                
-        # plot random surface function, maybe useful in future
-        input_2dvector = np.arange(-5, 5, 0.25)
-        Y = np.arange(-5, 5, 0.25)
-        input_2dvector, Y = np.meshgrid(input_2dvector, Y)
-        R = np.sqrt(input_2dvector**2 + Y**2)
-        Z = np.sin(R)
-
-        
-        # Plot the surface.
-        surf = ax.plot_surface(input_2dvector, Y, Z, cmap=cm.coolwarm, alpha=0.2,
-                               linewidth=0, antialiased=False)
-    
-        
-        # Add a color bar which maps values to colors.
-        fig.colorbar(surf, shrink=0.5, aspect=5)
-                
-        # Customize the z axis.
-        ax.set_zlim(-1.01, 1.01)
-        ax.zaxis.set_major_locator(LinearLocator(10))
-        ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))'''
-        
-
-
-        ax.set_xlabel('input_2dvector Label')
-        ax.set_ylabel('Y Label')
-        ax.set_zlabel('Z Label')
-        plt.title("SVC with linear kernel")
-
-        plt.show()
+    def evaluate(self, X_test, y_test):
+        score_lin = self.lin_svc.score(X_test, y_test)
+        score_poly = self.poly_svc.score(X_test, y_test)
+        score_rbf = self.rbf_svc.score(X_test, y_test)
+        self.output("Lin Score: "+str(score_lin))
+        self.output("Pol Score: "+str(score_poly))
+        self.output("rbf Score: "+str(score_rbf))
 
     def plot(self, h=0.2, dimensions = 2):
         self.output("Plotting data with h = " + str(h))

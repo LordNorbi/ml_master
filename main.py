@@ -48,14 +48,13 @@ num_sets1 = 30
 num_trainingsets = num_sets1 #+ num_sets2
 data_per_set = len(my_db.attr)
 
-
 tmp_tuple = []
 
 start = time.time()
 
 
 # change to 2 for more test data
-num_tests = 1
+num_tests = 2
 
 #fill tuple data
 for i in range(int(num_sets1*0.5*num_tests)):
@@ -92,10 +91,12 @@ input_data = my_db.read_input()
 
 output("Create machinelearning")
 
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.25, random_state=0)
 
 machine_learning = ml.machinelearning(data_per_set, num_trainingsets)
-machine_learning.training_phase(input_data, output_data)
-
-machine_learning.plot(h=5)            
+machine_learning.training_phase(X_train, y_train)
+machine_learning.evaluate(X_test,y_test)
+#machine_learning.plot(h=5)
 
 

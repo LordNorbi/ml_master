@@ -16,9 +16,7 @@ class db:
         if(len(self.attr)!=len(self.attr_type)):
             raise Exception("Attribute length is not equal to attribute type length!")
         
-        tmp_str = """Initialize database """+self.filename+""" with attributes 
-    """+str(self.attr)+""" and types
-    """+str(self.attr_type)
+        tmp_str = """Initialize database """+self.filename+""" with attributes """+str(self.attr)+""" and types """+str(self.attr_type)
                 
         self.output(tmp_str)
                 
@@ -181,4 +179,3 @@ class db:
         self.output("Reading done! Time needed: "+str(end-start))
         
         return data
-    
