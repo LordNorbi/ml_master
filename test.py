@@ -184,8 +184,8 @@ def main():
     m = ml(X_data, y_data, amount_of_data)
 
     m.dec_tree = mach
-    m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
-    m.bench(m.dec_tree)
+    #m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
+    #m.bench(m.dec_tree)
 
     #m.createSVM_poly()
     #m.bench(m.svm_pol)
@@ -194,9 +194,9 @@ def main():
     #m.bench(m.dec_tree)
     #m.saveMachine(db_connection,m.dec_tree)
 
-    #m.createK_nearest()
-    #m.bench(m.k_nearest)
-    #m.saveMachine(db_connection,m.k_nearest)
+    m.createK_nearest()
+    m.bench(m.k_nearest)
+    m.saveMachine(db_connection,m.k_nearest)
 
     #m.createLOGIST_reg()
     #m.bench(m.logist_reg)

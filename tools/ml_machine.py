@@ -104,7 +104,7 @@ class ml_machine:
     def saveMachine(self,db_connection,machine):
 
         #check if any value is none
-        if machine.name==None|machine.precision==None|machine.recall==None|machine.f1==None|machine.support==None|machine.duration==None:
+        if machine.name==None or machine.precision==None or machine.recall==None or machine.f1==None or machine.support==None or machine.duration==None:
             #bench the svm to get the required data
             self.bench(machine)
 
@@ -132,7 +132,7 @@ class ml_machine:
                +str(machine.duration)+",'"+timestamp+"','"+filename+"')"
 
         #write machine to file
-        with open(filename, 'wb') as fid:
+        with open("saves/"+filename, 'wb') as fid:
             cPickle.dump(machine.fitted, fid)
 
         #print sql
@@ -142,7 +142,7 @@ class ml_machine:
 
     def loadMachine(self,filename):
         #read machine from file
-        with open(filename, 'rb') as fid:
+        with open('saves/'+filename, 'rb') as fid:
             loaded_machine = cPickle.load(fid)
 
         self.output(filename+" loaded completed!")

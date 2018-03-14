@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9648d8a9-44ab-45ec-8d15-e03649b3b3dc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tools/machine.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/0_SVM_poly_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/0_SVM_poly_2018-03-14.pkl" />
+      <change beforePath="$PROJECT_DIR$/1_SVM_poly_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/1_SVM_poly_2018-03-14.pkl" />
+      <change beforePath="$PROJECT_DIR$/2_DEC_tree_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/2_DEC_tree_2018-03-14.pkl" />
+      <change beforePath="$PROJECT_DIR$/3_k_nearest_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/3_k_nearest_2018-03-14.pkl" />
+      <change beforePath="$PROJECT_DIR$/4_logist_reg_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/4_logist_reg_2018-03-14.pkl" />
       <change beforePath="$PROJECT_DIR$/ml_data.db" afterPath="$PROJECT_DIR$/ml_data.db" />
       <change beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change beforePath="$PROJECT_DIR$/tools/ml_machine.py" afterPath="$PROJECT_DIR$/tools/ml_machine.py" />
@@ -53,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+            <state relative-caret-position="372">
+              <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -65,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ml_machine.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ml_machine.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/ml_machine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="140" column="36" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+            <state relative-caret-position="50">
+              <caret line="106" column="129" lean-forward="false" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#553#673#0" expanded="false" />
@@ -160,6 +164,11 @@
             <path>
               <item name="ml_master" type="b2602c69:ProjectViewProjectNode" />
               <item name="ml_master" type="462c0819:PsiDirectoryNode" />
+              <item name="saves" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ml_master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ml_master" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -182,6 +191,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/saves" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/db" />
@@ -259,7 +269,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24110384" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21916011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21916011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -309,7 +319,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/0_SVM_poly_2018-03-14.pkl">
+    <entry file="file://$PROJECT_DIR$/saves/0_SVM_poly_2018-03-14.pkl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -335,19 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/ml_machine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="140" column="36" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#553#673#0" expanded="false" />
-            <element signature="e#710#769#0" expanded="false" />
-            <element signature="e#809#1267#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/machine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -358,10 +355,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        <state relative-caret-position="372">
+          <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/ml_machine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="106" column="129" lean-forward="false" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#553#673#0" expanded="false" />
+            <element signature="e#710#769#0" expanded="false" />
+            <element signature="e#809#1267#0" expanded="false" />
           </folding>
         </state>
       </provider>
