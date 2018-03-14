@@ -1,7 +1,10 @@
 import os, sys, sqlite3
 import time
 import random
-from tools import ml_machine as ml
+import numpy as np
+#from tools import ml_machine as ml
+from tools.ml_machine import ml_machine as ml
+from tools.machine import machine as mach
 
 db_name = "ml_data"+".db" #name of the db created and used
 amount_of_data = 30
@@ -22,7 +25,7 @@ def checkDB():
     global db_connection
     db_connection = sqlite3.connect(db_name)
     output("Datenbank "+db_name+" found!")
-    output(db_name+" contains "+str(getNumberOfEntries())+" entries")
+    output(db_name+" contains "+str(getNumberOfEntries())+" entries and "+str(getMachines())+" learned Machines")
 
 def createDB():
     #create new db
@@ -58,7 +61,7 @@ def createTable():
 
 def createMLTable():
     db_cursor = db_connection.cursor()
-    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Precision FLOAT, Recall FLOAT, F1 FLOAT, Support FLOAT, Duration FLOAT, Time TIMESTAMP)"
+    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Precision_0 FLOAT, Recall_0 FLOAT, F1_0 FLOAT, Support_0 FLOAT, Precision_1 FLOAT, Recall_1 FLOAT, F1_1 FLOAT, Support_1 FLOAT, Duration FLOAT, Time String, Object STRING)"
     db_cursor.execute(sql)
     db_connection.commit()
     output("Machine Table succesfully created")
@@ -106,20 +109,24 @@ def createData():
     start = time.time()
     id = 0
     for tup in tmp_tuple:
-        insert(id,tup)
+        insert(id,tup,attribute,"Data")
         id+=1
 
     end = time.time()
     output("Writing finished in: "+str(end-start))
 
 
-def insert(id,tup):
-    sql = "INSERT INTO Data("
-    for j in range(len(attribute)):
+def insert(id,tup,attr,table):
+    if (len(attr)-1)!= len(tup):
+        output("Missmatch at Insertion. EXIT")
+        return()
+
+    sql = "INSERT INTO "+table+"("
+    for j in range(len(attr)):
         if j!=0:
-            sql+=","+attribute[j]
+            sql+=","+attr[j]
         else:
-            sql+=attribute[j]
+            sql+=attr[j]
 
     sql+=")VALUES("
 
@@ -146,12 +153,24 @@ def getNumberOfEntries():
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
 
-def getData():
-    sql = "SELECT * FROM Data where ID = 0"
+def getMachines():
+    sql = "SELECT count(Id) FROM Machines where Id >= 0"
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
-    print db_cursor.fetchone
-    print db_cursor.fetchone
+    return db_cursor.fetchone()[0]
+
+def getData():
+    sql = "SELECT * FROM Data"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+
+    data = []
+    currentline = db_cursor.fetchone()
+    while currentline != None:
+        data.append(currentline)
+        currentline = db_cursor.fetchone()
+    data = np.array(data)
+    return data[:, [1,2]],data[:, 3]
 
 def main():
     checkDB()
@@ -159,11 +178,29 @@ def main():
         eraseData()
         createData()
 
-    X_data = getData()
-    y_data = []
+    X_data, y_data = getData()
 
-    #m = ml.ml_machine(X_data, y_data)
+
+    m = ml(X_data, y_data, amount_of_data)
+
+    m.dec_tree = mach
+    m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
+    m.bench(m.dec_tree)
+
     #m.createSVM_poly()
+    #m.bench(m.svm_pol)
+    #m.saveSVM(db_connection)
+    #m.createDEC_tree(max_depth=200, min_samples_leaf=1)
+    #m.bench(m.dec_tree)
+    #m.saveMachine(db_connection,m.dec_tree)
+
+    #m.createK_nearest()
+    #m.bench(m.k_nearest)
+    #m.saveMachine(db_connection,m.k_nearest)
+
+    #m.createLOGIST_reg()
+    #m.bench(m.logist_reg)
+    #m.saveMachine(db_connection,m.logist_reg)
 
     closeDB()
 
