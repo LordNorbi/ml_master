@@ -6,7 +6,7 @@ import numpy as np
 from tools.ml_machine import ml_machine as ml
 from tools.machine import machine as mach
 
-db_name = "ml_data"+".db" #name of the db created and used
+db_name = "db/"+"ml_data"+".db" #name of the db created and used
 amount_of_data = 30
 attribute = ["Id","Period1","Period2","Deadline_Reached"]
 types_of_attributes = ["INT","INT","INT","INT"] #Booleans are stores as INT (0 or 1)
@@ -34,6 +34,7 @@ def createDB():
     output("DB created!")
     createTable()
     createMLTable()
+    createData()
 
 def createTable():
 
@@ -61,7 +62,7 @@ def createTable():
 
 def createMLTable():
     db_cursor = db_connection.cursor()
-    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Precision_0 FLOAT, Recall_0 FLOAT, F1_0 FLOAT, Support_0 FLOAT, Precision_1 FLOAT, Recall_1 FLOAT, F1_1 FLOAT, Support_1 FLOAT, Duration FLOAT, Time String, Object STRING)"
+    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Score FLOAT, Precision_0 FLOAT, Recall_0 FLOAT, F1_0 FLOAT, Support_0 FLOAT, Precision_1 FLOAT, Recall_1 FLOAT, F1_1 FLOAT, Support_1 FLOAT, Duration FLOAT, Time String, Object STRING)"
     db_cursor.execute(sql)
     db_connection.commit()
     output("Machine Table succesfully created")
@@ -166,11 +167,30 @@ def getData():
 
     data = []
     currentline = db_cursor.fetchone()
+    if currentline==None:
+        return(0)
     while currentline != None:
         data.append(currentline)
         currentline = db_cursor.fetchone()
     data = np.array(data)
     return data[:, [1,2]],data[:, 3]
+
+def getOverviewOfResults():
+    #get data from db
+    sql = "SELECT Name, Score FROM Machines where Id >= 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+
+    #extract data
+    data = []
+    currentline = db_cursor.fetchone()
+    while currentline != None:
+        data.append(currentline)
+        currentline = db_cursor.fetchone()
+
+    data = np.array(data)
+    print data
+    return()
 
 def main():
     checkDB()
@@ -183,24 +203,32 @@ def main():
 
     m = ml(X_data, y_data, amount_of_data)
 
-    m.dec_tree = mach
+    #m.dec_tree = mach
     #m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
     #m.createSVM_poly()
     #m.bench(m.svm_pol)
-    #m.saveSVM(db_connection)
-    #m.createDEC_tree(max_depth=200, min_samples_leaf=1)
+    #m.saveMachine(db_connection,m.svm_pol)
+
+    #m.createDEC_tree()
     #m.bench(m.dec_tree)
     #m.saveMachine(db_connection,m.dec_tree)
 
-    m.createK_nearest()
-    m.bench(m.k_nearest)
-    m.saveMachine(db_connection,m.k_nearest)
+    #m.createK_nearest()
+    #m.bench(m.k_nearest)
+    #m.saveMachine(db_connection,m.k_nearest)
 
     #m.createLOGIST_reg()
     #m.bench(m.logist_reg)
     #m.saveMachine(db_connection,m.logist_reg)
+
+    #m.createNAIVE_bay()
+    #m.bench(m.naive_bay)
+    #m.saveMachine(db_connection,m.naive_bay)
+
+    getOverviewOfResults()
+
 
     closeDB()
 

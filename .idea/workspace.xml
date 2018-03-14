@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9648d8a9-44ab-45ec-8d15-e03649b3b3dc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/0_SVM_poly_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/0_SVM_poly_2018-03-14.pkl" />
-      <change beforePath="$PROJECT_DIR$/1_SVM_poly_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/1_SVM_poly_2018-03-14.pkl" />
-      <change beforePath="$PROJECT_DIR$/2_DEC_tree_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/2_DEC_tree_2018-03-14.pkl" />
-      <change beforePath="$PROJECT_DIR$/3_k_nearest_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/3_k_nearest_2018-03-14.pkl" />
-      <change beforePath="$PROJECT_DIR$/4_logist_reg_2018-03-14.pkl" afterPath="$PROJECT_DIR$/saves/4_logist_reg_2018-03-14.pkl" />
-      <change beforePath="$PROJECT_DIR$/ml_data.db" afterPath="$PROJECT_DIR$/ml_data.db" />
+      <change beforePath="$PROJECT_DIR$/ml_data.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/0_SVM_poly_2018-03-14.pkl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/1_SVM_poly_2018-03-14.pkl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/2_DEC_tree_2018-03-14.pkl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/3_k_nearest_2018-03-14.pkl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/4_logist_reg_2018-03-14.pkl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/saves/5_k_nearest_2018-03-14.pkl" afterPath="" />
       <change beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change beforePath="$PROJECT_DIR$/tools/ml_machine.py" afterPath="$PROJECT_DIR$/tools/ml_machine.py" />
     </list>
@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/tools/db.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1016">
-              <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/tools/machinelearning.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1744">
-              <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="45" />
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="45" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -57,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
+            <state relative-caret-position="213">
+              <caret line="205" column="5" lean-forward="false" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -69,16 +69,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ml_machine.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ml_machine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/ml_machine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="106" column="129" lean-forward="false" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
+            <state relative-caret-position="172">
+              <caret line="137" column="64" lean-forward="false" selection-start-line="137" selection-start-column="64" selection-end-line="137" selection-end-column="64" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#553#673#0" expanded="false" />
-                <element signature="e#710#769#0" expanded="false" />
-                <element signature="e#809#1267#0" expanded="false" />
+                <element signature="e#596#716#0" expanded="false" />
+                <element signature="e#753#812#0" expanded="false" />
+                <element signature="e#852#1310#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/tools/machine.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/tools/db.py" />
         <option value="$PROJECT_DIR$/ml_machine.py" />
         <option value="$PROJECT_DIR$/tools/machine.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/tools/ml_machine.py" />
+        <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
   </component>
@@ -302,7 +302,7 @@
     <entry file="file://$PROJECT_DIR$/tools/db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1016">
-          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -338,7 +338,7 @@
     <entry file="file://$PROJECT_DIR$/tools/machinelearning.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1744">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="45" />
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="45" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -348,30 +348,30 @@
     <entry file="file://$PROJECT_DIR$/tools/machine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/ml_machine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="106" column="129" lean-forward="false" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
+        <state relative-caret-position="172">
+          <caret line="137" column="64" lean-forward="false" selection-start-line="137" selection-start-column="64" selection-end-line="137" selection-end-column="64" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#553#673#0" expanded="false" />
-            <element signature="e#710#769#0" expanded="false" />
-            <element signature="e#809#1267#0" expanded="false" />
+            <element signature="e#596#716#0" expanded="false" />
+            <element signature="e#753#812#0" expanded="false" />
+            <element signature="e#852#1310#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="205" column="5" lean-forward="false" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

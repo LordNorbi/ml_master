@@ -7,6 +7,7 @@ from sklearn import tree
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
 from machine import machine
 
 
@@ -78,6 +79,14 @@ class ml_machine:
         return()
 
     def createNAIVE_bay(self):
+        self.naive_bay = machine
+        self.naive_bay.name = "naive_bay"
+        start = time.time()
+        self.naive_bay.unfitted = GaussianNB()
+        self.naive_bay.fitted = self.naive_bay.unfitted.fit(self.X_train, self.y_train)
+        end = time.time()
+        self.naive_bay.duration = end - start
+        self.output("naive_bay done in: " +  str(self.naive_bay.duration) + " s")
 
         return()
 
@@ -125,11 +134,11 @@ class ml_machine:
         filename = str(id)+"_"+machine.name+"_"+timestamp[:10]+".pkl"
 
         #create sql statement
-        sql = "Insert into Machines (Id, Name, Precision_0, Recall_0, F1_0, Support_0, Precision_1, Recall_1, F1_1, Support_1, Duration, Time, Object) VALUES ("
-        sql += str(id)+",'"+machine.name+"',"\
+        sql = "Insert into Machines (Id, Name, Score, Precision_0, Recall_0, F1_0, Support_0, Precision_1, Recall_1, F1_1, Support_1, Duration, Time, Object) VALUES ("
+        sql += str(id)+",'"+machine.name+"',"+str(machine.score)+","\
                +str(machine.precision[0])+","+ str(machine.recall[0])+","+str(machine.f1[0])+","+str(machine.support[0])+","\
                +str(machine.precision[1])+","+ str(machine.recall[1])+","+str(machine.f1[1])+","+str(machine.support[1])+","\
-               +str(machine.duration)+",'"+timestamp+"','"+filename+"')"
+               +str(machine.duration)+",'"+str(timestamp)+"','"+str(filename)+"')"
 
         #write machine to file
         with open("saves/"+filename, 'wb') as fid:
