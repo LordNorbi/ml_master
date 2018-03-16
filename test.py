@@ -207,9 +207,9 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    #m.createSVM_poly()
-    #m.bench(m.svm_pol)
-    #m.saveMachine(db_connection,m.svm_pol)
+    m.createSVM_poly()
+    m.bench(m.svm_pol)
+    m.saveMachine(db_connection,m.svm_pol)
 
     #m.createDEC_tree()
     #m.bench(m.dec_tree)

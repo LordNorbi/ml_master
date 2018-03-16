@@ -31,6 +31,7 @@ class ml_machine:
         for line in msg.splitlines():
             print "ML: "+line
 
+    #@profile #for memory usage with python -m memory_profiler test.py
     def createSVM_poly(self):
         self.svm_pol = machine
         self.svm_pol.name = "SVM_pol"
@@ -90,6 +91,7 @@ class ml_machine:
 
         return()
 
+    #@profile
     def bench(self,machine):
         if machine == None:
             self.output("There is no SVM to benchmark!")
