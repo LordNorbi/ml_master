@@ -1,101 +1,250 @@
-from tools.db import db
-from tools import machinelearning as ml
+import os, sys, sqlite3
 import time
 import random
+import numpy as np
+#from tools import ml_machine as ml
+from tools.ml_machine import ml_machine as ml
+from tools.machine import machine
+
+db_name = "db/"+"ml_data"+".db" #name of the db created and used
+amount_of_data = 30
+attribute = ["Id","Period1","Period2","Deadline_Reached"]
+types_of_attributes = ["INT","INT","INT","INT"] #Booleans are stores as INT (0 or 1)
+create_new_data = False # True or False
+db_connection = None
 
 def output(msg):
     for line in msg.splitlines():
         print "Main: "+line
-        
-        
-def check_db_data(tmp_tuple, db_data):
-    if(len(tmp_tuple)!=len(db_data)):
-        output("Length not equal!\nGenerated data length "+str(len(tmp_tuple))+"\nDB data "+str(len(db_data)))
-        raise Exception("Length not equal!")
-        return
-        
-    if(len(tmp_tuple)==0):
-        raise Exception("Tuple list empty!")
-        return
-    
-    if(len(db_data)==0):
-        raise Exception("DB list empty!")
-        return
-    
-    for i in range(len(tmp_tuple)):
-        tmp = tmp_tuple[i]
-        for j in range(len(tmp)):
-            if(db_output[i][j]!=tmp[j]):
-                output("Mismatch! \n DB:"+str(db_output[i][j])+"\n but should be "+str(tmp[j])+"\n")
-            
-    output("Lists are equivalent")
-    
-    
-#
-# Start of main program
-#                
 
-my_db = db("test_db.db", 
-           ["Period1","Period2","Deadline_Reached"],
-           ["int", "int", "bool"])
-#["ID","Priority","Period","ID2","Deadline_Reached"],
-#["int", "int", "int", "int", "bool"])
+def checkDB():
+    if not os.path.exists(db_name):
+        print "Datenbank "+db_name+" nicht vorhanden - Datenbank wird anglegt."
+        createDB()
+        return()
+    global db_connection
+    db_connection = sqlite3.connect(db_name)
+    output("Datenbank "+db_name+" found!")
+    output(db_name+" contains "+str(getNumberOfEntries())+" entries and "+str(getMachines())+" learned Machines")
 
+def createDB():
+    #create new db
+    global db_connection
+    db_connection = sqlite3.connect(db_name)
+    output("DB created!")
+    createTable()
+    createMLTable()
+    createData()
 
-#total number of sets
-num_sets1 = 30
-#num_sets2 = 50
-num_trainingsets = num_sets1 #+ num_sets2
-data_per_set = len(my_db.attr)
+def createTable():
 
+    db_cursor = db_connection.cursor()
 
-tmp_tuple = []
+    #Check if Attributes and Types maches
+    if len(attribute)!= len(types_of_attributes):
+        output("Missmatch Attribute and Types! EXIT")
+        return()
 
-start = time.time()
+    #create the db Tables
+    sql = "CREATE TABLE IF NOT EXISTS Data("
+    for i in range(len(attribute)):
+        if i!=0:
+            sql+=","+attribute[i]+" "+types_of_attributes[i]
+        else:
+            sql+=attribute[i]+" "+types_of_attributes[i]
 
+    sql+=")"
+    db_cursor.execute(sql)
+    db_connection.commit()
 
-# change to 2 for more test data
-num_tests = 1
+    output("Table "+db_name+" mit "+ sql +" angelegt")
+    return()
 
-#fill tuple data
-for i in range(int(num_sets1*0.5*num_tests)):
-    for j in range(int(num_sets1*0.5*num_tests)):
-        period1 = 200+i*20/num_tests + int(random.random()*10)
-        period2 = 240+j*20/num_tests + int(random.random()*10) 
-        
-        tmp_tuple.append((period1, period2, period1 * i * period1 + period2 * period2 * j  <  2500000.0 * num_tests + random.random() * 500000))
-        #tmp_tuple.append((period1, period2, period1 + period2  <  750.0 * num_tests + random.random() * 10))
+def createMLTable():
+    db_cursor = db_connection.cursor()
+    sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Score FLOAT, Precision_0 FLOAT, Recall_0 FLOAT, F1_0 FLOAT, Support_0 FLOAT, Precision_1 FLOAT, Recall_1 FLOAT, F1_1 FLOAT, Support_1 FLOAT, Duration FLOAT, Time String, Object STRING)"
+    db_cursor.execute(sql)
+    db_connection.commit()
+    output("Machine Table succesfully created")
 
-end = time.time()
-output("Test data generated! Time needed: "+str(end-start))
-    
+def eraseData():
+    output("Start DB erase.")
+    start = time.time()
+    db_cursor = db_connection.cursor()
+    sql = "Drop Table Data"
+    db_cursor.execute(sql)
+    db_connection.commit()
+    createTable()
+    end = time.time()
+    output("Erasion completed in: "+str(end-start))
 
+def createData():
 
-#Write tmp_data to db
-output("Write tmp data to database!")
-my_db.write(tmp_tuple)
+    tmp_tuple = []
 
-db_output = []
+    start = time.time()
 
-#Read values from db
-output("Read data from database!")
-#db_output = my_db.read()
+    # change to 2 for more test data
+    num_tests = 1
 
-#check_db_data(tmp_tuple, db_output)
+    #fill tuple data
+    for i in range(int(amount_of_data*0.5*num_tests)):
+        for j in range(int(amount_of_data*0.5*num_tests)):
+            period1 = 200+i*20/num_tests + int(random.random()*10)
+            period2 = 240+j*20/num_tests + int(random.random()*10)
 
+            value = period1 * i * period1 + period2 * period2 * j  <  2500000.0 * num_tests + random.random() * 500000
+            value_int = 0
+            if value:
+                value_int = 1
+            tmp_tuple.append((period1, period2, value_int))
+            #tmp_tuple.append((period1, period2, period1 + period2  <  750.0 * num_tests + random.random() * 10))
 
-#Machine Learning and output
-
-#Get data from database 
-output_data = my_db.read_output()
-input_data = my_db.read_input()
-
-output("Create machinelearning")
-
-
-machine_learning = ml.machinelearning(data_per_set, num_trainingsets)
-machine_learning.training_phase(input_data, output_data)
-
-machine_learning.plot(h=5)            
+    end = time.time()
+    output("Test data generated! Time needed: "+str(end-start))
 
 
+
+    #Write tmp_data to db
+    output("Write tmp data to database...")
+    start = time.time()
+    id = 0
+    for tup in tmp_tuple:
+        insert(id,tup,attribute,"Data")
+        id+=1
+
+    end = time.time()
+    output("Writing finished in: "+str(end-start))
+
+
+def insert(id,tup,attr,table):
+    if (len(attr)-1)!= len(tup):
+        output("Missmatch at Insertion. EXIT")
+        return()
+
+    sql = "INSERT INTO "+table+"("
+    for j in range(len(attr)):
+        if j!=0:
+            sql+=","+attr[j]
+        else:
+            sql+=attr[j]
+
+    sql+=")VALUES("
+
+
+    for i in range(len(tup)):
+        if i!=0:
+            sql+=","+str(tup[i])
+        else:
+            sql+=str(id)+","+str(tup[i])
+    sql+=")"
+    #print sql
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+    db_connection.commit()
+
+
+def closeDB():
+    db_connection.commit()
+    db_connection.close()
+
+def getNumberOfEntries():
+    sql = "SELECT count(Id) FROM Data where Id >= 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+    return db_cursor.fetchone()[0]
+
+def getMachines():
+    sql = "SELECT count(Id) FROM Machines where Id >= 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+    return db_cursor.fetchone()[0]
+
+def getData():
+    sql = "SELECT * FROM Data"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+
+    data = []
+    currentline = db_cursor.fetchone()
+    if currentline==None:
+        return(0)
+    while currentline != None:
+        data.append(currentline)
+        currentline = db_cursor.fetchone()
+    data = np.array(data)
+
+    #check if there is data
+    if len(data)== 0:
+        output("There is no Data")
+        return()
+
+    #seperate Results from data
+    i = 0
+    range = []
+    while i < (len(data[0])-1):         # last field for result
+        if i != 0:                      # 0 is the id field
+            range.append(i)
+        i+=1
+    return data[:,range],data[:, (len(data[0])-1)]
+
+def getOverviewOfResults():
+    #get data from db
+    sql = "SELECT Name, Score FROM Machines where Id >= 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+
+    #extract data
+    data = []
+    currentline = db_cursor.fetchone()
+    while currentline != None:
+        data.append(currentline)
+        currentline = db_cursor.fetchone()
+
+    data = np.array(data)
+    print data
+    return()
+
+def main():
+    checkDB()
+    if create_new_data:
+        eraseData()
+        createData()
+
+    X_data, y_data = getData()
+
+
+    m = ml(X_data, y_data, amount_of_data)
+
+    m.dec_tree = machine
+    m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
+    m.bench(m.dec_tree)
+
+    #m.createSVM_poly()
+    #m.bench(m.svm_pol)
+    #m.saveMachine(db_connection,m.svm_pol)
+
+    #m.createDEC_tree()
+    #m.bench(m.dec_tree)
+    #m.saveMachine(db_connection,m.dec_tree)
+
+    #m.createK_nearest()
+    #m.bench(m.k_nearest)
+    #m.saveMachine(db_connection,m.k_nearest)
+
+    #m.createLOGIST_reg()
+    #m.bench(m.logist_reg)
+    #m.saveMachine(db_connection,m.logist_reg)
+
+    #m.createNAIVE_bay()
+    #m.bench(m.naive_bay)
+    #m.saveMachine(db_connection,m.naive_bay)
+
+    #getOverviewOfResults()
+
+    getData()
+
+    closeDB()
+
+if __name__ == "__main__":
+    main()
