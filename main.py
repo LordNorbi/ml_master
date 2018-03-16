@@ -4,7 +4,7 @@ import random
 import numpy as np
 #from tools import ml_machine as ml
 from tools.ml_machine import ml_machine as ml
-from tools.machine import machine as mach
+from tools.machine import machine
 
 db_name = "db/"+"ml_data"+".db" #name of the db created and used
 amount_of_data = 30
@@ -173,7 +173,20 @@ def getData():
         data.append(currentline)
         currentline = db_cursor.fetchone()
     data = np.array(data)
-    return data[:, [1,2]],data[:, 3]
+
+    #check if there is data
+    if len(data)== 0:
+        output("There is no Data")
+        return()
+
+    #seperate Results from data
+    i = 0
+    range = []
+    while i < (len(data[0])-1):         # last field for result
+        if i != 0:                      # 0 is the id field
+            range.append(i)
+        i+=1
+    return data[:,range],data[:, (len(data[0])-1)]
 
 def getOverviewOfResults():
     #get data from db
@@ -203,13 +216,13 @@ def main():
 
     m = ml(X_data, y_data, amount_of_data)
 
-    #m.dec_tree = mach
-    #m.dec_tree.fitted = m.loadMachine("2_DEC_tree_2018-03-14.pkl")
-    #m.bench(m.dec_tree)
+    m.dec_tree = machine
+    m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
+    m.bench(m.dec_tree)
 
-    m.createSVM_poly()
-    m.bench(m.svm_pol)
-    m.saveMachine(db_connection,m.svm_pol)
+    #m.createSVM_poly()
+    #m.bench(m.svm_pol)
+    #m.saveMachine(db_connection,m.svm_pol)
 
     #m.createDEC_tree()
     #m.bench(m.dec_tree)
@@ -227,8 +240,9 @@ def main():
     #m.bench(m.naive_bay)
     #m.saveMachine(db_connection,m.naive_bay)
 
-    getOverviewOfResults()
+    #getOverviewOfResults()
 
+    getData()
 
     closeDB()
 

@@ -31,7 +31,7 @@ class ml_machine:
         for line in msg.splitlines():
             print "ML: "+line
 
-    #@profile #for memory usage with python -m memory_profiler test.py
+    #@profile #for memory usage with python -m memory_profiler main.py
     def createSVM_poly(self):
         self.svm_pol = machine
         self.svm_pol.name = "SVM_pol"
