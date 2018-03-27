@@ -9,8 +9,8 @@ class SQLMonitor(AbstractMonitor):
     """
     db_name = "../db/"+"monitor_data"+".db"
     db_connection = None
-    task_attribute = ["SetId","TaskId","Priority","pkg","quota","start","end"]
-    task_types_of_attributes = ["INT","INT","INT","INT","INT","STRING","STRING"] #Booleans are stores as INT (0 or 1)
+    task_attribute = ["SetId","TaskId","Name","Priority","pkg","quota","start","end"]
+    task_types_of_attributes = ["INT","INT","String","INT","INT","INT","STRING","STRING"] #Booleans are stores as INT (0 or 1)
     set_attribute = ["SetId","Time","result"]
     set_types_of_attributes = ["INT","String","INT"] #Booleans are stores as INT (0 or 1)
 
@@ -26,20 +26,26 @@ class SQLMonitor(AbstractMonitor):
         pass
 
     def __taskset_finish__(self, taskset):
+
         setData = []
         self.insertSet(setData)
+
         for task in taskset:
-            jobs_func = lambda job : {
-                'start_date' : job.start_date,
-                'end_date' : job.end_date
-            }
+
+            #jobs_func = lambda job : {
+            #    'start_date' : job.start_date,
+            #    'end_date' : job.end_date
+            #}
+
             taskData = []
             self.insertTask(taskData)
+
+
             # insert description & jobs of task to db
-            self.database.taskset.task.insert_one({
-                'description' : task,
-                'jobs' : list(map(jobs_func, task.jobs))
-            })
+            #self.database.taskset.task.insert_one({
+            #    'description' : task,
+            #    'jobs' : list(map(jobs_func, task.jobs))
+            #})
 
     def __taskset_stop__(self, taskset):
         pass
@@ -88,7 +94,7 @@ class SQLMonitor(AbstractMonitor):
         db_cursor.execute(sql)
         self.db_connection.commit()
 
-        print("Table "+self.db_name+" mit "+ sql +" angelegt")
+        print "Table Task in "+self.db_name+" angelegt mit \n"+ sql
 
         #create the SET Table
         sql = "CREATE TABLE IF NOT EXISTS Set("
@@ -102,7 +108,7 @@ class SQLMonitor(AbstractMonitor):
         db_cursor.execute(sql)
         self.db_connection.commit()
 
-        print("Table "+self.db_name+" mit "+ sql +" angelegt")
+        print "Table Set in "+self.db_name+" angelegt mit \n"+ sql
 
 
         return()
