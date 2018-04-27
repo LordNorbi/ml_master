@@ -1,4 +1,4 @@
-import os, sys, sqlite3
+import os, sqlite3
 import time
 import random
 import numpy as np
