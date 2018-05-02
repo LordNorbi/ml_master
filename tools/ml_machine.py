@@ -1,6 +1,6 @@
 import time
 import datetime
-import cPickle
+import _pickle as cPickle
 from sklearn import svm
 from sklearn import metrics
 from sklearn import tree
@@ -8,7 +8,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
-from machine import machine
+
+from .machine import Machine
 
 
 class ml_machine:
@@ -29,11 +30,11 @@ class ml_machine:
 
     def output(self, msg):
         for line in msg.splitlines():
-            print "ML: "+line
+            print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
     def createSVM_poly(self):
-        self.svm_pol = machine
+        self.svm_pol = Machine()
         self.svm_pol.name = "SVM_pol"
         start = time.time()
         self.svm_pol.unfitted = svm.SVC(kernel='poly', degree=2,cache_size=7000, tol=0.0001, class_weight={1: 20}, C=1)
@@ -44,7 +45,7 @@ class ml_machine:
         return()
 
     def createDEC_tree(self, max_depth = 3, min_samples_leaf = 5):
-        self.dec_tree = machine
+        self.dec_tree = Machine()
         self.dec_tree.name="DEC_tree"
         start = time.time()
         self.dec_tree.unfitted = tree.DecisionTreeClassifier(criterion='entropy', max_depth=max_depth, min_samples_leaf= min_samples_leaf )
@@ -56,7 +57,7 @@ class ml_machine:
         return()
 
     def createK_nearest(self,neighbors = 3):
-        self.k_nearest = machine
+        self.k_nearest = Machine()
         self.k_nearest.name = "k_nearest"
         start = time.time()
         self.k_nearest.unfitted = KNeighborsClassifier(n_neighbors=neighbors)
@@ -68,7 +69,7 @@ class ml_machine:
         return()
 
     def createLOGIST_reg(self, c=1e5):
-        self.logist_reg = machine
+        self.logist_reg = Machine()
         self.logist_reg.name = "logist_reg"
         start = time.time()
         self.logist_reg.unfitted = linear_model.LogisticRegression(C=c)
@@ -80,7 +81,7 @@ class ml_machine:
         return()
 
     def createNAIVE_bay(self):
-        self.naive_bay = machine
+        self.naive_bay = Machine()
         self.naive_bay.name = "naive_bay"
         start = time.time()
         self.naive_bay.unfitted = GaussianNB()
@@ -98,7 +99,7 @@ class ml_machine:
             return()
 
         machine.score = machine.fitted.score(self.X_test,self.y_test)
-        print "Score: ", machine.score
+        print("Score: ", machine.score)
 
         y_pred = machine.fitted.predict(self.X_test)
         report = metrics.classification_report(self.y_test, y_pred)

@@ -1,4 +1,4 @@
-class machine:
+class Machine:
     name = None
     unfitted = None
     fitted = None
