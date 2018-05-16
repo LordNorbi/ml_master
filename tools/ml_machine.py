@@ -25,8 +25,28 @@ class ml_machine:
     logist_reg = None
     naive_bay = None
 
-    def __init__(self, X_data, y_data, amount_of_data, split=0.25):
+    def __init__(self, X_data, y_data, split=0.25):
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_data, y_data, test_size=split, random_state=0)
+        print("size of Train: "+str(len(self.X_train)))
+        print("size of Test: "+str(len(self.X_test)))
+        self.X_train = self.X_train.astype(int)
+        self.X_test = self.X_test.astype(int)
+        self.y_train = self.y_train.astype(int)
+        self.y_test = self.y_test.astype(int)
+
+        #i = 0
+        #x = 0
+        #
+        #while i < len(self.y_train):
+        #    x = x + self.y_train[i]
+        #    i = i+1;
+        #print("finished "+str(x))
+        #i = 0
+        #x = 0
+        #while i < len(self.y_test):
+        #    x = x + self.y_train[i]
+        #    i = i+1;
+        #print("finished "+str(x))
 
     def output(self, msg):
         for line in msg.splitlines():
