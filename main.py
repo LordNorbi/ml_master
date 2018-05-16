@@ -223,9 +223,9 @@ def main():
     X_data, y_data = getData()
 
     print(str(len(X_data)))
-#X_data = X_data[:100]
+    X_data = X_data[:1000]
     print(str(len(X_data)))
-#y_data = y_data[:100]
+    y_data = y_data[:1000]
     m = ml(X_data, y_data)
 
 #m.dec_tree = Machine()
@@ -238,14 +238,15 @@ def main():
     log = False
     nav = False
 
-    x = 5
+    kernel=['poly','linear','sigmoid','rbf']
+    x = 0
     if svm:
-        while x =5:
-            print("Polynom 5"+x)
-            m.createSVM_poly(mdegree=x)
+        while x <4:
+            print("Polynom 5 "+kernel[x])
+            m.createSVM_poly(mdegree=5, mkernel=kernel[x])
             m.bench(m.svm_pol)
             m.saveMachine(db_connection,m.svm_pol)
-            x=x-1
+            x=x+1
     if dec:
         m.createDEC_tree()
         m.bench(m.dec_tree)
