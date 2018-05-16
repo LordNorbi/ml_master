@@ -48,16 +48,25 @@ class ml_machine:
         #    i = i+1;
         #print("finished "+str(x))
 
+        #print(self.X_train)
+        #print(self.y_train)
+        #x = 0
+        #while x < 30:
+            #print(self.X_train[x])
+            #x = x+1
+
     def output(self, msg):
         for line in msg.splitlines():
             print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
-    def createSVM_poly(self):
+    def createSVM_poly(self, mkernel='poly',mdegree=2,mcache_size=7000, mtol=0.0001, mclass_weight={1: 20}, mC=1):
         self.svm_pol = Machine()
         self.svm_pol.name = "SVM_pol"
+        self.output("SVM poly created training will start soon...")
         start = time.time()
-        self.svm_pol.unfitted = svm.SVC(kernel='poly', degree=2,cache_size=7000, tol=0.0001, class_weight={1: 20}, C=1)
+        self.svm_pol.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC)
+        self.output("unfitted")
         self.svm_pol.fitted = self.svm_pol.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
         self.svm_pol.duration = end - start
@@ -67,6 +76,7 @@ class ml_machine:
     def createDEC_tree(self, max_depth = 3, min_samples_leaf = 5):
         self.dec_tree = Machine()
         self.dec_tree.name="DEC_tree"
+        self.output("DEC created training will start soon...")
         start = time.time()
         self.dec_tree.unfitted = tree.DecisionTreeClassifier(criterion='entropy', max_depth=max_depth, min_samples_leaf= min_samples_leaf )
         self.dec_tree.fitted = self.dec_tree.unfitted.fit(self.X_train,self.y_train)
@@ -79,6 +89,7 @@ class ml_machine:
     def createK_nearest(self,neighbors = 3):
         self.k_nearest = Machine()
         self.k_nearest.name = "k_nearest"
+        self.output("KNN poly created training will start soon...")
         start = time.time()
         self.k_nearest.unfitted = KNeighborsClassifier(n_neighbors=neighbors)
         self.k_nearest.fitted = self.k_nearest.unfitted.fit(self.X_train, self.y_train)
@@ -91,6 +102,7 @@ class ml_machine:
     def createLOGIST_reg(self, c=1e5):
         self.logist_reg = Machine()
         self.logist_reg.name = "logist_reg"
+        self.output("Logistic_reg poly created training will start soon...")
         start = time.time()
         self.logist_reg.unfitted = linear_model.LogisticRegression(C=c)
         self.logist_reg.fitted = self.k_nearest.unfitted.fit(self.X_train, self.y_train)
@@ -103,6 +115,7 @@ class ml_machine:
     def createNAIVE_bay(self):
         self.naive_bay = Machine()
         self.naive_bay.name = "naive_bay"
+        self.output("naive:bay poly created training will start soon...")
         start = time.time()
         self.naive_bay.unfitted = GaussianNB()
         self.naive_bay.fitted = self.naive_bay.unfitted.fit(self.X_train, self.y_train)
@@ -125,11 +138,81 @@ class ml_machine:
         report = metrics.classification_report(self.y_test, y_pred)
 
         list=report.encode('ascii','ignore').split()
+        
+        self.output(str(len(list)))
 
-        machine.precision = float(list[5]), float(list[10]), float(list[17])
-        machine.recall = float(list[6]), float(list[11]), float(list[18])
-        machine.f1 = float(list[7]), float(list[12]), float(list[19])
-        machine.support = float(list[8]), float(list[18]), float(list[20])
+        if len(list) ==16:
+            if list[5] == '/':
+                list[5]='0'
+                self.output("canged")
+            if list[6] == '/':
+                list[6]='0'
+                self.output("canged")
+            if list[7] == '/':
+                list[7]='0'
+                self.output("canged")
+            if list[8] == '/':
+                list[8]='0'
+                self.output("canged")
+            if list[12] == '/':
+                list[12]='0'
+                self.output("canged")
+            if list[13] == '/':
+                list[13]='0'
+                self.output("canged")
+            if list[14] == '/':
+                list[14]='0'
+                self.output("canged")
+            if list[15] == '/':
+                list[15]='0'
+                self.output("canged")
+            machine.precision = float(list[5]), float(list[12]) #Precision for class 0 and avg/total
+            machine.recall = float(list[6]), float(list[13])
+            machine.f1 = float(list[7]), float(list[14])
+            machine.support = float(list[8]), float(list[15])
+
+        if len(list) ==21:
+            if list[5] == '/':
+                list[5]='0'
+                self.output("canged")
+            if list[6] == '/':
+                list[6]='0'
+                self.output("canged")
+            if list[7] == '/':
+                list[7]='0'
+                self.output("canged")
+            if list[8] == '/':
+                list[8]='0'
+                self.output("canged")
+            if list[10] == '/':
+                list[10]='0'
+                self.output("canged")
+            if list[11] == '/':
+                list[11]='0'
+                self.output("canged")
+            if list[12] == '/':
+                list[12]='0'
+                self.output("canged")
+            if list[13] == '/':
+                list[13]='0'
+                self.output("canged")
+            if list[17] == '/':
+                list[17]='0'
+                self.output("canged")
+            if list[18] == '/':
+                list[18]='0'
+                self.output("canged")
+            if list[19] == '/':
+                list[19]='0'
+                self.output("canged")
+            if list[20] == '/':
+                list[20]='0'
+                self.output("canged")
+            machine.precision = float(list[5]), float(list[10]), float(list[17]) #Precision for class 0,1 and avg/total
+            machine.recall = float(list[6]), float(list[11]), float(list[18])
+            machine.f1 = float(list[7]), float(list[12]), float(list[19])
+            machine.support = float(list[8]), float(list[13]), float(list[20])
+
 
         return()
 

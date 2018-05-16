@@ -222,31 +222,47 @@ def main():
 
     X_data, y_data = getData()
 
+    print(str(len(X_data)))
+#X_data = X_data[:100]
+    print(str(len(X_data)))
+#y_data = y_data[:100]
     m = ml(X_data, y_data)
 
 #m.dec_tree = Machine()
 #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
 #m.bench(m.dec_tree)
 
-    m.createSVM_poly()
-    m.bench(m.svm_pol)
-    m.saveMachine(db_connection,m.svm_pol)
+    svm = True
+    dec = False
+    knn = False
+    log = False
+    nav = False
 
-    m.createDEC_tree()
-    m.bench(m.dec_tree)
-    m.saveMachine(db_connection,m.dec_tree)
+    x = 5
+    if svm:
+        while x =5:
+            print("Polynom 5"+x)
+            m.createSVM_poly(mdegree=x)
+            m.bench(m.svm_pol)
+            m.saveMachine(db_connection,m.svm_pol)
+            x=x-1
+    if dec:
+        m.createDEC_tree()
+        m.bench(m.dec_tree)
+        m.saveMachine(db_connection,m.dec_tree)
+    if knn:
+        m.createK_nearest()
+        m.bench(m.k_nearest)
+        m.saveMachine(db_connection,m.k_nearest)
+    if log:
+        m.createLOGIST_reg()
+        m.bench(m.logist_reg)
+        m.saveMachine(db_connection,m.logist_reg)
 
-    m.createK_nearest()
-    m.bench(m.k_nearest)
-    m.saveMachine(db_connection,m.k_nearest)
-
-    m.createLOGIST_reg()
-    m.bench(m.logist_reg)
-    m.saveMachine(db_connection,m.logist_reg)
-
-    m.createNAIVE_bay()
-    m.bench(m.naive_bay)
-    m.saveMachine(db_connection,m.naive_bay)
+    if nav:
+        m.createNAIVE_bay()
+        m.bench(m.naive_bay)
+        m.saveMachine(db_connection,m.naive_bay)
 
     getOverviewOfResults()
 
