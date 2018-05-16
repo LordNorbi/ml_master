@@ -6,10 +6,14 @@ import numpy as np
 from tools.ml_machine import ml_machine as ml
 from tools.machine import Machine
 
-db_name = "db/"+"ml_data"+".db" #name of the db created and used
-amount_of_data = 30
-attribute = ["Id","Period1","Period2","Deadline_Reached"]
-types_of_attributes = ["INT","INT","INT","INT"] #Booleans are stores as INT (0 or 1)
+#db_name = "db/"+"ml_data"+".db" #name of the db created and used
+db_name = "db/"+"training_data_4"+".db"
+
+#attribute = ["id", "Task1_id", "Task1_executiontime","Task1_criticaltime","Task1_size","Task1_priority"," Task1_period","Task1_offset","Task1_RAMquota","Task1_arg1","Task2_id","Task2_executiontime","Task2_criticaltime","Task2_size","Task2_priority","Task2_period","Task2_offset","Task2_RAMquota","Task2_arg1","Task3_id","Task3_executiontime","Task3_criticaltime","Task3_size","Task3_priority","Task3_period","Task3_offset","Task3_RAMquota","Task3_arg1","Task4_id","Task4_executiontime","Task4_criticaltime","Task4_size","Task4_priority","Task4_period","Task4_offset","Task4_RAMquota","Task4_arg1","Task5_id","Task5_executiontime","Task5_criticaltime","Task5_size","Task5_priority","Task5_period","Task5_offset","Task5_RAMquota","Task5_arg1","Task6_id","Task6_executiontime","Task6_criticaltime","Task6_size","Task6_priority","Task6_period","Task6_offset","Task6_RAMquota","Task6_arg1","Task7_id","Task7_executiontime","Task7_criticaltime","Task7_size","Task7_priority","Task7_period","Task7_offset","Task7_RAMquota","Task7_arg1","succ"] #["Id","Period1","Period2","Deadline_Reached"]
+attribute = ["id", "Task1_id", "Task1_criticaltime", "Task1_arg1", "Task2_id", "Task2_criticaltime", "Task2_arg1", "Task3_id", "Task3_criticaltime", "Task3_arg1", "Task4_id", "Task4_criticaltime", "Task4_arg1", "Task5_id", "Task5_criticaltime", "Task5_arg1", "Task6_id", "Task6_criticaltime", "Task6_arg1", "Task7_id", "Task7_criticaltime", "Task7_arg1", "Fail"]
+#types_of_attributes = ["TEXT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT"] #["INT","INT","INT","INT"] #Booleans are stores as INT (0 or 1)
+types_of_attributes = ["TEXT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT"]
+table_name = "training" #"Data"
 create_new_data = False # True or False
 db_connection = None
 
@@ -25,6 +29,7 @@ def checkDB():
     global db_connection
     db_connection = sqlite3.connect(db_name)
     output("Datenbank "+db_name+" found!")
+    output("db_name:" + db_name+" table_name: "+ table_name)
     output(db_name+" contains "+str(getNumberOfEntries())+" entries and "+str(getMachines())+" learned Machines")
 
 def createDB():
@@ -34,7 +39,7 @@ def createDB():
     output("DB created!")
     createTable()
     createMLTable()
-    createData()
+    #createData()
 
 def createTable():
 
@@ -46,7 +51,7 @@ def createTable():
         return()
 
     #create the db Tables
-    sql = "CREATE TABLE IF NOT EXISTS Data("
+    sql = "CREATE TABLE IF NOT EXISTS "+table_name+" ("
     for i in range(len(attribute)):
         if i!=0:
             sql+=","+attribute[i]+" "+types_of_attributes[i]
@@ -110,7 +115,7 @@ def createData():
     start = time.time()
     id = 0
     for tup in tmp_tuple:
-        insert(id,tup,attribute,"Data")
+        insert(id,tup,attribute,table_name)
         id+=1
 
     end = time.time()
@@ -149,7 +154,7 @@ def closeDB():
     db_connection.close()
 
 def getNumberOfEntries():
-    sql = "SELECT count(Id) FROM Data where Id >= 0"
+    sql = "SELECT count(Id) FROM "+table_name+" where Id >= 0"
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
@@ -161,7 +166,7 @@ def getMachines():
     return db_cursor.fetchone()[0]
 
 def getData():
-    sql = "SELECT * FROM Data"
+    sql = "SELECT * FROM "+table_name
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
 
@@ -169,6 +174,8 @@ def getData():
     currentline = db_cursor.fetchone()
     if currentline==None:
         return(0)
+    
+    #store data from db in arry
     while currentline != None:
         data.append(currentline)
         currentline = db_cursor.fetchone()
@@ -186,6 +193,7 @@ def getData():
         if i != 0:                      # 0 is the id field
             range.append(i)
         i+=1
+    
     return data[:,range],data[:, (len(data[0])-1)]
 
 def getOverviewOfResults():
@@ -207,18 +215,18 @@ def getOverviewOfResults():
 
 def main():
     checkDB()
+    
     if create_new_data:
         eraseData()
         createData()
 
     X_data, y_data = getData()
 
+    m = ml(X_data, y_data)
 
-    m = ml(X_data, y_data, amount_of_data)
-
-    #m.dec_tree = Machine()
-    #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
-    #m.bench(m.dec_tree)
+#m.dec_tree = Machine()
+#m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
+#m.bench(m.dec_tree)
 
     m.createSVM_poly()
     m.bench(m.svm_pol)
@@ -228,21 +236,21 @@ def main():
     m.bench(m.dec_tree)
     m.saveMachine(db_connection,m.dec_tree)
 
-    #m.createK_nearest()
-    #m.bench(m.k_nearest)
-    #m.saveMachine(db_connection,m.k_nearest)
+    m.createK_nearest()
+    m.bench(m.k_nearest)
+    m.saveMachine(db_connection,m.k_nearest)
 
-    #m.createLOGIST_reg()
-    #m.bench(m.logist_reg)
-    #m.saveMachine(db_connection,m.logist_reg)
+    m.createLOGIST_reg()
+    m.bench(m.logist_reg)
+    m.saveMachine(db_connection,m.logist_reg)
 
-    #m.createNAIVE_bay()
-    #m.bench(m.naive_bay)
-    #m.saveMachine(db_connection,m.naive_bay)
+    m.createNAIVE_bay()
+    m.bench(m.naive_bay)
+    m.saveMachine(db_connection,m.naive_bay)
 
-    #getOverviewOfResults()
+    getOverviewOfResults()
 
-    getData()
+    #getData()
 
     closeDB()
 
