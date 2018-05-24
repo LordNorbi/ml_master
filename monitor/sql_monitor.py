@@ -1,23 +1,34 @@
 from monitor import AbstractMonitor
 import os, sqlite3
 
-"""Monitor for sqlite3
-"""
+#Monitor for sqlite3
+
 
 class SQLMonitor(AbstractMonitor):
     """Stores task-sets and events to a SQLite3 DB
     """
-    db_name = "../db/"+"monitor_data"+".db"
+    db_name = "db/"+"monitor_data"+".db"
     db_connection = None
-    task_attribute = ["SetId","TaskId","Name","Priority","pkg","quota","start","end"]
-    task_types_of_attributes = ["INT","INT","String","INT","INT","INT","STRING","STRING"] #Booleans are stores as INT (0 or 1)
-    set_attribute = ["SetId","Time","result"]
-    set_types_of_attributes = ["INT","String","INT"] #Booleans are stores as INT (0 or 1)
+    
+    #if db not found, create new one
+    def getDB(self):
+        print("--------------"+self.db_name)
+        if not os.path.exists(self.db_name):
+            self.db_connection = sqlite3.connect(self.db_name)
+            #create tables in db
+            db_cursor = self.db_connection.cursor()
+            sqlTaskSet = "CREATE TABLE IF NOT EXISTS TaskSet (Set_ID INTEGER PRIMARY KEY,Exit_Value INT)"
+            sqlTask = "CREATE TABLE IF NOT EXISTS Task (Task_ID INTEGER, Set_ID INTEGER, Priority INT, Deadline INT, Quota STRING, PKG STRING, Arg INT, Period INT, Number_of_Jobs INT, Offset INT, PRIMARY KEY (Task_ID, Set_ID))"
+            sqlJob = "CREATE TABLE IF NOT EXISTS Job (Job_ID INTEGER, Task_ID INTEGER, Set_ID INTEGER, Start_Date INT, End_Date INT, Exit_Value INT, PRIMARY KEY (Job_ID, Task_ID, Set_ID))"
+            db_cursor.execute(sqlTaskSet)
+            db_cursor.execute(sqlTask)
+            db_cursor.execute(sqlJob)
+            self.db_connection.commit()
+            db_connection.close()
+    
 
     def __init__(self):
-        self.checkDB()
-        #client = MongoClient(uri)
-        #self.database = client['tasksets']
+        self.getDB()
 
     def __taskset_event__(self, taskset):
         pass
@@ -26,147 +37,30 @@ class SQLMonitor(AbstractMonitor):
         pass
 
     def __taskset_finish__(self, taskset):
-
-        setData = []
-        self.insertSet(setData)
-
+        self.db_connection = sqlite3.connect(self.db_name)
+        db_cursor = self.db_connection.cursor()
+        sqlSet = "Insert into TaskSet  (Exit_Value) Values (0)"
+        db_cursor.execute(sqlSet)
+        #id of the created TaskSet
+        set_ID = db_cursor.lastrowid
+        self.db_connection.commit()
+        
         for task in taskset:
-
-            #jobs_func = lambda job : {
-            #    'start_date' : job.start_date,
-            #    'end_date' : job.end_date
-            #}
-
-            taskData = []
-            self.insertTask(taskData)
-
-
-            # insert description & jobs of task to db
-            #self.database.taskset.task.insert_one({
-            #    'description' : task,
-            #    'jobs' : list(map(jobs_func, task.jobs))
-            #})
+            print(task)
+            print("priority" in task.keys())
+            #create the Task with its information
+            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},{},{},{},{},{},{})".format(task.id, set_ID, task["priority"], task["deadline"], task["quota"], task["pkg"], task["config"]["arg1"], task["period"], task["numberofjobs"], task["offset"])
+            db_cursor.execute(sqlTask)
+            self.db_connection.commit()
+            
+            succesfull = -1 #if the job exited succesfully or not -1 = not succesfull, +1= succesfull
+            #loops through the jobs of a task and adds the information to the db
+            for job in task.jobs:
+                if job.exit_values == "EXIT":  #if EXIT then job ended succesfully
+                    succesfull = 1
+                sqlJob = "Insert into Job (Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{})".format(task.id, set_ID, job.start_date, job.end_date, succesfull)
+                db_cursor.execute(sqlJob)
+                self.db_connection.commit()
 
     def __taskset_stop__(self, taskset):
         pass
-
-
-
-
-    def checkDB(self):
-        if not os.path.exists(self.db_name):
-            print "Datenbank "+self.db_name+" nicht vorhanden - Datenbank wird anglegt."
-            self.createDB()
-            return()
-        self.db_connection = sqlite3.connect(self.db_name)
-        print("Datenbank "+self.db_name+" found!")
-        print(self.db_name+" contains "+str(self.getNumberOfEntries())+" entries")
-
-    def createDB(self):
-    #create new db
-
-        self.db_connection = sqlite3.connect(self.db_name)
-        print("DB created!")
-        self.createTables()
-
-    def createTables(self):
-
-        db_cursor = self.db_connection.cursor()
-
-        #Check if Attributes and Types maches (Task)
-        if len(self.task_attribute)!= len(self.task_types_of_attributes):
-            print("Missmatch Attribute and Types (Task)! EXIT")
-            return()
-        #Check if Attributes and Types maches (Set)
-        if len(self.set_attribute)!= len(self.set_types_of_attributes):
-            print("Missmatch Attribute and Types(Set)! EXIT")
-            return()
-
-        #create the TASK Table
-        sql = "CREATE TABLE IF NOT EXISTS Task("
-        for i in range(len(self.task_attribute)):
-            if i!=0:
-                sql+=","+self.task_attribute[i]+" "+self.task_types_of_attributes[i]
-            else:
-                sql+=self.task_attribute[i]+" "+self.task_types_of_attributes[i]
-
-        sql+=")"
-        db_cursor.execute(sql)
-        self.db_connection.commit()
-
-        print "Table Task in "+self.db_name+" angelegt mit \n"+ sql
-
-        #create the SET Table
-        sql = "CREATE TABLE IF NOT EXISTS Set("
-        for i in range(len(self.set_attribute)):
-            if i!=0:
-                sql+=","+self.set_attribute[i]+" "+self.set_types_of_attributes[i]
-            else:
-                sql+=self.set_attribute[i]+" "+self.set_types_of_attributes[i]
-
-        sql+=")"
-        db_cursor.execute(sql)
-        self.db_connection.commit()
-
-        print "Table Set in "+self.db_name+" angelegt mit \n"+ sql
-
-
-        return()
-
-    def getNumberOfEntries(self):
-        sql = "SELECT count(Id) FROM Set where Id >= 0"
-        db_cursor = self.db_connection.cursor()
-        db_cursor.execute(sql)
-        return db_cursor.fetchone()[0]
-
-    def insertSet(self,tup):
-        if (len(self.set_attr)-1)!= len(tup):
-            print("Missmatch at Insertion (Set). EXIT")
-            return()
-
-        sql = "INSERT INTO Set("
-        for j in range(len(self.set_attr)):
-            if j!=0:
-                sql+=","+self.set_attr[j]
-            else:
-                sql+=self.set_attr[j]
-
-        sql+=")VALUES("
-
-
-        for i in range(len(tup)):
-            if i!=0:
-                sql+=","+str(tup[i])
-            else:
-                sql+=str(id)+","+str(tup[i])
-        sql+=")"
-        #print sql
-        db_cursor = self.db_connection.cursor()
-        db_cursor.execute(sql)
-        self.db_connection.commit()
-
-    def insertTask(self,tup):
-        if (len(self.task_attr)-1)!= len(tup):
-            print("Missmatch at Insertion (Task). EXIT")
-            return()
-
-        sql = "INSERT INTO Task("
-        for j in range(len(self.task_attr)):
-            if j!=0:
-                sql+=","+self.task_attr[j]
-            else:
-                sql+=self.task_attr[j]
-
-        sql+=")VALUES("
-
-
-        for i in range(len(tup)):
-            if i!=0:
-                sql+=","+str(tup[i])
-            else:
-                sql+=str(id)+","+str(tup[i])
-        sql+=")"
-        #print sql
-        db_cursor = self.db_connection.cursor()
-        db_cursor.execute(sql)
-        self.db_connection.commit()
