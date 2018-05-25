@@ -49,17 +49,27 @@ class SQLMonitor(AbstractMonitor):
             print(task)
             print("priority" in task.keys())
             #create the Task with its information
-            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},{},{},{},{},{},{})".format(task.id, set_ID, task["priority"], task["deadline"], task["quota"], task["pkg"], task["config"]["arg1"], task["period"], task["numberofjobs"], task["offset"])
+            deadline = -1
+            if task["deadline"]!="None":
+                deadline = task["deadline"]
+            priority = -1
+            if task["priority"]!="None":
+                deadline = task["priority"]
+            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], task["period"], task["numberofjobs"], task["offset"])
+            print(sqlTask)
             db_cursor.execute(sqlTask)
             self.db_connection.commit()
             
             succesfull = -1 #if the job exited succesfully or not -1 = not succesfull, +1= succesfull
             #loops through the jobs of a task and adds the information to the db
+            job_id = 0
             for job in task.jobs:
-                if job.exit_values == "EXIT":  #if EXIT then job ended succesfully
+                if job.exit_value == "EXIT":  #if EXIT then job ended succesfully
                     succesfull = 1
-                sqlJob = "Insert into Job (Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{})".format(task.id, set_ID, job.start_date, job.end_date, succesfull)
+                    sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, job.start_date, job.end_date, succesfull)
+                job_id = job_id+1;
                 db_cursor.execute(sqlJob)
+                print(sqlJob)
                 self.db_connection.commit()
 
     def __taskset_stop__(self, taskset):
