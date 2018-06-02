@@ -24,7 +24,7 @@ class SQLMonitor(AbstractMonitor):
             db_cursor.execute(sqlTask)
             db_cursor.execute(sqlJob)
             self.db_connection.commit()
-            db_connection.close()
+            self.db_connection.close()
     
 
     def __init__(self):
