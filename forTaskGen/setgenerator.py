@@ -49,6 +49,14 @@ class SetGenerator(TaskSet):
         set.append(task02)
         return set
     
+    def testset01(self):
+        set = TaskSet([])
+        task01 = Task(hey.Value(0),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
+        set.append(task01)
+        task02 = Task(pi.Value(1000),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
+        set.append(task02)
+        return set
+    
     def testset(self):
         set = TaskSet([])
         
