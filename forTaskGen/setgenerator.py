@@ -75,11 +75,11 @@ class SetGenerator(TaskSet):
         ct03 = {"criticaltime" : [16750]}#medean execution time of task 3: 2239;  90% at 2700
         ct04 = {"criticaltime" : [18000]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
-        v00 = {[0]}
-        v01 = {[1,100,1000]}
-        v02 = {[42,420000,4200000]}
-        v03 = {[100000,100002,100003]}
-        v04 = {[1000,98000]}
+        v00 = [0]
+        v01 = [1,100,1000]
+        v02 = [42,420000,4200000]
+        v03 = [100000,100002,100003]
+        v04 = [1000,98000]
         #Verzögerung des Taskes vor Ausführung
         o00 ={"offset" : [100]}
         o01 ={"offset" : [0]}
@@ -134,11 +134,11 @@ class SetGenerator(TaskSet):
         ct03 = {"criticaltime" : [16750]}#medean execution time of task 3: 2239;  90% at 2700
         ct04 = {"criticaltime" : [18000]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
-        v00 = {[0]}
-        v01 = {[1,100,1000]}
-        v02 = {[42,420000,4200000]}
-        v03 = {[100000,100002,100003]}
-        v04 = {[100,1000,98000]}
+        v00 = [0]
+        v01 = [1,100,1000]
+        v02 = [42,420000,4200000]
+        v03 = [100000,100002,100003]
+        v04 = [100,1000,98000]
         #Verzögerung des Taskes vor Ausführung
         o00 ={"offset" : [100]}
         o01 ={"offset" : [0]}

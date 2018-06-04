@@ -12,7 +12,7 @@ class SQLMonitor(AbstractMonitor):
     
     #if db not found, create new one
     def getDB(self):
-        print("--------------"+self.db_name)
+        #print("--------------"+self.db_name)
         if not os.path.exists(self.db_name):
             self.db_connection = sqlite3.connect(self.db_name)
             #create tables in db
@@ -46,8 +46,9 @@ class SQLMonitor(AbstractMonitor):
         self.db_connection.commit()
         
         for task in taskset:
+            #print("task:")
             print(task)
-            print("priority" in task.keys())
+            #print("priority" in task.keys())
             #create the Task with its information
             deadline = -1
             if task["deadline"]!="None":
@@ -55,8 +56,9 @@ class SQLMonitor(AbstractMonitor):
             priority = -1
             if task["priority"]!="None":
                 deadline = task["priority"]
+        
             sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], task["period"], task["numberofjobs"], task["offset"])
-            print(sqlTask)
+            #print(sqlTask)
             db_cursor.execute(sqlTask)
             self.db_connection.commit()
             
@@ -66,9 +68,13 @@ class SQLMonitor(AbstractMonitor):
             for job in task.jobs:
                 if job.exit_value == "EXIT":  #if EXIT then job ended succesfully
                     succesfull = 1
-                    sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, job.start_date, job.end_date, succesfull)
+                endtime = -1
+                if job.end_date!="None":
+                    endtime = job.end_date
+                sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, job.start_date, endtime, succesfull)
                 job_id = job_id+1;
                 db_cursor.execute(sqlJob)
+                print("Statement:")
                 print(sqlJob)
                 self.db_connection.commit()
 
