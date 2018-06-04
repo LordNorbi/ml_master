@@ -101,11 +101,11 @@ class SetGenerator(TaskSet):
         nj03 = {"numberofjobs" : [1,16]}
         nj04 = {"numberofjobs" : [1,16]}
         # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
-        p00 = {"period" : [13000]}
-        p01 = {"period" : [23000]}
-        p02 = {"period" : [20500]}
-        p03 = {"period" : [25500]}
-        p04 = {"period" : [30500]}
+        p00 = {"period" : [15000]}
+        p01 = {"period" : [30000]}
+        p02 = {"period" : [30000]}
+        p03 = {"period" : [30000]}
+        p04 = {"period" : [40000]}
         #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
         d00 = {"deadline" : [12500]}
         d01 = {"deadline" : [22500]}
@@ -119,15 +119,15 @@ class SetGenerator(TaskSet):
         pro03 = {"priority" : [32,128]}
         pro04 = {"priority" : [16,128]}
         
-        task00 = Task(hey.Value(v00), ct00,o00,nj00,p00,d00,pro00)
+        task00 = Task(hey.Value(v00),o00,nj00,p00,d00,pro00)
         set.append(task00)
-        task01 = Task(pi.Value(v01), ct01,o01,nj01,p01,d01,pro01)
+        task01 = Task(pi.Value(v01),o01,nj01,p01,d01,pro01)
         set.append(task01)
-        task02 = Task(cond_42.Value(v02), ct02,o02,nj02,p02,d02,pro02)
+        task02 = Task(cond_42.Value(v02),o02,nj02,p02,d02,pro02)
         set.append(task02)
-        task03 = Task(cond_mod.Value(v03), ct03,o03,nj03,p03,d03,pro03)
+        task03 = Task(cond_mod.Value(v03),o03,nj03,p03,d03,pro03)
         set.append(task03)
-        task04 = Task(tumatmul.Value(v04), ct04,o04,nj04,p04,d04,pro04)
+        task04 = Task(tumatmul.Value(v04),o04,nj04,d04,pro04)
         set.append(task04)
         
         return set

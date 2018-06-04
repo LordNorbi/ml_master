@@ -56,8 +56,11 @@ class SQLMonitor(AbstractMonitor):
             priority = -1
             if task["priority"]!="None":
                 deadline = task["priority"]
+            prriod = -1
+            if task["period"]!="None":
+                period = task["period"]
         
-            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], task["period"], task["numberofjobs"], task["offset"])
+            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], period, task["numberofjobs"], task["offset"])
             #print(sqlTask)
             db_cursor.execute(sqlTask)
             self.db_connection.commit()
