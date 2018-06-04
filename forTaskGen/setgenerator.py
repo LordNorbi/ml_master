@@ -65,45 +65,46 @@ class SetGenerator(TaskSet):
         
         return set
     
-    def final(self):
+    def finalSet(self):
     
         set = TaskSet([])
-        ct00 = {"criticaltime" : [0]}
-        ct01 = {"criticaltime" : [0]}
-        ct02 = {"criticaltime" : [0]}
-        ct03 = {"criticaltime" : [0]}
-        ct04 = {"criticaltime" : [0]}
-        
+        #nach dieser Zeit wird der Task beendet
+        ct00 = {"criticaltime" : [4125]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [7000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [5750]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [6750]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [8000]}#medean execution time of task 4: 3027;  95% at 3200
+        # Wert mit dem der Task ausgeführt wird
         v00 = {"value" : [0]}
         v01 = {"value" : [1,10,100,1000]}
         v02 = {"value" : [42,42000,420000,4200000]}
         v03 = {"value" : [100000,100001,100002,100003]}
         v04 = {"value" : [1000,10000,98000]}
-        
+        #Verzögerung des Taskes vor Ausführung
         o00 ={"ofset" : [100]}
         o01 ={"ofset" : [0]}
         o02 ={"ofset" : [0]}
         o03 ={"ofset" : [0]}
         o04 ={"ofset" : [0]}
-        
+        #Anzahl der wdh. eines Tasks
         nj00 = {"numberofjobs" : [1,32,128]}
         nj01 = {"numberofjobs" : [1,32,128]}
         nj02 = {"numberofjobs" : [1,32,128]}
         nj03 = {"numberofjobs" : [1,32,128]}
         nj04 = {"numberofjobs" : [1,32,128]}
-        
-        p00 = {"period" : [0]}
-        p01 = {"period" : [0]}
-        p02 = {"period" : [0]}
-        p03 = {"period" : [0]}
-        p04 = {"period" : [0]}
-        
-        d00 = {"deadline" : [0]}
-        d01 = {"deadline" : [0]}
-        d02 = {"deadline" : [0]}
-        d03 = {"deadline" : [0]}
-        d04 = {"deadline" : [0]}
-        
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [26000]}
+        p01 = {"period" : [46000]}
+        p02 = {"period" : [41000]}
+        p03 = {"period" : [51000]}
+        p04 = {"period" : [61000]}
+        #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
+        d00 = {"deadline" : [12500,25000]}
+        d01 = {"deadline" : [22500,45000]}
+        d02 = {"deadline" : [20000,40000]}
+        d03 = {"deadline" : [25000,50000]}
+        d04 = {"deadline" : [30000,60000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
         pro00 = {"priority" : [16,32,128,128]}
         pro01 = {"priority" : [16,32,128,128]}
         pro02 = {"priority" : [16,32,128,128]}

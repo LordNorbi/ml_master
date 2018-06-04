@@ -6,8 +6,9 @@ from monitors.loggingMonitor import LoggingMonitor
 from monitors.sql_monitor import SQLMonitor
 dis = Distributor()
 gen = SetGenerator()
-logmon = SQLMonitor()
-set = gen.set01()
+sqlmon = SQLMonitor()
+logmon = LoggingMonitor()
+set = gen.set05()
 dis.add_job(set,logmon)
 
 
