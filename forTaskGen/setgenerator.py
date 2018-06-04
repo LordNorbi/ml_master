@@ -65,8 +65,8 @@ class SetGenerator(TaskSet):
         
         return set
     
-    def finalSet(self):
-    
+    def finalSetSmall(self):
+        # returns round about 55k Sets
         set = TaskSet([])
         #nach dieser Zeit wird der Task beendet
         ct00 = {"criticaltime" : [4125]}#medean execution time of task 0: 1300; 100% at 1650
@@ -124,6 +124,64 @@ class SetGenerator(TaskSet):
         
         return set
     
+    def finalSetBig(self):
+        # returns round about 839k Sets
+        set = TaskSet([])
+        #nach dieser Zeit wird der Task beendet
+        ct00 = {"criticaltime" : [4125]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [7000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [5750]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [6750]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [8000]}#medean execution time of task 4: 3027;  95% at 3200
+        # Wert mit dem der Task ausgeführt wird
+        v00 = {"value" : [0]}
+        v01 = {"value" : [1,100,1000]}
+        v02 = {"value" : [42,420000,4200000]}
+        v03 = {"value" : [100000,100002,100003]}
+        v04 = {"value" : [100,1000,98000]}
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"ofset" : [100]}
+        o01 ={"ofset" : [0]}
+        o02 ={"ofset" : [0]}
+        o03 ={"ofset" : [0]}
+        o04 ={"ofset" : [0]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [1,64]}
+        nj01 = {"numberofjobs" : [1,64]}
+        nj02 = {"numberofjobs" : [1,64]}
+        nj03 = {"numberofjobs" : [1,64]}
+        nj04 = {"numberofjobs" : [1,64]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [26000]}
+        p01 = {"period" : [46000]}
+        p02 = {"period" : [41000]}
+        p03 = {"period" : [51000]}
+        p04 = {"period" : [61000]}
+        #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
+        d00 = {"deadline" : [25000]}
+        d01 = {"deadline" : [45000]}
+        d02 = {"deadline" : [40000]}
+        d03 = {"deadline" : [50000]}
+        d04 = {"deadline" : [60000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [16,32,128,128]}
+        pro01 = {"priority" : [32,128,128]}
+        pro02 = {"priority" : [16,128,128]}
+        pro03 = {"priority" : [32,128,128]}
+        pro04 = {"priority" : [16,128,128]}
+        
+        task00 = Task(hey.Value(v00), ct00,o00,nj00,p00,d00,pro00)
+        set.append(task00)
+        task01 = Task(pi.Value(v01), ct01,o01,nj01,p01,d01,pro01)
+        set.append(task01)
+        task02 = Task(cond_42.Value(v02), ct02,o02,nj02,p02,d02,pro02)
+        set.append(task02)
+        task03 = Task(cond_mod.Value(v03), ct03,o03,nj03,p03,d03,pro03)
+        set.append(task03)
+        task04 = Task(tumatmul.Value(v04), ct04,o04,nj04,p04,d04,pro04)
+        set.append(task04)
+        
+        return set
     
     def returnrobert(self):
         
