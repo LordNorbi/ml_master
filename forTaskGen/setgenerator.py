@@ -87,23 +87,23 @@ class SetGenerator(TaskSet):
         o03 ={"offset" : [0]}
         o04 ={"offset" : [0]}
         #Anzahl der wdh. eines Tasks
-        nj00 = {"numberofjobs" : [1,64]}
-        nj01 = {"numberofjobs" : [1,64]}
-        nj02 = {"numberofjobs" : [1,64]}
-        nj03 = {"numberofjobs" : [1,64]}
-        nj04 = {"numberofjobs" : [1,64]}
+        nj00 = {"numberofjobs" : [1,16]}
+        nj01 = {"numberofjobs" : [1,16]}
+        nj02 = {"numberofjobs" : [1,16]}
+        nj03 = {"numberofjobs" : [1,16]}
+        nj04 = {"numberofjobs" : [1,16]}
         # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
-        p00 = {"period" : [26000]}
-        p01 = {"period" : [46000]}
-        p02 = {"period" : [41000]}
-        p03 = {"period" : [51000]}
-        p04 = {"period" : [61000]}
+        p00 = {"period" : [13000]}
+        p01 = {"period" : [23000]}
+        p02 = {"period" : [20500]}
+        p03 = {"period" : [25500]}
+        p04 = {"period" : [30500]}
         #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
-        d00 = {"deadline" : [25000]}
-        d01 = {"deadline" : [45000]}
-        d02 = {"deadline" : [40000]}
-        d03 = {"deadline" : [50000]}
-        d04 = {"deadline" : [60000]}
+        d00 = {"deadline" : [12500]}
+        d01 = {"deadline" : [22500]}
+        d02 = {"deadline" : [20000]}
+        d03 = {"deadline" : [25000]}
+        d04 = {"deadline" : [30000]}
         #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
         pro00 = {"priority" : [16,128]}
         pro01 = {"priority" : [32,128]}
