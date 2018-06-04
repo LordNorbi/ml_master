@@ -69,23 +69,23 @@ class SetGenerator(TaskSet):
         # returns round about 55k Sets
         set = TaskSet([])
         #nach dieser Zeit wird der Task beendet
-        ct00 = {"criticaltime" : [4125]}#medean execution time of task 0: 1300; 100% at 1650
-        ct01 = {"criticaltime" : [7000]}#medean execution time of task 1: 2300;  90% at 2800
-        ct02 = {"criticaltime" : [5750]}#medean execution time of task 2: 2000;  90% at 2300
-        ct03 = {"criticaltime" : [6750]}#medean execution time of task 3: 2239;  90% at 2700
-        ct04 = {"criticaltime" : [8000]}#medean execution time of task 4: 3027;  95% at 3200
+        ct00 = {"criticaltime" : [14125]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [17000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [15750]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [16750]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [18000]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
-        v00 = {"value" : [0]}
-        v01 = {"value" : [1,100,1000]}
-        v02 = {"value" : [42,420000,4200000]}
-        v03 = {"value" : [100000,100002,100003]}
-        v04 = {"value" : [1000,98000]}
+        v00 = {[0]}
+        v01 = {[1,100,1000]}
+        v02 = {[42,420000,4200000]}
+        v03 = {[100000,100002,100003]}
+        v04 = {[1000,98000]}
         #Verzögerung des Taskes vor Ausführung
-        o00 ={"ofset" : [100]}
-        o01 ={"ofset" : [0]}
-        o02 ={"ofset" : [0]}
-        o03 ={"ofset" : [0]}
-        o04 ={"ofset" : [0]}
+        o00 ={"offset" : [100]}
+        o01 ={"offset" : [0]}
+        o02 ={"offset" : [0]}
+        o03 ={"offset" : [0]}
+        o04 ={"offset" : [0]}
         #Anzahl der wdh. eines Tasks
         nj00 = {"numberofjobs" : [1,64]}
         nj01 = {"numberofjobs" : [1,64]}
@@ -128,23 +128,23 @@ class SetGenerator(TaskSet):
         # returns round about 839k Sets
         set = TaskSet([])
         #nach dieser Zeit wird der Task beendet
-        ct00 = {"criticaltime" : [4125]}#medean execution time of task 0: 1300; 100% at 1650
-        ct01 = {"criticaltime" : [7000]}#medean execution time of task 1: 2300;  90% at 2800
-        ct02 = {"criticaltime" : [5750]}#medean execution time of task 2: 2000;  90% at 2300
-        ct03 = {"criticaltime" : [6750]}#medean execution time of task 3: 2239;  90% at 2700
-        ct04 = {"criticaltime" : [8000]}#medean execution time of task 4: 3027;  95% at 3200
+        ct00 = {"criticaltime" : [14125]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [17000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [15750]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [16750]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [18000]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
-        v00 = {"value" : [0]}
-        v01 = {"value" : [1,100,1000]}
-        v02 = {"value" : [42,420000,4200000]}
-        v03 = {"value" : [100000,100002,100003]}
-        v04 = {"value" : [100,1000,98000]}
+        v00 = {[0]}
+        v01 = {[1,100,1000]}
+        v02 = {[42,420000,4200000]}
+        v03 = {[100000,100002,100003]}
+        v04 = {[100,1000,98000]}
         #Verzögerung des Taskes vor Ausführung
-        o00 ={"ofset" : [100]}
-        o01 ={"ofset" : [0]}
-        o02 ={"ofset" : [0]}
-        o03 ={"ofset" : [0]}
-        o04 ={"ofset" : [0]}
+        o00 ={"offset" : [100]}
+        o01 ={"offset" : [0]}
+        o02 ={"offset" : [0]}
+        o03 ={"offset" : [0]}
+        o04 ={"offset" : [0]}
         #Anzahl der wdh. eines Tasks
         nj00 = {"numberofjobs" : [1,64]}
         nj01 = {"numberofjobs" : [1,64]}

@@ -13,10 +13,9 @@ print(len(list(setvar)))
 
 
 sqlmon = SQLMonitor()
+
+dis.add_job(set,sqlmon)
+
 logmon = LoggingMonitor()
-set = gen.set05()
-dis.add_job(set,logmon)
-
-
 
 
