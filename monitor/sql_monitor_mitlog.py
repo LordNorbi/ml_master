@@ -1,7 +1,8 @@
 from monitor import AbstractMonitor
 import os, sqlite3
 import logging
-
+import time
+import sys
 #Monitor for sqlite3
 
 
@@ -43,14 +44,21 @@ class SQLMonitor(AbstractMonitor):
         pass
 
     def __taskset_finish__(self, taskset):
-        db_connection = sqlite3.connect(self.db_name,check_same_thread=False)
-        db_cursor = db_connection.cursor()
-        sqlSet = "Insert into TaskSet  (Exit_Value) Values (0)"
-        db_cursor.execute(sqlSet)
+        notyetcommited = True
+        while notyetcommited:
+            try:
+                db_connection = sqlite3.connect(self.db_name,check_same_thread=False)
+                db_cursor = db_connection.cursor()
+                sqlSet = "Insert into TaskSet  (Exit_Value) Values (0)"
+                db_cursor.execute(sqlSet)
         #id of the created TaskSet
-        set_ID = db_cursor.lastrowid
-        db_connection.commit()
-        
+                set_ID = db_cursor.lastrowid
+                db_connection.commit()
+               # db_connection.close()
+                notyetcommited = False
+            except:
+                print("1 A DB Exception occured. Please wait a second, I try to fix it...")
+
         for task in taskset:
             #print("task:")
             #print(task)
@@ -75,8 +83,20 @@ class SQLMonitor(AbstractMonitor):
  
             sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], period, task["numberofjobs"], task["offset"])
             self.logger.info(sqlTask)
-            db_cursor.execute(sqlTask)
-            db_connection.commit()
+            
+            #db_cursor.execute(sqlTask)
+            notyescommited = True
+            while notyetcommited:
+                try:
+                #    db_connection = sqlite3.connect(self.db_name,check_same_thread=False)
+                #    db_cursor = db_connection.cursor()
+                    db_cursor.execute(sqlTask)
+                    db_connection.commit()
+                #    db_connection.close()
+                    notyetcommited = False
+                except:
+                    print("2 An DB Exception occured. Pls wait a second I try to fix it...")
+            #db_connection.commit()
             
            # succesfull = -1 #if the job exited succesfully or not -1 = not succesfull, +1= succesfull
             #loops through the jobs of a task and adds the information to the db
@@ -102,10 +122,25 @@ class SQLMonitor(AbstractMonitor):
                    exit_value = job.exit_value
                 sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, starttime, endtime, "'"+exit_value+"'")
                 job_id = job_id+1;
-                db_cursor.execute(sqlJob)
-                #print("Statement:")
-                self.logger.info(sqlJob)
-                db_connection.commit()
+                self.logger.info(sqlJob)                
 
+                notyetcommited = True
+                while notyetcommited:
+                    try:
+                 #       db_connection = sqlite3.connect(self.db_name,check_same_thread=False)
+                        db_cursor = db_connection.cursor()
+                        db_cursor.execute(sqlJob)
+                #print("Statement:")
+                        #self.logger.info(sqlJob)
+                        db_connection.commit()
+                 #       db_connection.close()
+                        notyetcommited = False
+                    except:
+                        print("error",sys.exc_info()[0])
+                        print("3 A DB Exception occured. Please wait a moment so I can try to fix it...")
+                        time.sleep(5)
+
+            db_connection.close()
+  
     def __taskset_stop__(self, taskset):
         pass
