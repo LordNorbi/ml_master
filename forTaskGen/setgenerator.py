@@ -1,6 +1,7 @@
 from taskgen.taskset import TaskSet
 from taskgen.task import Task
 from taskgen.blocks import *
+import copy
 
 class SetGenerator(TaskSet):
     
@@ -23,58 +24,9 @@ class SetGenerator(TaskSet):
     #for even more Tasksets replace HighRandom() with Variants() then not only 1 Value is used but all possible values (at period and at priority possible)
     #or add even more Tasks
     
-    def set01(self):
-        set = TaskSet([])
-        task01 = Task(hey.Value(0),{"priority" : [16]},{"offset" : [3000]},{"period" : [5000]},{"numberofjobs" : [20]})
-        set.append(task01)
-        return set
-    def set02(self):
-        set = TaskSet([])
-        task02 = Task(pi.Value(1000),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
-        set.append(task02)
-        return set
-    def set03(self):
-        set = TaskSet([])
-        task02 = Task(cond_42.Value(4200000),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
-        set.append(task02)
-        return set
-    def set04(self):
-        set = TaskSet([])
-        task02 = Task(cond_mod.Value(100001),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
-        set.append(task02)
-        return set
-    def set05(self):
-        set = TaskSet([])
-        task02 = Task(tumatmul.Value(1000000),{"priority" : [16]},{"offset" : [3000]},{"period" : [10000]},{"numberofjobs" : [20]})
-        set.append(task02)
-        return set
-    
-    def testset01(self):
-        set = TaskSet([])
-        task01 = Task(hey.Value(0),{"priority" : [0]},{"offset" : [0]},{"period" : [10000]},{"numberofjobs" : [8]},{"criticaltime":[0]})
-        set.append(task01)
-        task02 = Task(tumatmul.Value(10),{"priority" : [0]},{"offset" : [2500]},{"period" : [10000]},{"numberofjobs" : [8]})
-        set.append(task02)
-        return set
-    
-    def testset00(self):
-        set = TaskSet([])
-        
-        task01 = Task(hey.Value(0))
-        set.append(task01)
-        task02 = Task(pi.Value(1000))
-        set.append(task02)
-        task03 = Task(cond_42.Value(4200000))
-        set.append(task03)
-        task04 = Task(cond_mod.Value(100003))
-        set.append(task04)
-        task05 = Task(tumatmul.Value(98000))
-        set.append(task05)
-        
-        return set
     
     def finalSetSmall(self):
-        # returns round about 55k Sets
+        # returns round about 16k Sets
         set = TaskSet([])
         #nach dieser Zeit wird der Task beendet
         ct00 = {"criticaltime" : [28125]}#medean execution time of task 0: 1300; 100% at 1650
@@ -133,163 +85,102 @@ class SetGenerator(TaskSet):
         
         return set
     
-    def finalSetBig(self):
-        # returns round about 839k Sets
-        set = TaskSet([])
+    def specialSet(self,setcount):
+        
         #nach dieser Zeit wird der Task beendet
-        ct00 = {"criticaltime" : [14125]}#medean execution time of task 0: 1300; 100% at 1650
-        ct01 = {"criticaltime" : [17000]}#medean execution time of task 1: 2300;  90% at 2800
-        ct02 = {"criticaltime" : [15750]}#medean execution time of task 2: 2000;  90% at 2300
-        ct03 = {"criticaltime" : [16750]}#medean execution time of task 3: 2239;  90% at 2700
-        ct04 = {"criticaltime" : [18000]}#medean execution time of task 4: 3027;  95% at 3200
+        ct00 = {"criticaltime" : [28125]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [34000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [30750]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [32750]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [36000]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
         v00 = [0]
-        v01 = [1,100,1000]
-        v02 = [42,420000,4200000]
-        v03 = [100000,100002,100003]
-        v04 = [100,1000,98000]
+        v01 = [100,1000]
+        v02 = [42,10041]
+        v03 = [10000,10003]
+        v04 = [10000,10001]
         #Verzögerung des Taskes vor Ausführung
-        o00 ={"offset" : [100]}
-        o01 ={"offset" : [0]}
-        o02 ={"offset" : [0]}
-        o03 ={"offset" : [0]}
-        o04 ={"offset" : [0]}
+        o00 ={"offset" : [1000]}
+        o01 ={"offset" : [500]}
+        o02 ={"offset" : [500]}
+        o03 ={"offset" : [500]}
+        o04 ={"offset" : [500]}
         #Anzahl der wdh. eines Tasks
-        nj00 = {"numberofjobs" : [1,64]}
-        nj01 = {"numberofjobs" : [1,64]}
-        nj02 = {"numberofjobs" : [1,64]}
-        nj03 = {"numberofjobs" : [1,64]}
-        nj04 = {"numberofjobs" : [1,64]}
+        nj00 = {"numberofjobs" : [1,4]}
+        nj01 = {"numberofjobs" : [1,4]}
+        nj02 = {"numberofjobs" : [1,4]}
+        nj03 = {"numberofjobs" : [1,4]}
+        nj04 = {"numberofjobs" : [1,4]}
         # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
-        p00 = {"period" : [26000]}
-        p01 = {"period" : [46000]}
-        p02 = {"period" : [41000]}
-        p03 = {"period" : [51000]}
-        p04 = {"period" : [61000]}
+        p00 = {"period" : [10000]}
+        p01 = {"period" : [10000]}
+        p02 = {"period" : [10000]}
+        p03 = {"period" : [10000]}
+        p04 = {"period" : [10000]}
         #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
-        d00 = {"deadline" : [25000]}
-        d01 = {"deadline" : [45000]}
-        d02 = {"deadline" : [40000]}
-        d03 = {"deadline" : [50000]}
-        d04 = {"deadline" : [60000]}
+        d00 = {"deadline" : [12500]}
+        d01 = {"deadline" : [22500]}
+        d02 = {"deadline" : [20000]}
+        d03 = {"deadline" : [25000]}
+        d04 = {"deadline" : [30000]}
         #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
-        pro00 = {"priority" : [16,32,128,128]}
-        pro01 = {"priority" : [32,128,128]}
-        pro02 = {"priority" : [16,128,128]}
-        pro03 = {"priority" : [32,128,128]}
-        pro04 = {"priority" : [16,128,128]}
+        pro00 = {"priority" : [8,128]}
+        pro01 = {"priority" : [16,128]}
+        pro02 = {"priority" : [64,128]}
+        pro03 = {"priority" : [16,128]}
+        pro04 = {"priority" : [32,128]}
         
-        task00 = Task(hey.Value(v00), ct00,o00,nj00,p00,d00,pro00)
-        set.append(task00)
-        task01 = Task(pi.Value(v01), ct01,o01,nj01,p01,d01,pro01)
-        set.append(task01)
-        task02 = Task(cond_42.Value(v02), ct02,o02,nj02,p02,d02,pro02)
-        set.append(task02)
-        task03 = Task(cond_mod.Value(v03), ct03,o03,nj03,p03,d03,pro03)
-        set.append(task03)
-        task04 = Task(tumatmul.Value(v04), ct04,o04,nj04,p04,d04,pro04)
-        set.append(task04)
+        task00 = Task(hey.Value(v00),ct00,o00,nj00,p00,d00,pro00)
+        task01 = Task(pi.Value(v01),ct01,o01,nj01,p01,d01,pro01)
+        task02 = Task(cond_42.Value(v02),ct02,o02,nj02,p02,d02,pro02)
+        task03 = Task(cond_mod.Value(v03),ct03,o03,nj03,p03,d03,pro03)
+        task04 = Task(tumatmul.Value(v04),ct04,o04,nj04,p04,d04,pro04)
         
-        return set
-    
-    def returnrobert(self):
-        
-        set = TaskSet([])
-        
-        task01 = Task(hey.Value(1), period.HighRandom(), priority.HighRandom())
-        set.append(task01)
-        task02 = Task(pi.Variants(self.numberOfVariants), period.HighRandom(), priority.HighRandom())
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants), period.HighRandom(), priority.HighRandom())
-        set.append(task03)
-        task04 = Task(cond_mod.Variants(self.numberOfVariants), period.HighRandom(), priority.HighRandom())
-        set.append(task04)
-        task05 = Task(linpack.Variants(self.numberOfVariants), period.HighRandom(), priority.HighRandom())
-        set.append(task05)
-        
-        return set
-    
-    
-    def size2(self):
-        
-        set = TaskSet([])
-        
-        task02 = Task(pi.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs,)
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task03)
-        
-        return set
-    
-    
-    def size3(self):
-        
-        set = TaskSet([])
-        
-        task02 = Task(pi.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task03)
-        task04 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task04)
-        
-        return set
-    
-    
-    def size4(self):
-        
-        set = TaskSet([])
-        numberOfVariants = 50
-        priorities = {"priority" : [8,16,32,64,128]}
-        periods = {"period" : [0,500,10000]}
-        
-        task02 = Task(pi.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task03)
-        task04 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task04)
-        task05 = Task(linpack.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task05)
-        
-        return set
-    
-    
-    def size5(self):
-        
-        set = TaskSet([])
-        
-        task02 = Task(pi.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task03)
-        task04 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task04)
-        task05 = Task(linpack.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task05)
-        task06 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task06)
-        
-        return set
-    
-    def size6(self):
-        
-        set = TaskSet([])
-        
-        task02 = Task(pi.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task02)
-        task03 = Task(cond_42.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task03)
-        task04 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task04)
-        task05 = Task(linpack.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task05)
-        task06 = Task(cond_mod.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task06)
-        task07 = Task(linpack.Variants(self.numberOfVariants),self.criticaltime, self.deadline, self.periods, self.priorities, self.numberofjobs)
-        set.append(task07)
-        
-        return set
-
+        jobs = []
+        i = 0
+        if setcount>0 && setcount<5:
+            set = TaskSet([])
+            #set = []
+            while i < 5:
+                set0 = copy.deepcopy(set)
+                set0.append(tasks[i])
+                #set0.append(i)
+                if setcount>1:
+                    j=i+1
+                    while j < 5:
+                        set1 = copy.deepcopy(set0)
+                        set1.append(tasks[j])
+                        #set1.append(j)
+                        if setcount >2:
+                            k=j+1
+                            while k < 5:
+                                set2 = copy.deepcopy(set1)
+                                set2.append(tasks[k])
+                                #set2.append(k)
+                                if setcount >3:
+                                    l = k+1
+                                    while l < 5:
+                                        set3 = copy.deepcopy(set2)
+                                        set3.append(tasks[l])
+                                        #set3.append(l)
+                                        jobs.append(set3)
+                                        l = l+1
+                                else:
+                                    jobs.append(set2)
+                                k = k+1
+                        else:
+                            jobs.append(set1)
+                        j = j+1
+                else:
+                    jobs.append(set0)
+                i = i+1
+        if setcount==5:
+            set.append(task00)
+            set.append(task01)
+            set.append(task02)
+            set.append(task03)
+            set.append(task04)
+            return set
+        return jobs
 
 
