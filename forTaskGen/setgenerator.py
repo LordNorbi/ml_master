@@ -3,7 +3,7 @@ from taskgen.task import Task
 from taskgen.blocks import *
 import copy
 
-class SetGenerator(TaskSet):
+class SetGenerator2(TaskSet):
     
     criticaltime = {"criticaltime" : [1000,2000,3000]}
     deadline = {"deadline" : [3000,6000,9000]}
@@ -137,8 +137,9 @@ class SetGenerator(TaskSet):
         task04 = Task(tumatmul.Value(v04),ct04,o04,nj04,p04,d04,pro04)
         
         jobs = []
+        tasks=(task00,task01,task02,task03,task04)
         i = 0
-        if setcount>0 && setcount<5:
+        if setcount>0 and setcount<5:
             set = TaskSet([])
             #set = []
             while i < 5:
