@@ -181,7 +181,8 @@ class SetGenerator2(TaskSet):
             set.append(task02)
             set.append(task03)
             set.append(task04)
-            return set
+            jobs.append(set)
+            return jobs
         return jobs
 
 
