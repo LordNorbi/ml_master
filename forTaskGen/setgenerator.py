@@ -3,7 +3,7 @@ from taskgen.task import Task
 from taskgen.blocks import *
 import copy
 
-class SetGenerator2(TaskSet):
+class SetGenerator(TaskSet):
     
     criticaltime = {"criticaltime" : [1000,2000,3000]}
     deadline = {"deadline" : [3000,6000,9000]}
