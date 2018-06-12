@@ -144,25 +144,25 @@ class SetGenerator(TaskSet):
             #set = []
             while i < 5:
                 set0 = copy.deepcopy(set)
-                set0.append(tasks[i])
+                set0.append(copy.deepcopy(tasks[i]))
                 #set0.append(i)
                 if setcount>1:
                     j=i+1
                     while j < 5:
                         set1 = copy.deepcopy(set0)
-                        set1.append(tasks[j])
+                        set1.append(copy.deepcopy(tasks[j]))
                         #set1.append(j)
                         if setcount >2:
                             k=j+1
                             while k < 5:
                                 set2 = copy.deepcopy(set1)
-                                set2.append(tasks[k])
+                                set2.append(copy.deepcopy(tasks[k]))
                                 #set2.append(k)
                                 if setcount >3:
                                     l = k+1
                                     while l < 5:
                                         set3 = copy.deepcopy(set2)
-                                        set3.append(tasks[l])
+                                        set3.append(copy.deepcopy(tasks[l]))
                                         #set3.append(l)
                                         jobs.append(set3)
                                         l = l+1
