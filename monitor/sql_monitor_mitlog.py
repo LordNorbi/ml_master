@@ -98,7 +98,7 @@ class SQLMonitor(AbstractMonitor):
                     print("2 An DB Exception occured. Pls wait a second I try to fix it...")
             #db_connection.commit()
             
-           # succesfull = -1 #if the job exited succesfully or not -1 = not succesfull, +1= succesfull
+            # succesfull = -1 #if the job exited succesfully or not -1 = not succesfull, +1= succesfull
             #loops through the jobs of a task and adds the information to the db
             job_id = 0
             for job in task.jobs:
@@ -140,7 +140,7 @@ class SQLMonitor(AbstractMonitor):
                         print("3 A DB Exception occured. Please wait a moment so I can try to fix it...")
                         time.sleep(5)
 
-            db_connection.close()
+        db_connection.close()
   
     def __taskset_stop__(self, taskset):
         pass
