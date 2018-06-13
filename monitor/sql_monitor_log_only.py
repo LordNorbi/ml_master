@@ -12,18 +12,18 @@ class Counter():
 class SQLMonitor(AbstractMonitor):
     """Stores task-sets and events to a SQLite3 DB
         """
-    db_name = "db/"+"monitor_data"+".db"
+    
     setnumber = Counter()
     mutex = Lock()
 
-def __init__(self):
+    def __init__(self):
 
-    self.logger = logging.getLogger('OutputMonitorLogger')
-    self.hdlr = logging.FileHandler('./db/sql.log')
-    self.formatter = logging.Formatter('%(asctime)s %(message)s')
-    self.hdlr.setFormatter(self.formatter)
-    self.logger.addHandler(self.hdlr)
-    self.logger.setLevel(logging.DEBUG)
+        self.logger = logging.getLogger('OutputMonitorLogger')
+        self.hdlr = logging.FileHandler('./db/sql.log')
+        self.formatter = logging.Formatter('%(asctime)s %(message)s')
+        self.hdlr.setFormatter(self.formatter)
+        self.logger.addHandler(self.hdlr)
+        self.logger.setLevel(logging.DEBUG)
     
     def __taskset_event__(self, taskset):
         pass
@@ -86,7 +86,7 @@ def __init__(self):
                     exit_value = job.exit_value
                 sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, starttime, endtime, "'"+exit_value+"'")
                 job_id = job_id+1;
-                        self.logger.info(sqlJob)
+                self.logger.info(sqlJob)
 
 def __taskset_stop__(self, taskset):
     pass
