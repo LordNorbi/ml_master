@@ -40,7 +40,7 @@ class SQLMonitor(AbstractMonitor):
             Counter.i = set_ID + 1
         finally:
             self.mutex.release()
-        sqlSet = "Insert into TaskSet  (Set_ID, Exit_Value) Values ("+set_ID+", 0)"
+        sqlSet = "Insert into TaskSet  (Set_ID, Exit_Value) Values ("+str(set_ID)+", 0)"
         self.logger.info(sqlSet)
         
         for task in taskset:
@@ -88,5 +88,5 @@ class SQLMonitor(AbstractMonitor):
                 job_id = job_id+1;
                 self.logger.info(sqlJob)
 
-def __taskset_stop__(self, taskset):
-    pass
+    def __taskset_stop__(self, taskset):
+        pass
