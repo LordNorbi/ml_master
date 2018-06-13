@@ -29,11 +29,11 @@ class SetGenerator(TaskSet):
         # returns round about 16k Sets
         set = TaskSet([])
         #nach dieser Zeit wird der Task beendet
-        ct00 = {"criticaltime" : [28125]}#medean execution time of task 0: 1300; 100% at 1650
-        ct01 = {"criticaltime" : [34000]}#medean execution time of task 1: 2300;  90% at 2800
-        ct02 = {"criticaltime" : [30750]}#medean execution time of task 2: 2000;  90% at 2300
-        ct03 = {"criticaltime" : [32750]}#medean execution time of task 3: 2239;  90% at 2700
-        ct04 = {"criticaltime" : [36000]}#medean execution time of task 4: 3027;  95% at 3200
+        ct00 = {"criticaltime" : [6000]}#medean execution time of task 0: 1200; 100% at 1650
+        ct01 = {"criticaltime" : [8000]}#medean execution time of task 1: 1600;  90% at 2800
+        ct02 = {"criticaltime" : [6500]}#medean execution time of task 2: 1300;  90% at 2300
+        ct03 = {"criticaltime" : [7500]}#medean execution time of task 3: 1400;  90% at 2700
+        ct04 = {"criticaltime" : [15750]}#medean execution time of task 4: 3150;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
         v00 = [0]
         v01 = [100,1000]
@@ -53,11 +53,11 @@ class SetGenerator(TaskSet):
         nj03 = {"numberofjobs" : [1,4]}
         nj04 = {"numberofjobs" : [1,4]}
         # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
-        p00 = {"period" : [10000]}
-        p01 = {"period" : [10000]}
-        p02 = {"period" : [10000]}
-        p03 = {"period" : [10000]}
-        p04 = {"period" : [10000]}
+        p00 = {"period" : [7500]}
+        p01 = {"period" : [7500]}
+        p02 = {"period" : [7500]}
+        p03 = {"period" : [7500]}
+        p04 = {"period" : [7500]}
         #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
         d00 = {"deadline" : [12500]}
         d01 = {"deadline" : [22500]}
@@ -88,11 +88,11 @@ class SetGenerator(TaskSet):
     def specialSet(self,setcount):
         
         #nach dieser Zeit wird der Task beendet
-        ct00 = {"criticaltime" : [28125]}#medean execution time of task 0: 1300; 100% at 1650
-        ct01 = {"criticaltime" : [34000]}#medean execution time of task 1: 2300;  90% at 2800
-        ct02 = {"criticaltime" : [30750]}#medean execution time of task 2: 2000;  90% at 2300
-        ct03 = {"criticaltime" : [32750]}#medean execution time of task 3: 2239;  90% at 2700
-        ct04 = {"criticaltime" : [36000]}#medean execution time of task 4: 3027;  95% at 3200
+        ct00 = {"criticaltime" : [6000]}#medean execution time of task 0: 1300; 100% at 1650
+        ct01 = {"criticaltime" : [8000]}#medean execution time of task 1: 2300;  90% at 2800
+        ct02 = {"criticaltime" : [6500]}#medean execution time of task 2: 2000;  90% at 2300
+        ct03 = {"criticaltime" : [7500]}#medean execution time of task 3: 2239;  90% at 2700
+        ct04 = {"criticaltime" : [15750]}#medean execution time of task 4: 3027;  95% at 3200
         # Wert mit dem der Task ausgeführt wird
         v00 = [0]
         v01 = [100,1000]
@@ -112,11 +112,11 @@ class SetGenerator(TaskSet):
         nj03 = {"numberofjobs" : [1,4]}
         nj04 = {"numberofjobs" : [1,4]}
         # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
-        p00 = {"period" : [10000]}
-        p01 = {"period" : [10000]}
-        p02 = {"period" : [10000]}
-        p03 = {"period" : [10000]}
-        p04 = {"period" : [10000]}
+        p00 = {"period" : [7500]}
+        p01 = {"period" : [7500]}
+        p02 = {"period" : [7500]}
+        p03 = {"period" : [7500]}
+        p04 = {"period" : [7500]}
         #Time zu der der Task "fertig sein soll" wird nur zum skedulen verwendet. Nach Überschreiten der deadline wird der task beednet und darf nur dannw eiter rechnen, wenn kein anderer Task rechnen möchte
         d00 = {"deadline" : [12500]}
         d01 = {"deadline" : [22500]}
