@@ -175,6 +175,7 @@ class SetGenerator(TaskSet):
                 else:
                     jobs.append(set0)
                 i = i+1
+        set = TaskSet([])
         if setcount==5:
             set.append(task00)
             set.append(task01)
