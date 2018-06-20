@@ -7,13 +7,14 @@ from threading import Thread, Lock
 #Monitor for sqlite3
 
 class Counter():
-    i = 0
+    i = 0 #number of sets
+    b = 0 # number of bad sets
 
 class SQLMonitor(AbstractMonitor):
     """Stores task-sets and events to a SQLite3 DB
         """
     
-    setnumber = Counter()
+    setnumber = Counter() #number of sets
     mutex = Lock()
 
     def __init__(self):
@@ -97,5 +98,63 @@ class SQLMonitor(AbstractMonitor):
         pass
 
    def __taskset_bad__(self, taskset, n):
-        self.logger_bad.info('{} tries:\n{}'.format(n, str(taskset)))
+       
+        bad_ID = -1
+        set_ID = -1
+        self.mutex.acquire()
+        try:
+            set_ID = self.setnumber.i
+            Counter.i = set_ID + 1
+            bad_ID = self.setnumber.b
+            Counter.b = bad_ID + 1
+        finally:
+            self.mutex.release()
+        sqlSet = "Insert into TaskSet  (Set_ID, Exit_Value) Values ("+str(set_ID)+", -1)"
+        self.logger.info(sqlSet)
+        
+        for task in taskset:
+            
+            #create the Task with its information
+            deadline = -1
+            if task["deadline"]!="None":
+                deadline = task["deadline"]
+            priority = -1
+            if task["priority"]!="None":
+                priority = task["priority"]
+            period = -1
+            if task["period"]!="None":
+                period = task["period"]
+            
+            if period == None:
+                period = -1
+            if priority == None:
+                priority = -1
+            if deadline == None:
+                deadline = -1
+            
+            sqlTask = "Insert into Task (Task_ID, Set_ID, Priority, Deadline, Quota, PKG, Arg, Period, Number_of_Jobs, Offset) Values ({},{},{},{},'{}','{}',{},{},{},{})".format(task.id, set_ID, priority, deadline, task["quota"], task["pkg"], task["config"]["arg1"], period, task["numberofjobs"], task["offset"])
+            self.logger.info(sqlTask) 
+       
+       
+            job_id = 0
+            for job in task.jobs:
+                
+                endtime = -1
+                if job.end_date!="None":
+                    endtime = job.end_date
+                starttime = -1
+                if job.start_date!="None":
+                    starttime = job.start_date
+                
+                if endtime == None:
+                    endtime = -1
+                if starttime == None:
+                    starttime = -1
+                
+                exit_value = str(n)
+                sqlJob = "Insert into Job (Job_ID, Task_ID, Set_ID, Start_Date, End_Date, Exit_Value) Values ({},{},{},{},{},{})".format(job_id, task.id, set_ID, starttime, endtime, "'"+str(n)+"'")
+                job_id = job_id+1;
+                self.logger.info(sqlJob) 
+       
+        self.logger_bad.info('{} tries, {} total :\n{}'.format(n, bad_ID, str(taskset)))
         pass
