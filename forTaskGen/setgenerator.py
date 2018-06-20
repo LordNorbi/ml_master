@@ -24,6 +24,90 @@ class SetGenerator(TaskSet):
     #for even more Tasksets replace HighRandom() with Variants() then not only 1 Value is used but all possible values (at period and at priority possible)
     #or add even more Tasks
     
+    def ben00(self):
+        set = TaskSet([])
+        # Wert mit dem der Task ausgeführt wird
+        v00 = [0,1000,1000000]
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"offset" : [1000]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [100]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [10000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [8]}
+        
+        task00 = Task(hey.Value(v00),o00,nj00,p00,pro00)
+        set.append(task00)
+        return set
+    
+    def ben01(self):
+        set = TaskSet([])
+        # Wert mit dem der Task ausgeführt wird
+        v00 = [100,1000,10000,100000,1000000]
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"offset" : [1000]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [100]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [10000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [8]}
+        
+        task00 = Task(pi.Value(v00),o00,nj00,p00,pro00)
+        set.append(task00)
+        return set
+    
+    def ben02(self):
+        set = TaskSet([])
+        # Wert mit dem der Task ausgeführt wird
+        v00 = [41,42,10041,10042,1000041,1000042]
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"offset" : [1000]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [100]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [10000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [8]}
+        
+        task00 = Task(cond_42.Value(v00),o00,nj00,p00,pro00)
+        set.append(task00)
+        return set
+    
+    def ben03(self):
+        set = TaskSet([])
+        # Wert mit dem der Task ausgeführt wird
+        v00 = [100,103,10000,10003,1000000,1000003]
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"offset" : [1000]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [100]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [10000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [8]}
+        
+        task00 = Task(cond_mod.Value(v00),o00,nj00,p00,pro00)
+        set.append(task00)
+        return set
+    
+    def ben04(self):
+        set = TaskSet([])
+        # Wert mit dem der Task ausgeführt wird
+        v00 = [10,11,10000,10001,1000000,1000001]
+        #Verzögerung des Taskes vor Ausführung
+        o00 ={"offset" : [1000]}
+        #Anzahl der wdh. eines Tasks
+        nj00 = {"numberofjobs" : [100]}
+        # nach dieser Zeit wird die nächste instanz des tasks gestartet wenn numberofjobs > 1. dabei wird die "alte" instanz beendet
+        p00 = {"period" : [10000]}
+        #Wenn ein Task eine Priority hat, wird er nach dieser gescheduled, nicht nach der deadline. Deadline ist dann egal. Erst priority danach deadlines
+        pro00 = {"priority" : [8]}
+        
+        task00 = Task(tumatmul.Value(v00),o00,nj00,p00,pro00)
+        set.append(task00)
+        return set
     
     def finalSetSmall(self):
         # returns round about 16k Sets

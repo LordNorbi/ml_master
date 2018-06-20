@@ -13,6 +13,10 @@ class LoggingMonitor(AbstractMonitor):
         #self.hdlr.setFormatter(self.formatter)
         self.logger.addHandler(self.hdlr)
         self.logger.setLevel(logging.DEBUG)
+        #self.logger_bad = logging.getLogger('BadLogger')
+        #self.hdlr_bad = logging.FileHandler('./db/sql_bad.log')
+        #self.logger_bad.addHandler(self.hdlr_bad)
+        #self.logger_bad.setLevel(logging.DEBUG)
         
     def __taskset_event__(self, taskset):
         pass
@@ -31,6 +35,8 @@ class LoggingMonitor(AbstractMonitor):
             task.jobs = []
         pass
 
-
+#def __taskset_bad__(self, taskset, n):
+#self.logger_bad.info('{} tries:\n{}'.format(n, str(taskset)))
+#pass
 
 
