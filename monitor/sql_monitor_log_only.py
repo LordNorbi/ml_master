@@ -97,7 +97,7 @@ class SQLMonitor(AbstractMonitor):
     def __taskset_stop__(self, taskset):
         pass
 
-   def __taskset_bad__(self, taskset, n):
+    def __taskset_bad__(self, taskset, n):
        
         bad_ID = -1
         set_ID = -1
