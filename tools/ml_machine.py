@@ -270,6 +270,7 @@ class ml_machine:
         db_cursor.execute(sql)
         db_connection.commit()
         self.output("Save completed!")
+        return filename
 
     def loadMachine(self,filename):
         #read machine from file
