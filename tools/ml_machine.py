@@ -25,9 +25,11 @@ class ml_machine:
     logist_reg = None
     naive_bay = None
 
-    def __init__(self, X_data, y_data, split=0.25):
+    def __init__(self, X_data, y_data, split=0.66):
         neu = []
-        
+        y_data = [0 if element == '-1' else element for element in y_data]
+        y_data = [1 if element == '1' else element for element in y_data]
+        #print(y_data)
         for line in X_data:
             #print(line)
             line = [10 if element == '10M' else element for element in line]
@@ -74,7 +76,7 @@ class ml_machine:
             print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
-    def createSVM_poly(self, mkernel='poly',mdegree=2,mcache_size=7000, mtol=0.0001, mclass_weight={1: 20}, mC=1):
+    def createSVM_poly(self, mkernel='poly',mdegree=2,mcache_size=7000, mtol=0.0001, mclass_weight={0: 1,1:3}, mC=1):
         self.svm_pol = Machine()
         self.svm_pol.name = "SVM_pol"
         self.output("SVM poly created training will start soon...")

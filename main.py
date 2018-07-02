@@ -238,29 +238,34 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    svmtune = False
+    svmtune = True
     svm = False
-    dec = True
-    knn = True
-    log = True
-    nav = True
+    dec = False
+    knn = False
+    log = False
+    nav = False
 
-    #kernel=['poly','rbf']
-    #tol = [0.1,0.01,0.001,0.0001,0.00001,0.000001]
+    kernel=['poly','rbf']
+    tol = [1,0.1,0.0025,0.002,0.0015,0.001,0.00075,0.0005,0.00025,0.000001]
+    cs = [5,4,3,2,1.5,1,0.75,0.5,0.25,0.1]
+    ws = [{0:1,1:1},{0:1,1:2},{0:1,1:3},{0:1,1:4},{0:2,1:1},{0:3,1:1},{0:4,1:1},{0:1,1:10},{0:10,1:1}]
 
-
-    x = 0
+    xs = [5,6,7,8,9,10]
     if svmtune:
-        while x <6:
-            print("Polynom 5 "+str(tol[x]))
-            m.createSVM_poly(mdegree=5, mkernel='poly', mtol = tol[x])
-            m.bench(m.svm_pol)
-            m.saveMachine(db_connection,m.svm_pol)
-            x=x+1
+        for t in tol:
+            #for x in xs:
+                for c in cs:
+                    for w in ws:
+                        print("Polynom "+str(5)+" tol: "+str(t))
+                        m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c, mclass_weight = w )
+                        m.bench(m.svm_pol)
+                        m.saveMachine(db_connection,m.svm_pol)
+
 
 
     if svm:
-        m.createSVM_poly()
+        m.createSVM_poly(mdegree=5, mkernel='rbf', mclass_weight={0: 1,1:3})
+        #m.createSVM_poly()
         m.bench(m.svm_pol)
         m.saveMachine(db_connection,m.svm_pol)
     if dec:
