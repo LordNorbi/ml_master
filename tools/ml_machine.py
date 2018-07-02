@@ -26,13 +26,27 @@ class ml_machine:
     naive_bay = None
 
     def __init__(self, X_data, y_data, split=0.25):
+        neu = []
+        
+        for line in X_data:
+            #print(line)
+            line = [10 if element == '10M' else element for element in line]
+            line = [1 if element == 'hey' else element for element in line]
+            line = [2 if element == 'pi' else element for element in line]
+            line = [3 if element == 'cond_42' else element for element in line]
+            line = [4 if element == 'cond_mod' else element for element in line]
+            line = [5 if element == 'tumatmul' else element for element in line]
+            line = list(map(int, line))
+            neu.append(line)
+            #print(line)
+        
+        X_data = neu
+        #X_data = X_data.astype(int)
+        
+        #print(X_data)
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X_data, y_data, test_size=split, random_state=0)
         print("size of Train: "+str(len(self.X_train)))
         print("size of Test: "+str(len(self.X_test)))
-        self.X_train = self.X_train.astype(int)
-        self.X_test = self.X_test.astype(int)
-        self.y_train = self.y_train.astype(int)
-        self.y_test = self.y_test.astype(int)
 
         #i = 0
         #x = 0

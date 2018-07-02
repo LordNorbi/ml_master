@@ -7,13 +7,19 @@ from tools.ml_machine import ml_machine as ml
 from tools.machine import Machine
 
 #db_name = "db/"+"ml_data"+".db" #name of the db created and used
-db_name = "db/"+"training_data_4"+".db"
+#db_name = "db/"+"training_data_4"+".db"
+db_name = "db/big_set"+".db"
 
 #attribute = ["id", "Task1_id", "Task1_executiontime","Task1_criticaltime","Task1_size","Task1_priority"," Task1_period","Task1_offset","Task1_RAMquota","Task1_arg1","Task2_id","Task2_executiontime","Task2_criticaltime","Task2_size","Task2_priority","Task2_period","Task2_offset","Task2_RAMquota","Task2_arg1","Task3_id","Task3_executiontime","Task3_criticaltime","Task3_size","Task3_priority","Task3_period","Task3_offset","Task3_RAMquota","Task3_arg1","Task4_id","Task4_executiontime","Task4_criticaltime","Task4_size","Task4_priority","Task4_period","Task4_offset","Task4_RAMquota","Task4_arg1","Task5_id","Task5_executiontime","Task5_criticaltime","Task5_size","Task5_priority","Task5_period","Task5_offset","Task5_RAMquota","Task5_arg1","Task6_id","Task6_executiontime","Task6_criticaltime","Task6_size","Task6_priority","Task6_period","Task6_offset","Task6_RAMquota","Task6_arg1","Task7_id","Task7_executiontime","Task7_criticaltime","Task7_size","Task7_priority","Task7_period","Task7_offset","Task7_RAMquota","Task7_arg1","succ"] #["Id","Period1","Period2","Deadline_Reached"]
-attribute = ["id", "Task1_id", "Task1_criticaltime", "Task1_arg1", "Task2_id", "Task2_criticaltime", "Task2_arg1", "Task3_id", "Task3_criticaltime", "Task3_arg1", "Task4_id", "Task4_criticaltime", "Task4_arg1", "Task5_id", "Task5_criticaltime", "Task5_arg1", "Task6_id", "Task6_criticaltime", "Task6_arg1", "Task7_id", "Task7_criticaltime", "Task7_arg1", "Fail"]
+#attribute = ["id", "Task1_id", "Task1_criticaltime", "Task1_arg1", "Task2_id", "Task2_criticaltime", "Task2_arg1", "Task3_id", "Task3_criticaltime", "Task3_arg1", "Task4_id", "Task4_criticaltime", "Task4_arg1", "Task5_id", "Task5_criticaltime", "Task5_arg1", "Task6_id", "Task6_criticaltime", "Task6_arg1", "Task7_id", "Task7_criticaltime", "Task7_arg1", "Fail"]
+attribute = ["Set_ID", "Priority01", "Deadline01", "Quota01", "PKG01", "Arg01", "Period01", "Number_of_Jobs01", "Offset01", "Priority02", "Deadline02", "Quota02", "PKG02", "Arg02", "Period02", "Number_of_Jobs02", "Offset02", "Priority03", "Deadline03", "Quota03", "PKG03", "Arg03", "Period03", "Number_of_Jobs03", "Offset03", "Priority04", "Deadline04", "Quota04", "PKG04", "Arg04", "Period05", "Number_of_Jobs05", "Offset05", "Priority05", "Deadline05", "Quota05", "PKG05", "Arg05", "Period05", "Number_of_Jobs05", "Offset05", "Exit_Value"]
 #types_of_attributes = ["TEXT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT"] #["INT","INT","INT","INT"] #Booleans are stores as INT (0 or 1)
-types_of_attributes = ["TEXT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT"]
-table_name = "training" #"Data"
+#types_of_attributes = ["TEXT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT","INT"]
+types_of_attributes = [ "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT" ]
+
+
+#table_name = "training" #"Data"
+table_name = "Dataset"
 create_new_data = False # True or False
 db_connection = None
 
@@ -24,7 +30,7 @@ def output(msg):
 def checkDB():
     if not os.path.exists(db_name):
         print("Datenbank "+db_name+" nicht vorhanden - Datenbank wird anglegt.")
-        createDB()
+        #createDB()
         return()
     global db_connection
     db_connection = sqlite3.connect(db_name)
@@ -154,7 +160,7 @@ def closeDB():
     db_connection.close()
 
 def getNumberOfEntries():
-    sql = "SELECT count(Id) FROM "+table_name+" where Id >= 0"
+    sql = "SELECT count(Set_ID) FROM "+table_name+" where Set_ID >= 0" # fix id to the name of the id in yout table
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
@@ -224,32 +230,39 @@ def main():
 
     print(str(len(X_data)))
     #X_data = X_data[:1000]
-    print(str(len(X_data)))
+    #print(str(len(X_data)))
     #y_data = y_data[:1000]
     m = ml(X_data, y_data)
 
-#m.dec_tree = Machine()
-#m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
-#m.bench(m.dec_tree)
+    #m.dec_tree = Machine()
+    #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
+    #m.bench(m.dec_tree)
 
-    svm = True
-    dec = False
-    knn = False
-    log = False
-    nav = False
+    svmtune = False
+    svm = False
+    dec = True
+    knn = True
+    log = True
+    nav = True
 
-    kernel=['poly','rbf']
-    tol = [0.1,0.01,0.001,0.0001,0.00001,0.000001]
+    #kernel=['poly','rbf']
+    #tol = [0.1,0.01,0.001,0.0001,0.00001,0.000001]
 
 
     x = 0
-    if svm:
+    if svmtune:
         while x <6:
             print("Polynom 5 "+str(tol[x]))
             m.createSVM_poly(mdegree=5, mkernel='poly', mtol = tol[x])
             m.bench(m.svm_pol)
             m.saveMachine(db_connection,m.svm_pol)
             x=x+1
+
+
+    if svm:
+        m.createSVM_poly()
+        m.bench(m.svm_pol)
+        m.saveMachine(db_connection,m.svm_pol)
     if dec:
         m.createDEC_tree()
         m.bench(m.dec_tree)
