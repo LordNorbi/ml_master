@@ -71,5 +71,5 @@ __pycache__/
 .DS_Store
 *.pyc
 *.pyo
-saves/
+
 log/ml.log
