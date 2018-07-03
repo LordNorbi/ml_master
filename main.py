@@ -128,8 +128,8 @@ def main():
 
     svmtune = False
     dectune = False
-    knntune = True
-    logtune = False
+    knntune = False
+    logtune = True
     navtune = False
     
     svm = False
@@ -159,18 +159,25 @@ def main():
 
     solv=['sag','saga']                                         #   2
     pen = ['str','l1','l2']                                     #   3
-    iter = [10,100,1000]                                        #   3
+    iter = [500,1000,10000]                                     #   3
     tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
                                                                 #  60
     if logtune:
         for so in solv:
             for p in pen:
                 for t in tol:
-                    for it in inter:
-                        logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
-                        i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
-                        m.bench(m.logist_reg_list[i])
-                        m.saveMachine(db_connection,m.logist_reg_list[i])
+                    for it in iter:
+                        if so =='sag':
+                            if p =='l2':
+                                logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
+                                i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
+                                m.bench(m.logist_reg_list[i])
+                                m.saveMachine(db_connection,m.logist_reg_list[i])
+                        else:
+                            logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
+                            i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
+                            m.bench(m.logist_reg_list[i])
+                            m.saveMachine(db_connection,m.logist_reg_list[i])
     
     
     splitter = ['best','random']                                #   2

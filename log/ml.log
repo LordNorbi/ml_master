@@ -1,0 +1,839 @@
+2018-07-03 12:59:46,857 -------------------------------------------
+2018-07-03 12:59:56,001 -------------------------------------------
+2018-07-03 12:59:57,162 Log:  splitter: best,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 12:59:57,251 Score: 0.7555691180958194
+2018-07-03 12:59:57,264 Precision: (0.84, 0.53, 0.76) Recall: (0.82, 0.58, 0.76) F1: (0.83, 0.56, 0.76) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,267 Save completed! 0_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,267 Log:  splitter: best,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 12:59:57,359 Score: 0.7827281049740616
+2018-07-03 12:59:57,374 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.5, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,377 Save completed! 1_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,377 Log:  splitter: best,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 12:59:57,456 Score: 0.8120231919438511
+2018-07-03 12:59:57,469 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,473 Save completed! 2_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,473 Log:  splitter: best,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 12:59:57,564 Score: 0.8199572779981691
+2018-07-03 12:59:57,580 Precision: (0.87, 0.68, 0.82) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,583 Save completed! 3_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,583 Log:  splitter: best,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 12:59:57,661 Score: 0.7842538907537382
+2018-07-03 12:59:57,674 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.51, 0.78) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,676 Save completed! 4_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,676 Log:  splitter: best,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 12:59:57,752 Score: 0.7876106194690266
+2018-07-03 12:59:57,765 Precision: (0.84, 0.62, 0.78) Recall: (0.89, 0.51, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,768 Save completed! 5_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,768 Log:  splitter: best,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 12:59:57,856 Score: 0.8135489777235276
+2018-07-03 12:59:57,869 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,872 Save completed! 6_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,873 Log:  splitter: best,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 12:59:57,945 Score: 0.8205675923100396
+2018-07-03 12:59:57,957 Precision: (0.87, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:57,960 Save completed! 7_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:57,960 Log:  splitter: best,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 12:59:58,042 Score: 0.808971620384498
+2018-07-03 12:59:58,056 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,059 Save completed! 8_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,059 Log:  splitter: best,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 12:59:58,133 Score: 0.8056148916692096
+2018-07-03 12:59:58,146 Precision: (0.86, 0.65, 0.8) Recall: (0.88, 0.59, 0.81) F1: (0.87, 0.61, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,149 Save completed! 9_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,149 Log:  splitter: best,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 12:59:58,223 Score: 0.8138541348794629
+2018-07-03 12:59:58,241 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,244 Save completed! 10_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,244 Log:  splitter: best,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 12:59:58,336 Score: 0.8175160207506866
+2018-07-03 12:59:58,355 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,359 Save completed! 11_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,359 Log:  splitter: best,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 12:59:58,436 Score: 0.8184314922184925
+2018-07-03 12:59:58,449 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,452 Save completed! 12_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,452 Log:  splitter: best,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 12:59:58,532 Score: 0.8172108635947513
+2018-07-03 12:59:58,548 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,552 Save completed! 13_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,552 Log:  splitter: best,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 12:59:58,624 Score: 0.8190418065303632
+2018-07-03 12:59:58,637 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,641 Save completed! 14_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,642 Log:  splitter: best,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 12:59:58,716 Score: 0.8205675923100396
+2018-07-03 12:59:58,729 Precision: (0.87, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,732 Save completed! 15_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,732 Log:  splitter: best,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 12:59:58,829 Score: 0.8196521208422337
+2018-07-03 12:59:58,843 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,845 Save completed! 16_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,845 Log:  splitter: best,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 12:59:58,920 Score: 0.8184314922184925
+2018-07-03 12:59:58,932 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:58,936 Save completed! 17_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:58,936 Log:  splitter: best,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 12:59:59,011 Score: 0.8184314922184925
+2018-07-03 12:59:59,028 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,031 Save completed! 18_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,031 Log:  splitter: best,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 12:59:59,109 Score: 0.8193469636862984
+2018-07-03 12:59:59,125 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,127 Save completed! 19_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,127 Log:  splitter: best,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 12:59:59,207 Score: 0.8196521208422337
+2018-07-03 12:59:59,221 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,224 Save completed! 20_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,224 Log:  splitter: best,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 12:59:59,310 Score: 0.8172108635947513
+2018-07-03 12:59:59,325 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,334 Save completed! 21_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,334 Log:  splitter: best,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 12:59:59,426 Score: 0.8178211779066219
+2018-07-03 12:59:59,440 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,443 Save completed! 22_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,443 Log:  splitter: best,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 12:59:59,536 Score: 0.8187366493744278
+2018-07-03 12:59:59,556 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,559 Save completed! 23_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,559 Log:  splitter: best,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 12:59:59,640 Score: 0.7558742752517547
+2018-07-03 12:59:59,654 Precision: (0.84, 0.54, 0.76) Recall: (0.82, 0.57, 0.76) F1: (0.83, 0.55, 0.76) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,658 Save completed! 24_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,658 Log:  splitter: best,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 12:59:59,739 Score: 0.7830332621299969
+2018-07-03 12:59:59,752 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.51, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,756 Save completed! 25_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,756 Log:  splitter: best,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 12:59:59,853 Score: 0.8147696063472688
+2018-07-03 12:59:59,878 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,880 Save completed! 26_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,880 Log:  splitter: best,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 12:59:59,959 Score: 0.8199572779981691
+2018-07-03 12:59:59,972 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 12:59:59,975 Save completed! 27_DEC_tree_2018-07-03.pkl
+2018-07-03 12:59:59,975 Log:  splitter: best,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:00,080 Score: 0.78608483368935
+2018-07-03 13:00:00,099 Precision: (0.84, 0.61, 0.78) Recall: (0.88, 0.52, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,103 Save completed! 28_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,103 Log:  splitter: best,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:00,187 Score: 0.7827281049740616
+2018-07-03 13:00:00,201 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.5, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,204 Save completed! 29_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,204 Log:  splitter: best,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:00,296 Score: 0.8080561489166921
+2018-07-03 13:00:00,317 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,319 Save completed! 30_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,319 Log:  splitter: best,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:00,437 Score: 0.8187366493744278
+2018-07-03 13:00:00,450 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,452 Save completed! 31_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,452 Log:  splitter: best,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:00,544 Score: 0.8098870918523039
+2018-07-03 13:00:00,574 Precision: (0.86, 0.66, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,577 Save completed! 32_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,577 Log:  splitter: best,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:00,683 Score: 0.8062252059810803
+2018-07-03 13:00:00,699 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.61, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,702 Save completed! 33_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,702 Log:  splitter: best,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:00,777 Score: 0.8126335062557217
+2018-07-03 13:00:00,796 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,799 Save completed! 34_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,799 Log:  splitter: best,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:00,901 Score: 0.8199572779981691
+2018-07-03 13:00:00,914 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:00,916 Save completed! 35_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:00,916 Log:  splitter: best,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 13:00:00,999 Score: 0.7598413182789137
+2018-07-03 13:00:01,012 Precision: (0.85, 0.54, 0.77) Recall: (0.82, 0.58, 0.76) F1: (0.83, 0.56, 0.76) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,017 Save completed! 36_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,017 Log:  splitter: best,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 13:00:01,100 Score: 0.7802868477265792
+2018-07-03 13:00:01,113 Precision: (0.83, 0.6, 0.77) Recall: (0.88, 0.5, 0.78) F1: (0.86, 0.54, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,116 Save completed! 37_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,116 Log:  splitter: best,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 13:00:01,203 Score: 0.8147696063472688
+2018-07-03 13:00:01,216 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.61, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,219 Save completed! 38_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,219 Log:  splitter: best,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 13:00:01,308 Score: 0.8193469636862984
+2018-07-03 13:00:01,333 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,335 Save completed! 39_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,336 Log:  splitter: best,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:01,450 Score: 0.7876106194690266
+2018-07-03 13:00:01,464 Precision: (0.84, 0.61, 0.78) Recall: (0.88, 0.53, 0.79) F1: (0.86, 0.57, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,467 Save completed! 40_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,468 Log:  splitter: best,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:01,551 Score: 0.7882209337808972
+2018-07-03 13:00:01,566 Precision: (0.84, 0.62, 0.78) Recall: (0.89, 0.52, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,570 Save completed! 41_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,570 Log:  splitter: best,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:01,656 Score: 0.8141592920353983
+2018-07-03 13:00:01,669 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,672 Save completed! 42_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,673 Log:  splitter: best,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:01,747 Score: 0.8193469636862984
+2018-07-03 13:00:01,762 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,766 Save completed! 43_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,766 Log:  splitter: best,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:01,857 Score: 0.808971620384498
+2018-07-03 13:00:01,874 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,878 Save completed! 44_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,878 Log:  splitter: best,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:01,964 Score: 0.8053097345132744
+2018-07-03 13:00:01,977 Precision: (0.85, 0.65, 0.8) Recall: (0.89, 0.58, 0.81) F1: (0.87, 0.61, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:01,981 Save completed! 45_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:01,981 Log:  splitter: best,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:02,069 Score: 0.8132438205675923
+2018-07-03 13:00:02,085 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,090 Save completed! 46_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,090 Log:  splitter: best,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:02,174 Score: 0.8199572779981691
+2018-07-03 13:00:02,187 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,190 Save completed! 47_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,190 Log:  splitter: random,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 13:00:02,269 Score: 0.7522123893805309
+2018-07-03 13:00:02,282 Precision: (0.84, 0.53, 0.76) Recall: (0.82, 0.56, 0.75) F1: (0.83, 0.55, 0.75) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,286 Save completed! 48_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,286 Log:  splitter: random,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 13:00:02,372 Score: 0.7873054623130913
+2018-07-03 13:00:02,386 Precision: (0.83, 0.62, 0.78) Recall: (0.89, 0.51, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,390 Save completed! 49_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,390 Log:  splitter: random,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 13:00:02,476 Score: 0.812938663411657
+2018-07-03 13:00:02,489 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,493 Save completed! 50_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,493 Log:  splitter: random,  max_depth: None,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 13:00:02,580 Score: 0.8205675923100396
+2018-07-03 13:00:02,594 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,598 Save completed! 51_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,598 Log:  splitter: random,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:02,679 Score: 0.7836435764418676
+2018-07-03 13:00:02,692 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.51, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,695 Save completed! 52_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,695 Log:  splitter: random,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:02,775 Score: 0.7863899908452853
+2018-07-03 13:00:02,790 Precision: (0.84, 0.61, 0.78) Recall: (0.88, 0.51, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,793 Save completed! 53_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,793 Log:  splitter: random,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:02,884 Score: 0.8123283490997864
+2018-07-03 13:00:02,898 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:02,902 Save completed! 54_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:02,902 Log:  splitter: random,  max_depth: None,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:02,995 Score: 0.8199572779981691
+2018-07-03 13:00:03,009 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,012 Save completed! 55_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,013 Log:  splitter: random,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:03,105 Score: 0.8117180347879158
+2018-07-03 13:00:03,119 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,123 Save completed! 56_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,123 Log:  splitter: random,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:03,205 Score: 0.8077509917607568
+2018-07-03 13:00:03,219 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,223 Save completed! 57_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,223 Log:  splitter: random,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:03,320 Score: 0.812938663411657
+2018-07-03 13:00:03,335 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,337 Save completed! 58_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,337 Log:  splitter: random,  max_depth: None,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:03,426 Score: 0.8193469636862984
+2018-07-03 13:00:03,449 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,451 Save completed! 59_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,452 Log:  splitter: random,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 13:00:03,536 Score: 0.8202624351541044
+2018-07-03 13:00:03,551 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,554 Save completed! 60_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,555 Log:  splitter: random,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 13:00:03,637 Score: 0.8202624351541044
+2018-07-03 13:00:03,650 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,653 Save completed! 61_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,653 Log:  splitter: random,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 13:00:03,744 Score: 0.8190418065303632
+2018-07-03 13:00:03,770 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,774 Save completed! 62_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,774 Log:  splitter: random,  max_depth: 10,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 13:00:03,881 Score: 0.8205675923100396
+2018-07-03 13:00:03,895 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,897 Save completed! 63_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,897 Log:  splitter: random,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:03,974 Score: 0.8190418065303632
+2018-07-03 13:00:03,986 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:03,989 Save completed! 64_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:03,990 Log:  splitter: random,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:04,079 Score: 0.8190418065303632
+2018-07-03 13:00:04,105 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,107 Save completed! 65_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,107 Log:  splitter: random,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:04,214 Score: 0.8178211779066219
+2018-07-03 13:00:04,229 Precision: (0.86, 0.67, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,232 Save completed! 66_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,232 Log:  splitter: random,  max_depth: 10,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:04,322 Score: 0.8187366493744278
+2018-07-03 13:00:04,336 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,339 Save completed! 67_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,339 Log:  splitter: random,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:04,427 Score: 0.8190418065303632
+2018-07-03 13:00:04,443 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,446 Save completed! 68_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,446 Log:  splitter: random,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:04,567 Score: 0.8190418065303632
+2018-07-03 13:00:04,596 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.6, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,599 Save completed! 69_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,600 Log:  splitter: random,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:04,705 Score: 0.8196521208422337
+2018-07-03 13:00:04,719 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,721 Save completed! 70_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,722 Log:  splitter: random,  max_depth: 10,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:04,798 Score: 0.8187366493744278
+2018-07-03 13:00:04,818 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,821 Save completed! 71_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,821 Log:  splitter: random,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 13:00:04,912 Score: 0.7580103753433018
+2018-07-03 13:00:04,926 Precision: (0.84, 0.54, 0.76) Recall: (0.82, 0.57, 0.76) F1: (0.83, 0.56, 0.76) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:04,929 Save completed! 72_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:04,929 Log:  splitter: random,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 13:00:05,011 Score: 0.7833384192859323
+2018-07-03 13:00:05,034 Precision: (0.83, 0.61, 0.77) Recall: (0.88, 0.51, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,036 Save completed! 73_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,036 Log:  splitter: random,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 13:00:05,132 Score: 0.8138541348794629
+2018-07-03 13:00:05,145 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,148 Save completed! 74_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,148 Log:  splitter: random,  max_depth: 15,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 13:00:05,234 Score: 0.8193469636862984
+2018-07-03 13:00:05,248 Precision: (0.86, 0.68, 0.81) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,251 Save completed! 75_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,251 Log:  splitter: random,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:05,332 Score: 0.7848642050656088
+2018-07-03 13:00:05,347 Precision: (0.84, 0.61, 0.78) Recall: (0.88, 0.52, 0.78) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,349 Save completed! 76_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,349 Log:  splitter: random,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:05,426 Score: 0.78608483368935
+2018-07-03 13:00:05,438 Precision: (0.83, 0.61, 0.78) Recall: (0.88, 0.51, 0.79) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,442 Save completed! 77_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,442 Log:  splitter: random,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:05,515 Score: 0.8117180347879158
+2018-07-03 13:00:05,538 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,541 Save completed! 78_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,541 Log:  splitter: random,  max_depth: 15,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:05,621 Score: 0.8187366493744278
+2018-07-03 13:00:05,642 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,645 Save completed! 79_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,645 Log:  splitter: random,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:05,752 Score: 0.8077509917607568
+2018-07-03 13:00:05,770 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,772 Save completed! 80_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,773 Log:  splitter: random,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:05,874 Score: 0.808971620384498
+2018-07-03 13:00:05,895 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:05,898 Save completed! 81_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:05,898 Log:  splitter: random,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:06,021 Score: 0.8126335062557217
+2018-07-03 13:00:06,046 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,049 Save completed! 82_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,049 Log:  splitter: random,  max_depth: 15,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:06,150 Score: 0.8187366493744278
+2018-07-03 13:00:06,166 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,168 Save completed! 83_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,168 Log:  splitter: random,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 1
+2018-07-03 13:00:06,288 Score: 0.7601464754348489
+2018-07-03 13:00:06,339 Precision: (0.84, 0.54, 0.77) Recall: (0.83, 0.58, 0.76) F1: (0.84, 0.56, 0.76) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,341 Save completed! 84_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,342 Log:  splitter: random,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 2
+2018-07-03 13:00:06,465 Score: 0.7845590479096735
+2018-07-03 13:00:06,482 Precision: (0.83, 0.61, 0.77) Recall: (0.89, 0.5, 0.78) F1: (0.86, 0.55, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,486 Save completed! 85_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,486 Log:  splitter: random,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 5
+2018-07-03 13:00:06,687 Score: 0.812938663411657
+2018-07-03 13:00:06,700 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.59, 0.81) F1: (0.88, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,702 Save completed! 86_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,702 Log:  splitter: random,  max_depth: 20,  min_sample_split:2,  min_sample_leaf: 10
+2018-07-03 13:00:06,783 Score: 0.8187366493744278
+2018-07-03 13:00:06,809 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:06,812 Save completed! 87_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:06,812 Log:  splitter: random,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 1
+2018-07-03 13:00:06,967 Score: 0.7842538907537382
+2018-07-03 13:00:07,001 Precision: (0.83, 0.61, 0.78) Recall: (0.88, 0.51, 0.78) F1: (0.86, 0.56, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:07,005 Save completed! 88_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:07,005 Log:  splitter: random,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 2
+2018-07-03 13:00:07,167 Score: 0.790051876716509
+2018-07-03 13:00:07,182 Precision: (0.84, 0.62, 0.78) Recall: (0.89, 0.52, 0.79) F1: (0.86, 0.57, 0.78) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:07,190 Save completed! 89_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:07,191 Log:  splitter: random,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 5
+2018-07-03 13:00:07,281 Score: 0.8123283490997864
+2018-07-03 13:00:07,307 Precision: (0.86, 0.66, 0.81) Recall: (0.89, 0.6, 0.81) F1: (0.87, 0.63, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:07,312 Save completed! 90_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:07,312 Log:  splitter: random,  max_depth: 20,  min_sample_split:5,  min_sample_leaf: 10
+2018-07-03 13:00:07,709 Score: 0.8199572779981691
+2018-07-03 13:00:07,744 Precision: (0.86, 0.68, 0.82) Recall: (0.9, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:07,749 Save completed! 91_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:07,750 Log:  splitter: random,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 1
+2018-07-03 13:00:07,923 Score: 0.8062252059810803
+2018-07-03 13:00:07,954 Precision: (0.86, 0.65, 0.8) Recall: (0.88, 0.59, 0.81) F1: (0.87, 0.62, 0.8) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:07,956 Save completed! 92_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:07,956 Log:  splitter: random,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 2
+2018-07-03 13:00:08,101 Score: 0.808971620384498
+2018-07-03 13:00:08,139 Precision: (0.86, 0.65, 0.8) Recall: (0.89, 0.59, 0.81) F1: (0.87, 0.62, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:08,152 Save completed! 93_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:08,153 Log:  splitter: random,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 5
+2018-07-03 13:00:08,348 Score: 0.816905706438816
+2018-07-03 13:00:08,400 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.81) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:08,403 Save completed! 94_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:08,404 Log:  splitter: random,  max_depth: 20,  min_sample_split:10,  min_sample_leaf: 10
+2018-07-03 13:00:08,496 Score: 0.8193469636862984
+2018-07-03 13:00:08,512 Precision: (0.86, 0.67, 0.81) Recall: (0.89, 0.61, 0.82) F1: (0.88, 0.64, 0.82) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:08,516 Save completed! 95_DEC_tree_2018-07-03.pkl
+2018-07-03 13:00:31,258 -------------------------------------------
+2018-07-03 13:00:32,513 KNN:  K: 1,  algorithm: ball_tree,  weight:uniform
+2018-07-03 13:00:32,904 Score: 0.7638083613060727
+2018-07-03 13:00:33,153 Precision: (0.85, 0.55, 0.77) Recall: (0.83, 0.59, 0.76) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:33,174 Save completed! 96_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:33,174 KNN:  K: 1,  algorithm: kd_tree,  weight:uniform
+2018-07-03 13:00:33,733 Score: 0.7638083613060727
+2018-07-03 13:00:34,097 Precision: (0.85, 0.55, 0.77) Recall: (0.83, 0.59, 0.76) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:34,120 Save completed! 97_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:34,120 KNN:  K: 1,  algorithm: brute,  weight:uniform
+2018-07-03 13:00:35,533 Score: 0.7674702471772963
+2018-07-03 13:00:36,539 Precision: (0.85, 0.56, 0.77) Recall: (0.83, 0.59, 0.77) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:36,554 Save completed! 98_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:36,554 KNN:  K: 1,  algorithm: ball_tree,  weight:distance
+2018-07-03 13:00:37,136 Score: 0.7638083613060727
+2018-07-03 13:00:37,386 Precision: (0.85, 0.55, 0.77) Recall: (0.83, 0.59, 0.76) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:37,407 Save completed! 99_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:37,407 KNN:  K: 1,  algorithm: kd_tree,  weight:distance
+2018-07-03 13:00:38,062 Score: 0.7638083613060727
+2018-07-03 13:00:38,578 Precision: (0.85, 0.55, 0.77) Recall: (0.83, 0.59, 0.76) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:38,608 Save completed! 100_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:38,609 KNN:  K: 1,  algorithm: brute,  weight:distance
+2018-07-03 13:00:39,524 Score: 0.7674702471772963
+2018-07-03 13:00:40,412 Precision: (0.85, 0.56, 0.77) Recall: (0.83, 0.59, 0.77) F1: (0.84, 0.57, 0.77) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:40,421 Save completed! 101_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:40,421 KNN:  K: 2,  algorithm: ball_tree,  weight:uniform
+2018-07-03 13:00:40,843 Score: 0.7686908758010376
+2018-07-03 13:00:41,139 Precision: (0.79, 0.64, 0.75) Recall: (0.94, 0.28, 0.77) F1: (0.86, 0.39, 0.73) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:41,158 Save completed! 102_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:41,158 KNN:  K: 2,  algorithm: kd_tree,  weight:uniform
+2018-07-03 13:00:41,682 Score: 0.7680805614891669
+2018-07-03 13:00:42,140 Precision: (0.79, 0.64, 0.75) Recall: (0.94, 0.28, 0.77) F1: (0.86, 0.39, 0.73) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:00:42,163 Save completed! 103_k_nearest_2018-07-03.pkl
+2018-07-03 13:00:42,163 KNN:  K: 2,  algorithm: brute,  weight:uniform
+2018-07-03 13:00:55,032 -------------------------------------------
+2018-07-03 13:01:18,754 -------------------------------------------
+2018-07-03 13:01:19,949 Log:  solv: sag,  penalty: str,  tol:1,  iterations: 10
+2018-07-03 13:03:22,687 -------------------------------------------
+2018-07-03 13:03:23,923 Log:  solv: sag,  penalty: str,  tol:1,  iterations: 10
+2018-07-03 13:05:19,960 -------------------------------------------
+2018-07-03 13:05:21,111 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 10
+2018-07-03 13:05:45,747 -------------------------------------------
+2018-07-03 13:05:46,945 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 10
+2018-07-03 13:05:47,047 Score: 0.7360390601159598
+2018-07-03 13:05:47,061 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,063 Save completed! 104_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,063 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 100
+2018-07-03 13:05:47,151 Score: 0.2639609398840403
+2018-07-03 13:05:47,170 Precision: (0.0, 0.26, 0.07) Recall: (0.0, 1.0, 0.26) F1: (0.0, 0.42, 0.11) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,173 Save completed! 105_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,173 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 1000
+2018-07-03 13:05:47,250 Score: 0.7360390601159598
+2018-07-03 13:05:47,262 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,264 Save completed! 106_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,264 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 10
+2018-07-03 13:05:47,421 Score: 0.7360390601159598
+2018-07-03 13:05:47,437 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,439 Save completed! 107_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,439 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 100
+2018-07-03 13:05:47,599 Score: 0.7360390601159598
+2018-07-03 13:05:47,619 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,623 Save completed! 108_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,624 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 1000
+2018-07-03 13:05:47,801 Score: 0.7360390601159598
+2018-07-03 13:05:47,812 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,815 Save completed! 109_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,816 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 10
+2018-07-03 13:05:47,880 Score: 0.7360390601159598
+2018-07-03 13:05:47,891 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,895 Save completed! 110_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,895 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 100
+2018-07-03 13:05:47,959 Score: 0.7360390601159598
+2018-07-03 13:05:47,970 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:47,973 Save completed! 111_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:47,973 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 1000
+2018-07-03 13:05:48,051 Score: 0.7360390601159598
+2018-07-03 13:05:48,062 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:48,064 Save completed! 112_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:48,064 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 10
+2018-07-03 13:05:48,277 Score: 0.7360390601159598
+2018-07-03 13:05:48,290 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:48,293 Save completed! 113_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:48,294 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 100
+2018-07-03 13:05:49,191 Score: 0.7360390601159598
+2018-07-03 13:05:49,203 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:49,207 Save completed! 114_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:49,207 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 1000
+2018-07-03 13:05:57,241 Score: 0.7360390601159598
+2018-07-03 13:05:57,252 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:57,255 Save completed! 115_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:57,255 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 10
+2018-07-03 13:05:57,394 Score: 0.7360390601159598
+2018-07-03 13:05:57,405 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:57,408 Save completed! 116_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:57,408 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 100
+2018-07-03 13:05:58,247 Score: 0.7360390601159598
+2018-07-03 13:05:58,258 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:05:58,261 Save completed! 117_logist_reg_2018-07-03.pkl
+2018-07-03 13:05:58,261 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 1000
+2018-07-03 13:06:06,126 Score: 0.7360390601159598
+2018-07-03 13:06:06,138 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,141 Save completed! 118_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,141 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 10
+2018-07-03 13:06:06,239 Score: 0.7360390601159598
+2018-07-03 13:06:06,251 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,254 Save completed! 119_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,255 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 100
+2018-07-03 13:06:06,320 Score: 0.7360390601159598
+2018-07-03 13:06:06,331 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,334 Save completed! 120_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,334 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 1000
+2018-07-03 13:06:06,398 Score: 0.7360390601159598
+2018-07-03 13:06:06,410 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,413 Save completed! 121_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,413 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 10
+2018-07-03 13:06:06,530 Score: 0.7360390601159598
+2018-07-03 13:06:06,541 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,544 Save completed! 122_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,544 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 100
+2018-07-03 13:06:06,708 Score: 0.7360390601159598
+2018-07-03 13:06:06,723 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,724 Save completed! 123_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,724 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 1000
+2018-07-03 13:06:06,841 Score: 0.7360390601159598
+2018-07-03 13:06:06,852 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,855 Save completed! 124_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,855 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 10
+2018-07-03 13:06:06,918 Score: 0.7360390601159598
+2018-07-03 13:06:06,929 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:06,932 Save completed! 125_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:06,932 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 100
+2018-07-03 13:06:06,998 Score: 0.2639609398840403
+2018-07-03 13:06:07,009 Precision: (0.0, 0.26, 0.07) Recall: (0.0, 1.0, 0.26) F1: (0.0, 0.42, 0.11) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:07,012 Save completed! 126_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:07,012 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 1000
+2018-07-03 13:06:07,077 Score: 0.7360390601159598
+2018-07-03 13:06:07,088 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:07,091 Save completed! 127_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:07,092 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 10
+2018-07-03 13:06:07,278 Score: 0.7360390601159598
+2018-07-03 13:06:07,291 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:07,292 Save completed! 128_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:07,292 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 100
+2018-07-03 13:06:08,204 Score: 0.7360390601159598
+2018-07-03 13:06:08,218 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:08,221 Save completed! 129_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:08,221 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 1000
+2018-07-03 13:06:13,428 Score: 0.7360390601159598
+2018-07-03 13:06:13,439 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:13,443 Save completed! 130_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:13,443 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 10
+2018-07-03 13:06:13,574 Score: 0.7360390601159598
+2018-07-03 13:06:13,585 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:13,588 Save completed! 131_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:13,588 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 100
+2018-07-03 13:06:14,457 Score: 0.7360390601159598
+2018-07-03 13:06:14,469 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:14,472 Save completed! 132_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:14,472 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 1000
+2018-07-03 13:06:22,474 Score: 0.7360390601159598
+2018-07-03 13:06:22,486 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:22,489 Save completed! 133_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:22,489 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 10
+2018-07-03 13:06:22,567 Score: 0.7360390601159598
+2018-07-03 13:06:22,579 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:22,582 Save completed! 134_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:22,582 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 100
+2018-07-03 13:06:22,649 Score: 0.7360390601159598
+2018-07-03 13:06:22,660 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:22,664 Save completed! 135_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:22,664 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 1000
+2018-07-03 13:06:22,732 Score: 0.7360390601159598
+2018-07-03 13:06:22,743 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:22,746 Save completed! 136_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:22,747 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 10
+2018-07-03 13:06:22,899 Score: 0.7360390601159598
+2018-07-03 13:06:22,910 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:22,912 Save completed! 137_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:22,912 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 100
+2018-07-03 13:06:23,098 Score: 0.7360390601159598
+2018-07-03 13:06:23,110 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,112 Save completed! 138_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,112 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 1000
+2018-07-03 13:06:23,273 Score: 0.7360390601159598
+2018-07-03 13:06:23,284 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,287 Save completed! 139_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,287 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 10
+2018-07-03 13:06:23,353 Score: 0.7360390601159598
+2018-07-03 13:06:23,364 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,367 Save completed! 140_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,368 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 100
+2018-07-03 13:06:23,434 Score: 0.7360390601159598
+2018-07-03 13:06:23,445 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,449 Save completed! 141_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,449 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 1000
+2018-07-03 13:06:23,538 Score: 0.7360390601159598
+2018-07-03 13:06:23,562 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,564 Save completed! 142_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,564 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 10
+2018-07-03 13:06:23,748 Score: 0.7360390601159598
+2018-07-03 13:06:23,759 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:23,762 Save completed! 143_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:23,762 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 100
+2018-07-03 13:06:24,928 Score: 0.7360390601159598
+2018-07-03 13:06:24,939 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:24,941 Save completed! 144_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:24,942 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 1000
+2018-07-03 13:06:36,376 Score: 0.7360390601159598
+2018-07-03 13:06:36,388 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:36,391 Save completed! 145_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:36,391 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 10
+2018-07-03 13:06:36,567 Score: 0.7360390601159598
+2018-07-03 13:06:36,579 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:36,581 Save completed! 146_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:36,581 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 100
+2018-07-03 13:06:37,782 Score: 0.7360390601159598
+2018-07-03 13:06:37,795 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:06:37,798 Save completed! 147_logist_reg_2018-07-03.pkl
+2018-07-03 13:06:37,798 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 1000
+2018-07-03 13:07:02,310 -------------------------------------------
+2018-07-03 13:07:03,521 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 100
+2018-07-03 13:07:03,591 Score: 0.7360390601159598
+2018-07-03 13:07:03,603 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:03,607 Save completed! 148_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:03,607 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 500
+2018-07-03 13:07:03,689 Score: 0.7360390601159598
+2018-07-03 13:07:03,700 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:03,702 Save completed! 149_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:03,702 Log:  solv: sag,  penalty: l2,  tol:1,  iterations: 1000
+2018-07-03 13:07:03,775 Score: 0.7360390601159598
+2018-07-03 13:07:03,791 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:03,793 Save completed! 150_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:03,793 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 100
+2018-07-03 13:07:03,934 Score: 0.7360390601159598
+2018-07-03 13:07:03,945 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:03,948 Save completed! 151_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:03,948 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 500
+2018-07-03 13:07:04,087 Score: 0.7360390601159598
+2018-07-03 13:07:04,098 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:04,101 Save completed! 152_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:04,101 Log:  solv: sag,  penalty: l2,  tol:0.1,  iterations: 1000
+2018-07-03 13:07:04,262 Score: 0.7360390601159598
+2018-07-03 13:07:04,276 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:04,279 Save completed! 153_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:04,279 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 100
+2018-07-03 13:07:04,343 Score: 0.7360390601159598
+2018-07-03 13:07:04,355 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:04,358 Save completed! 154_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:04,358 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 500
+2018-07-03 13:07:04,421 Score: 0.7360390601159598
+2018-07-03 13:07:04,433 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:04,436 Save completed! 155_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:04,436 Log:  solv: sag,  penalty: l2,  tol:5,  iterations: 1000
+2018-07-03 13:07:04,499 Score: 0.2639609398840403
+2018-07-03 13:07:04,510 Precision: (0.0, 0.26, 0.07) Recall: (0.0, 1.0, 0.26) F1: (0.0, 0.42, 0.11) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:04,513 Save completed! 156_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:04,513 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 100
+2018-07-03 13:07:05,442 Score: 0.7360390601159598
+2018-07-03 13:07:05,458 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:05,460 Save completed! 157_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:05,460 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 500
+2018-07-03 13:07:09,569 Score: 0.7360390601159598
+2018-07-03 13:07:09,580 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:09,583 Save completed! 158_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:09,583 Log:  solv: sag,  penalty: l2,  tol:0.001,  iterations: 1000
+2018-07-03 13:07:17,493 Score: 0.7360390601159598
+2018-07-03 13:07:17,516 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:17,518 Save completed! 159_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:17,518 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 100
+2018-07-03 13:07:18,463 Score: 0.7360390601159598
+2018-07-03 13:07:18,475 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:18,478 Save completed! 160_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:18,478 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 500
+2018-07-03 13:07:23,110 Score: 0.7360390601159598
+2018-07-03 13:07:23,122 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:23,125 Save completed! 161_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:23,125 Log:  solv: sag,  penalty: l2,  tol:0.0001,  iterations: 1000
+2018-07-03 13:07:31,304 Score: 0.7360390601159598
+2018-07-03 13:07:31,317 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,320 Save completed! 162_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,320 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 100
+2018-07-03 13:07:31,411 Score: 0.7360390601159598
+2018-07-03 13:07:31,428 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,430 Save completed! 163_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,430 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 500
+2018-07-03 13:07:31,493 Score: 0.7360390601159598
+2018-07-03 13:07:31,504 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,507 Save completed! 164_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,507 Log:  solv: saga,  penalty: str,  tol:1,  iterations: 1000
+2018-07-03 13:07:31,569 Score: 0.7360390601159598
+2018-07-03 13:07:31,580 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,582 Save completed! 165_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,582 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 100
+2018-07-03 13:07:31,701 Score: 0.7360390601159598
+2018-07-03 13:07:31,712 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,715 Save completed! 166_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,715 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 500
+2018-07-03 13:07:31,840 Score: 0.7360390601159598
+2018-07-03 13:07:31,851 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:31,855 Save completed! 167_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:31,855 Log:  solv: saga,  penalty: str,  tol:0.1,  iterations: 1000
+2018-07-03 13:07:31,999 Score: 0.7360390601159598
+2018-07-03 13:07:32,010 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:32,013 Save completed! 168_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:32,013 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 100
+2018-07-03 13:07:32,073 Score: 0.7360390601159598
+2018-07-03 13:07:32,084 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:32,087 Save completed! 169_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:32,087 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 500
+2018-07-03 13:07:32,147 Score: 0.7360390601159598
+2018-07-03 13:07:32,157 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:32,160 Save completed! 170_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:32,160 Log:  solv: saga,  penalty: str,  tol:5,  iterations: 1000
+2018-07-03 13:07:32,220 Score: 0.7360390601159598
+2018-07-03 13:07:32,231 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:32,234 Save completed! 171_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:32,234 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 100
+2018-07-03 13:07:33,294 Score: 0.7360390601159598
+2018-07-03 13:07:33,308 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:33,310 Save completed! 172_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:33,310 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 500
+2018-07-03 13:07:38,322 Score: 0.7360390601159598
+2018-07-03 13:07:38,335 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:38,337 Save completed! 173_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:38,338 Log:  solv: saga,  penalty: str,  tol:0.001,  iterations: 1000
+2018-07-03 13:07:43,435 Score: 0.7360390601159598
+2018-07-03 13:07:43,448 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:43,451 Save completed! 174_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:43,452 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 100
+2018-07-03 13:07:44,296 Score: 0.7360390601159598
+2018-07-03 13:07:44,307 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:44,310 Save completed! 175_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:44,310 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 500
+2018-07-03 13:07:48,480 Score: 0.7360390601159598
+2018-07-03 13:07:48,493 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:48,496 Save completed! 176_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:48,496 Log:  solv: saga,  penalty: str,  tol:0.0001,  iterations: 1000
+2018-07-03 13:07:56,644 Score: 0.7360390601159598
+2018-07-03 13:07:56,656 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:56,659 Save completed! 177_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:56,659 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 100
+2018-07-03 13:07:56,773 Score: 0.7360390601159598
+2018-07-03 13:07:56,784 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:56,787 Save completed! 178_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:56,787 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 500
+2018-07-03 13:07:56,852 Score: 0.7360390601159598
+2018-07-03 13:07:56,863 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:56,866 Save completed! 179_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:56,866 Log:  solv: saga,  penalty: l1,  tol:1,  iterations: 1000
+2018-07-03 13:07:56,931 Score: 0.7360390601159598
+2018-07-03 13:07:56,943 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:56,946 Save completed! 180_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:56,946 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 100
+2018-07-03 13:07:57,092 Score: 0.7360390601159598
+2018-07-03 13:07:57,103 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,106 Save completed! 181_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,107 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 500
+2018-07-03 13:07:57,302 Score: 0.7360390601159598
+2018-07-03 13:07:57,313 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,316 Save completed! 182_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,316 Log:  solv: saga,  penalty: l1,  tol:0.1,  iterations: 1000
+2018-07-03 13:07:57,464 Score: 0.7360390601159598
+2018-07-03 13:07:57,476 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,479 Save completed! 183_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,479 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 100
+2018-07-03 13:07:57,544 Score: 0.7360390601159598
+2018-07-03 13:07:57,554 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,558 Save completed! 184_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,558 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 500
+2018-07-03 13:07:57,621 Score: 0.7360390601159598
+2018-07-03 13:07:57,632 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,634 Save completed! 185_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,635 Log:  solv: saga,  penalty: l1,  tol:5,  iterations: 1000
+2018-07-03 13:07:57,775 Score: 0.7360390601159598
+2018-07-03 13:07:57,788 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:57,790 Save completed! 186_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:57,790 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 100
+2018-07-03 13:07:59,069 Score: 0.7360390601159598
+2018-07-03 13:07:59,083 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:07:59,086 Save completed! 187_logist_reg_2018-07-03.pkl
+2018-07-03 13:07:59,086 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 500
+2018-07-03 13:08:04,940 Score: 0.7360390601159598
+2018-07-03 13:08:04,952 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:04,955 Save completed! 188_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:04,956 Log:  solv: saga,  penalty: l1,  tol:0.001,  iterations: 1000
+2018-07-03 13:08:15,625 Score: 0.7360390601159598
+2018-07-03 13:08:15,638 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:15,640 Save completed! 189_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:15,640 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 100
+2018-07-03 13:08:16,909 Score: 0.7360390601159598
+2018-07-03 13:08:16,924 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:16,927 Save completed! 190_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:16,927 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 500
+2018-07-03 13:08:22,708 Score: 0.7360390601159598
+2018-07-03 13:08:22,725 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:22,729 Save completed! 191_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:22,730 Log:  solv: saga,  penalty: l1,  tol:0.0001,  iterations: 1000
+2018-07-03 13:08:33,795 Score: 0.7360390601159598
+2018-07-03 13:08:33,808 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:33,812 Save completed! 192_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:33,812 Log:  solv: saga,  penalty: l2,  tol:1,  iterations: 100
+2018-07-03 13:08:33,886 Score: 0.7360390601159598
+2018-07-03 13:08:33,898 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:33,901 Save completed! 193_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:33,901 Log:  solv: saga,  penalty: l2,  tol:1,  iterations: 500
+2018-07-03 13:08:33,966 Score: 0.7360390601159598
+2018-07-03 13:08:33,978 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:33,981 Save completed! 194_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:33,981 Log:  solv: saga,  penalty: l2,  tol:1,  iterations: 1000
+2018-07-03 13:08:34,043 Score: 0.7360390601159598
+2018-07-03 13:08:34,054 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,057 Save completed! 195_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,057 Log:  solv: saga,  penalty: l2,  tol:0.1,  iterations: 100
+2018-07-03 13:08:34,179 Score: 0.7360390601159598
+2018-07-03 13:08:34,190 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,193 Save completed! 196_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,193 Log:  solv: saga,  penalty: l2,  tol:0.1,  iterations: 500
+2018-07-03 13:08:34,313 Score: 0.7360390601159598
+2018-07-03 13:08:34,327 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,331 Save completed! 197_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,331 Log:  solv: saga,  penalty: l2,  tol:0.1,  iterations: 1000
+2018-07-03 13:08:34,486 Score: 0.7360390601159598
+2018-07-03 13:08:34,498 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,501 Save completed! 198_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,501 Log:  solv: saga,  penalty: l2,  tol:5,  iterations: 100
+2018-07-03 13:08:34,566 Score: 0.7360390601159598
+2018-07-03 13:08:34,577 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,581 Save completed! 199_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,581 Log:  solv: saga,  penalty: l2,  tol:5,  iterations: 500
+2018-07-03 13:08:34,643 Score: 0.7360390601159598
+2018-07-03 13:08:34,655 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,658 Save completed! 200_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,658 Log:  solv: saga,  penalty: l2,  tol:5,  iterations: 1000
+2018-07-03 13:08:34,722 Score: 0.7360390601159598
+2018-07-03 13:08:34,734 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:34,737 Save completed! 201_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:34,737 Log:  solv: saga,  penalty: l2,  tol:0.001,  iterations: 100
+2018-07-03 13:08:35,715 Score: 0.7360390601159598
+2018-07-03 13:08:35,727 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:35,730 Save completed! 202_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:35,731 Log:  solv: saga,  penalty: l2,  tol:0.001,  iterations: 500
+2018-07-03 13:08:40,126 Score: 0.7360390601159598
+2018-07-03 13:08:40,137 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:40,140 Save completed! 203_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:40,140 Log:  solv: saga,  penalty: l2,  tol:0.001,  iterations: 1000
+2018-07-03 13:08:45,258 Score: 0.7360390601159598
+2018-07-03 13:08:45,271 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:45,274 Save completed! 204_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:45,274 Log:  solv: saga,  penalty: l2,  tol:0.0001,  iterations: 100
+2018-07-03 13:08:46,218 Score: 0.7360390601159598
+2018-07-03 13:08:46,230 Precision: (0.74, 0.0, 0.54) Recall: (1.0, 0.0, 0.74) F1: (0.85, 0.0, 0.62) Support: (2412.0, 865.0, 3277.0)
+2018-07-03 13:08:46,232 Save completed! 205_logist_reg_2018-07-03.pkl
+2018-07-03 13:08:46,232 Log:  solv: saga,  penalty: l2,  tol:0.0001,  iterations: 500

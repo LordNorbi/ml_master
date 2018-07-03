@@ -141,13 +141,13 @@ class ml_machine:
         newmachine.unfitted = linear_model.LogisticRegression(solver=csolver,penalty=cpenalty,tol=ctol, max_iter=cmax_iter)
 
         start = time.time()
-        newmachine.fitted = newmachine.fit(self.X_train, self.y_train)
+        newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
         
         newmachine.duration = end - start
         #self.output("logistc_reg done in: " +  str(newmachine.duration) + " s")
 
-        self.logist_reg_list.appen(newmachine)
+        self.logist_reg_list.append(newmachine)
         return(len(self.logist_reg_list)-1)
 
     def createNAIVE_bay(self):
