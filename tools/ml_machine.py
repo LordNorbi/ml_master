@@ -19,13 +19,15 @@ class ml_machine:
     X_test = []
     y_test = []
 
-    svm_pol = None
-    dec_tree = None
-    k_nearest = None
-    logist_reg = None
-    naive_bay = None
+    svm_pol_list = []
+    dec_tree_list = []
+    k_nearest_list = []
+    logist_reg_list = []
+    naive_bay_list = []
+    logger = None
 
-    def __init__(self, X_data, y_data, split=0.66):
+    def __init__(self, X_data, y_data, clogger, split=0.20):
+        self.logger = clogger
         neu = []
         y_data = [0 if element == '-1' else element for element in y_data]
         y_data = [1 if element == '1' else element for element in y_data]
@@ -72,74 +74,97 @@ class ml_machine:
             #x = x+1
 
     def output(self, msg):
-        for line in msg.splitlines():
-            print("ML: "+line)
+        if self.logger!=None:
+            self.logger.info(msg)
+        #for line in msg.splitlines():
+        #print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
-    def createSVM_poly(self, mkernel='poly',mdegree=2,mcache_size=7000, mtol=0.0001, mclass_weight={0: 1,1:3}, mC=1):
-        self.svm_pol = Machine()
-        self.svm_pol.name = "SVM_pol"
-        self.output("SVM poly created training will start soon...")
+    def createSVM_poly(self, mkernel='poly',mdegree=5,mcache_size=1024, mtol=0.0001, mclass_weight={0: 1,1:3}, mC=1):
+        newmachine = Machine()
+        newmachine.name = "SVM_pol"
+        
+        #self.output("SVM poly created training will start soon...")
+        newmachine.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC)
+        #self.output("unfitted")
+        
         start = time.time()
-        self.svm_pol.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC)
-        self.output("unfitted")
-        self.svm_pol.fitted = self.svm_pol.unfitted.fit(self.X_train, self.y_train)
+        newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
-        self.svm_pol.duration = end - start
-        self.output("SVM poly done in: " +  str(self.svm_pol.duration) + " s")
-        return()
+        
+        newmachine.duration = end - start
+        #self.output("SVM poly done in: " +  str(newmachine.duration) + " s")
+        
+        self.svm_pol_list.append(newmachine)
+        return(len(self.svm_pol_list)-1)
 
-    def createDEC_tree(self, max_depth = 3, min_samples_leaf = 5):
-        self.dec_tree = Machine()
-        self.dec_tree.name="DEC_tree"
-        self.output("DEC created training will start soon...")
+    def createDEC_tree(self, csplitter = 'best', cmax_depth = 3, cmin_samples_leaf = 5, cmin_samples_split = 2):
+        newmachine = Machine()
+        newmachine.name="DEC_tree"
+
+        #self.output("DEC created training will start soon...")
+        
+        newmachine.unfitted = tree.DecisionTreeClassifier(criterion='entropy', splitter = csplitter, max_depth = cmax_depth, min_samples_leaf = cmin_samples_leaf, min_samples_split = cmin_samples_split )
+
         start = time.time()
-        self.dec_tree.unfitted = tree.DecisionTreeClassifier(criterion='entropy', max_depth=max_depth, min_samples_leaf= min_samples_leaf )
-        self.dec_tree.fitted = self.dec_tree.unfitted.fit(self.X_train,self.y_train)
+        newmachine.fitted = newmachine.unfitted.fit(self.X_train,self.y_train)
         end = time.time()
-        self.dec_tree.duration = end - start
-        self.output("Dec Tree done in: " +  str(self.dec_tree.duration) + " s")
+        
+        newmachine.duration = end - start
+        #self.output("Dec Tree done in: " +  str(newmachine.duration) + " s")
 
-        return()
+        self.dec_tree_list.append(newmachine)
+        return(len(self.dec_tree_list)-1)
 
-    def createK_nearest(self,neighbors = 3):
-        self.k_nearest = Machine()
-        self.k_nearest.name = "k_nearest"
-        self.output("KNN poly created training will start soon...")
+    def createK_nearest(self, neighbors = 5, cweights = 'uniform', calgorithm='auto' ):
+        newmachine = Machine()
+        newmachine.name = "k_nearest"
+        #self.output("KNN poly created training will start soon...")
+        
+        newmachine.unfitted = KNeighborsClassifier(n_neighbors=neighbors, weights = cweights, algorithm=calgorithm )
+
         start = time.time()
-        self.k_nearest.unfitted = KNeighborsClassifier(n_neighbors=neighbors)
-        self.k_nearest.fitted = self.k_nearest.unfitted.fit(self.X_train, self.y_train)
+        newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
-        self.k_nearest.duration = end - start
-        self.output("k-nearest done in: " +  str(self.k_nearest.duration) + " s")
+        
+        newmachine.duration = end - start
+        #self.output("k-nearest done in: " +  str(newmachine.duration) + " s")
 
-        return()
+        self.k_nearest_list.append(newmachine)
+        return(len(self.k_nearest_list)-1)
 
-    def createLOGIST_reg(self, c=1e5):
-        self.logist_reg = Machine()
-        self.logist_reg.name = "logist_reg"
-        self.output("Logistic_reg poly created training will start soon...")
+    def createLOGIST_reg(self, csolver='sag', cpenalty='l2', ctol=0.0001, cmax_iter=100):
+        newmachine = Machine()
+        newmachine.name = "logist_reg"
+        #self.output("Logistic_reg poly created training will start soon...")
+        
+        newmachine.unfitted = linear_model.LogisticRegression(solver=csolver,penalty=cpenalty,tol=ctol, max_iter=cmax_iter)
+
         start = time.time()
-        self.logist_reg.unfitted = linear_model.LogisticRegression(C=c)
-        self.logist_reg.fitted = self.k_nearest.unfitted.fit(self.X_train, self.y_train)
+        newmachine.fitted = newmachine.fit(self.X_train, self.y_train)
         end = time.time()
-        self.logist_reg.duration = end - start
-        self.output("logistc_reg done in: " +  str(self.logist_reg.duration) + " s")
+        
+        newmachine.duration = end - start
+        #self.output("logistc_reg done in: " +  str(newmachine.duration) + " s")
 
-        return()
+        self.logist_reg_list.appen(newmachine)
+        return(len(self.logist_reg_list)-1)
 
     def createNAIVE_bay(self):
-        self.naive_bay = Machine()
-        self.naive_bay.name = "naive_bay"
-        self.output("naive:bay poly created training will start soon...")
+        newmachine = Machine()
+        newmachine.name = "naive_bay"
+        #self.output("naive:bay poly created training will start soon...")
+        
+        newmachine.unfitted = GaussianNB()
+        
         start = time.time()
-        self.naive_bay.unfitted = GaussianNB()
-        self.naive_bay.fitted = self.naive_bay.unfitted.fit(self.X_train, self.y_train)
+        newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
-        self.naive_bay.duration = end - start
-        self.output("naive_bay done in: " +  str(self.naive_bay.duration) + " s")
-
-        return()
+        
+        newmachine.duration = end - start
+        #self.output("naive_bay done in: " +  str(newmachine.duration) + " s")
+        self.naive_bay_list.append(newmachine)
+        return(len(naive_bay_list)-1)
 
     #@profile
     def bench(self,machine):
@@ -148,14 +173,14 @@ class ml_machine:
             return()
 
         machine.score = machine.fitted.score(self.X_test,self.y_test)
-        print("Score: ", machine.score)
+        self.output("Score: "+str(machine.score))
 
         y_pred = machine.fitted.predict(self.X_test)
         report = metrics.classification_report(self.y_test, y_pred)
 
         list=report.encode('ascii','ignore').split()
         
-        self.output(str(len(list)))
+        #self.output(str(len(list)))
 
         if len(list) ==16:
             if list[5] == '/':
@@ -224,11 +249,11 @@ class ml_machine:
             if list[20] == '/':
                 list[20]='0'
                 self.output("canged")
-            machine.precision = float(list[5]), float(list[10]), float(list[17]) #Precision for class 0,1 and avg/total
-            machine.recall = float(list[6]), float(list[11]), float(list[18])
-            machine.f1 = float(list[7]), float(list[12]), float(list[19])
-            machine.support = float(list[8]), float(list[13]), float(list[20])
-
+        machine.precision = float(list[5]), float(list[10]), float(list[17]) #Precision for class 0,1 and avg/total
+        machine.recall = float(list[6]), float(list[11]), float(list[18])
+        machine.f1 = float(list[7]), float(list[12]), float(list[19])
+        machine.support = float(list[8]), float(list[13]), float(list[20])
+        self.output("Precision: "+str(machine.precision)+ " Recall: "+str(machine.recall)+" F1: "+str(machine.f1)+" Support: "+str(machine.support))
 
         return()
 
@@ -269,8 +294,8 @@ class ml_machine:
         #print sql
         db_cursor.execute(sql)
         db_connection.commit()
-        self.output("Save completed!")
-        return filename
+        self.output("Save completed! "+ filename)
+        return()
 
     def loadMachine(self,filename):
         #read machine from file

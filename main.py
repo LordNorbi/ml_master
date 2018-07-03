@@ -108,69 +108,126 @@ def getOverviewOfResults():
     return()
 
 def main():
-    checkDB()
-    X_data, y_data = getData()
-    m = ml(X_data, y_data)
-
-    #m.dec_tree = Machine()
-    #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
-    #m.bench(m.dec_tree)
-
-    svmtune = True
-    svm = False
-    dec = False
-    knn = False
-    log = False
-    nav = False
-
+    
     logger = logging.getLogger('OutputMonitorLogger')
     hdlr = logging.FileHandler('./log/ml.log')
     formatter = logging.Formatter('%(asctime)s %(message)s')
     hdlr.setFormatter(formatter)
     logger.addHandler(hdlr)
     logger.setLevel(logging.DEBUG)
+    
+    logger.info("-------------------------------------------")
+    
+    checkDB()
+    X_data, y_data = getData()
+    m = ml(X_data, y_data, logger)
 
-    kernel=['poly','rbf']
-    tol = [1,0.1,0.0025,0.002,0.0015,0.001,0.00075,0.0005,0.00025,0.000001]
-    cs = [5,4,3,2,1.5,1,0.75,0.5,0.25,0.1]
-    ws = [{0:1,1:1},{0:1,1:2},{0:1,1:3},{0:1,1:4},{0:2,1:1},{0:3,1:1},{0:4,1:1},{0:1,1:10},{0:10,1:1}]
-    xs = [5,6,7,8,9,10]
+    #m.dec_tree = Machine()
+    #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
+    #m.bench(m.dec_tree)
+
+    svmtune = False
+    dectune = False
+    knntune = True
+    logtune = False
+    navtune = False
+    
+    svm = False
+    dec = False
+    knn = False
+    log = False
+    nav = False
 
 
+
+    #kernel=['poly','rbf']                                      #   -
+    tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
+    cs = [1, 1.5, 2, 5, 10]                                     #   5
+    ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
+    xs = [5,9]                                                  #   2
+                                                                # 250
     if svmtune:
-        for t in tol:
-            #for x in xs:
-                for c in cs:
-                    for w in ws:
-                        logger.info("SVM: rbf, tol: "+str(t)+"C: "+str(c)+" weight: "+str(w))
-                        m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c, mclass_weight = w )
-                        m.bench(m.svm_pol)
-                        logger.info(m.saveMachine(db_connection,m.svm_pol))
+        for k in kernel:
+            for t in tol:
+                for x in xs:
+                    for c in cs:
+                        for w in ws:
+                            logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c)+",  weight: "+str(w))
+                            i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c, mclass_weight = w )
+                            m.bench(m.svm_pol_list[i])
+                            m.saveMachine(db_connection,m.svm_pol_list[i])
 
+    solv=['sag','saga']                                         #   2
+    pen = ['str','l1','l2']                                     #   3
+    iter = [10,100,1000]                                        #   3
+    tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
+                                                                #  60
+    if logtune:
+        for so in solv:
+            for p in pen:
+                for t in tol:
+                    for it in inter:
+                        logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
+                        i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
+                        m.bench(m.logist_reg_list[i])
+                        m.saveMachine(db_connection,m.logist_reg_list[i])
+    
+    
+    splitter = ['best','random']                                #   2
+    max_depth = [None,10,15,20]                                 #   4
+    min_samples_split = [2,5,10]                                #   3
+    min_samples_leaf = [1,2,5,10]                               #   4
+                                                                #  96
+    if dectune:
+        for split in splitter:
+            for md in max_depth:
+                for mss in min_samples_split:
+                    for msl in min_samples_leaf:
+                        logger.info("Log:  splitter: "+split+",  max_depth: "+str(md)+",  min_sample_split:"+ str(mss) + ",  min_sample_leaf: "+str(msl))
+                        i = m.createDEC_tree(csplitter = split, cmax_depth = md, cmin_samples_leaf = msl, cmin_samples_split = mss)
+                        m.bench(m.dec_tree_list[i])
+                        m.saveMachine(db_connection,m.dec_tree_list[i])
+
+
+    ks = [1,2,5,10,25]                                          #   5
+    weights = ['uniform', 'distance']                           #   2
+    algorithm = ['ball_tree', 'kd_tree', 'brute']               #   3
+                                                                #  30
+    if knntune:
+        for k in ks:
+            for w in weights:
+                for al in algorithm:
+                    logger.info("KNN:  K: "+str(k)+",  algorithm: "+al+",  weight:"+ w)
+                    i = m.createK_nearest(neighbors = k, cweights = w, calgorithm=al )
+                    m.bench(m.k_nearest_list[i])
+                    m.saveMachine(db_connection,m.k_nearest_list[i])
+
+
+
+#if navtune:
 
 
     if svm:
-        m.createSVM_poly(mdegree=5, mkernel='rbf', mclass_weight={0: 1,1:3})
-        #m.createSVM_poly()
-        m.bench(m.svm_pol)
-        m.saveMachine(db_connection,m.svm_pol)
+        i = m.createSVM_poly()
+        m.bench(m.svm_pol_list[i])
+        m.saveMachine(db_connection,m.svm_pol_list[i])
     if dec:
-        m.createDEC_tree()
-        m.bench(m.dec_tree)
-        m.saveMachine(db_connection,m.dec_tree)
+        i = m.createDEC_tree()
+        m.bench(m.dec_tree_list[i])
+        m.saveMachine(db_connection,m.dec_tree_list[i])
     if knn:
-        m.createK_nearest()
-        m.bench(m.k_nearest)
-        m.saveMachine(db_connection,m.k_nearest)
+        i = m.createK_nearest()
+        m.bench(m.k_nearest_list[i])
+        m.saveMachine(db_connection,m.k_nearest_list[i])
     if log:
-        m.createLOGIST_reg()
-        m.bench(m.logist_reg)
-        m.saveMachine(db_connection,m.logist_reg)
+        i = m.createLOGIST_reg()
+        m.bench(m.logist_reg_list[i])
+        m.saveMachine(db_connection,m.logist_reg_list[i])
 
     if nav:
-        m.createNAIVE_bay()
-        m.bench(m.naive_bay)
-        m.saveMachine(db_connection,m.naive_bay)
+        i = m.createNAIVE_bay()
+        m.bench(m.naive_bay_list[i])
+        m.saveMachine(db_connection,m.naive_bay_list[i])
 
     getOverviewOfResults()
 
