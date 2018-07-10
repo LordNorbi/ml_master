@@ -126,9 +126,9 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    svmtune = False
-    dectune = False
-    knntune = False
+    svmtune = True
+    dectune = True
+    knntune = True
     logtune = True
     navtune = False
     
@@ -147,7 +147,7 @@ def main():
     xs = [5,9]                                                  #   2
                                                                 # 250
     if svmtune:
-        for k in kernel:
+       # for k in kernel:
             for t in tol:
                 for x in xs:
                     for c in cs:
