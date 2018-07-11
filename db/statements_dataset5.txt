@@ -1,0 +1,177 @@
+Insert into Dataset5 (Set_ID)
+Select Set_ID
+from Task group by Set_ID 
+having Count(Task_ID) = 5;
+
+
+Update Dataset5 Set Exit_Value=(
+select Exit_Value
+from TaskSet
+Where Dataset5.Set_ID = TaskSet.Set_ID);
+
+
+Update Dataset5 Set Exit_Value = -1 
+where Exit_Value < 0;
+
+
+
+UPDATE Dataset SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Priority04=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Deadline04=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Quota04=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+PKG04=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Arg04=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Period04=(
+SELECT Task.period
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+number_of_jobs04=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+offset04=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Priority05=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Deadline05=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Quota05=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+PKG05=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Arg05=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Period05=(
+SELECT Task.period
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+number_of_jobs05=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+offset05=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset.Set_ID=Task.Set_ID AND Task.PKG="tumatmul")
