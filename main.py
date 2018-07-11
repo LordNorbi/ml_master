@@ -7,16 +7,16 @@ import logging
 from tools.ml_machine import ml_machine as ml
 from tools.machine import Machine
 
-db_name = "db/big_set"+".db"
+#db_name = "db/big_set"+".db"
+db_name = "db/all_sets"+".db"
+
+#attribute = ["Set_ID", "Priority01", "Deadline01", "Quota01", "PKG01", "Arg01", "Period01", "Number_of_Jobs01", "Offset01", "Priority02", "Deadline02", "Quota02", "PKG02", "Arg02", "Period02", "Number_of_Jobs02", "Offset02", "Priority03", "Deadline03", "Quota03", "PKG03", "Arg03", "Period03", "Number_of_Jobs03", "Offset03", "Priority04", "Deadline04", "Quota04", "PKG04", "Arg04", "Period05", "Number_of_Jobs05", "Offset05", "Priority05", "Deadline05", "Quota05", "PKG05", "Arg05", "Period05", "Number_of_Jobs05", "Offset05", "Exit_Value"]
+
+#types_of_attributes = [ "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT" ]
 
 
-attribute = ["Set_ID", "Priority01", "Deadline01", "Quota01", "PKG01", "Arg01", "Period01", "Number_of_Jobs01", "Offset01", "Priority02", "Deadline02", "Quota02", "PKG02", "Arg02", "Period02", "Number_of_Jobs02", "Offset02", "Priority03", "Deadline03", "Quota03", "PKG03", "Arg03", "Period03", "Number_of_Jobs03", "Offset03", "Priority04", "Deadline04", "Quota04", "PKG04", "Arg04", "Period05", "Number_of_Jobs05", "Offset05", "Priority05", "Deadline05", "Quota05", "PKG05", "Arg05", "Period05", "Number_of_Jobs05", "Offset05", "Exit_Value"]
 
-types_of_attributes = [ "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT","INT", "INT", "STRING", "STRING", "INT", "INT", "INT", "INT", "INT" ]
-
-
-
-table_name = "Dataset"
+table_name = "Dataset4"
 create_new_data = False # True or False
 db_connection = None
 
@@ -126,17 +126,17 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    svmtune = True
-    dectune = True
-    knntune = True
-    logtune = True
+    svmtune = False
+    dectune = False
+    knntune = False
+    logtune = False
     navtune = False
     
-    svm = False
-    dec = False
-    knn = False
-    log = False
-    nav = False
+    svm = True
+    dec = True
+    knn = True
+    log = True
+    nav = True
 
 
 

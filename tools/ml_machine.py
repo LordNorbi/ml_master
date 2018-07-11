@@ -164,7 +164,7 @@ class ml_machine:
         newmachine.duration = end - start
         #self.output("naive_bay done in: " +  str(newmachine.duration) + " s")
         self.naive_bay_list.append(newmachine)
-        return(len(naive_bay_list)-1)
+        return(len(self.naive_bay_list)-1)
 
     #@profile
     def bench(self,machine):
