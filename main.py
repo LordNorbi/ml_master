@@ -122,10 +122,10 @@ def main():
     #m.bench(m.dec_tree)
 
     svmtune = True
-    dectune = True
-    knntune = True
-    logtune = True
-    navtune = True
+    dectune = False
+    knntune = False
+    logtune = False
+    navtune = False
     
     svm = False
     dec = False
@@ -136,14 +136,15 @@ def main():
 
 
     #kernel=['poly','rbf']                                      #   -
-    tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
+    tol = [1, 0.1, 5, 0.001, 0.0001]
+    tol = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
     cs = [1, 1.5, 2, 5, 10]                                     #   5
     #ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
     xs = [5,7,9,12]                                                  #   2
                                                                 #  50
     if svmtune:
         for t in tol:
-                for c in cs:
+            #for c in cs:
                     logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c))
                     i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c)
                     m.bench(m.svm_pol_list[i])
@@ -151,8 +152,8 @@ def main():
 
     if svmtune:
         for t in tol:
-            for x in xs:
-                for c in cs:
+            #for x in xs:
+            #for c in cs:
                     logger.info("SVM: poly, tol: "+str(t)+", C: "+str(c))
                     i = m.createSVM_poly(mkernel = 'poly', mtol = t, mC = c, mdegree=x)
                     m.bench(m.svm_pol_list[i])

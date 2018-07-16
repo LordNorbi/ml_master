@@ -84,7 +84,7 @@ class ml_machine:
     #@profile #for memory usage with python -m memory_profiler main.py
     def createSVM_poly(self, mkernel='poly',mdegree=5,mcache_size=1024, mtol=0.0001, mclass_weight={0: 1,1:3}, mC=1):
         newmachine = Machine()
-        newmachine.name = "SVM_pol"
+        newmachine.name = "SVM_"+mkernel
         
         #self.output("SVM poly created training will start soon...")
         newmachine.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC)
