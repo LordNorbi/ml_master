@@ -208,7 +208,7 @@ def main():
     verfahren = ['gaussian','multinomial','bernoulli']          #   3
     if navtune:
         for ver in verfahren:
-            logger.info("NaB:  Verfahren: "ver)
+            logger.info("NaB:  Verfahren: "+ver)
             i = m.createNAIVE_bay(type = ver)
             m.bench(m.naive_bay_list[i])
             m.saveMachine(db_connection,m.naive_bay_list[i])
