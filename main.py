@@ -139,18 +139,25 @@ def main():
     tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
     cs = [1, 1.5, 2, 5, 10]                                     #   5
     #ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
-    xs = [5,9]                                                  #   2
+    xs = [5,7,9,12]                                                  #   2
                                                                 #  50
     if svmtune:
-       # for k in kernel:
-            for t in tol:
-                for x in xs:
-                    for c in cs:
-                        for w in ws:
-                            logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c)+",  weight: "+str(w))
-                            i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c, mclass_weight = w )
-                            m.bench(m.svm_pol_list[i])
-                            m.saveMachine(db_connection,m.svm_pol_list[i])
+        for t in tol:
+                for c in cs:
+                    logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c))
+                    i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c)
+                    m.bench(m.svm_pol_list[i])
+                    m.saveMachine(db_connection,m.svm_pol_list[i])
+
+    if svmtune:
+        for t in tol:
+            for x in xs:
+                for c in cs:
+                    logger.info("SVM: poly, tol: "+str(t)+", C: "+str(c))
+                    i = m.createSVM_poly(mkernel = 'poly', mtol = t, mC = c, mdegree=x)
+                    m.bench(m.svm_pol_list[i])
+                    m.saveMachine(db_connection,m.svm_pol_list[i])
+
 
     solv=['sag','saga']                                         #   2
     pen = ['str','l1','l2']                                     #   3
