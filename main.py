@@ -11,7 +11,7 @@ from tools.machine import Machine
 db_name = "db/all_sets"+".db"
 
 
-table_name = "Dataset4"
+table_name = "Dataset2"
 create_new_data = False # True or False
 db_connection = None
 
@@ -121,17 +121,17 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    svmtune = True
+    svmtune = False
     dectune = False
     knntune = False
     logtune = False
     navtune = False
     
-    svm = False
-    dec = False
-    knn = False
-    log = False
-    nav = False
+    svm = True
+    dec = True
+    knn = True
+    log = True
+    nav = True
 
 
 
@@ -224,7 +224,10 @@ def main():
 
 
     if svm:
-        i = m.createSVM_poly()
+        i = m.createSVM_poly(mkernel = 'poly')
+        m.bench(m.svm_pol_list[i])
+        m.saveMachine(db_connection,m.svm_pol_list[i])
+        i = m.createSVM_poly(mkernel = 'rbf')
         m.bench(m.svm_pol_list[i])
         m.saveMachine(db_connection,m.svm_pol_list[i])
     if dec:
@@ -241,7 +244,13 @@ def main():
         m.saveMachine(db_connection,m.logist_reg_list[i])
 
     if nav:
-        i = m.createNAIVE_bay()
+        i = m.createNAIVE_bay(type = 'gaussian')
+        m.bench(m.naive_bay_list[i])
+        m.saveMachine(db_connection,m.naive_bay_list[i])
+        i = m.createNAIVE_bay(type = 'multinomial')
+        m.bench(m.naive_bay_list[i])
+        m.saveMachine(db_connection,m.naive_bay_list[i])
+        i = m.createNAIVE_bay(type = 'bernoulli')
         m.bench(m.naive_bay_list[i])
         m.saveMachine(db_connection,m.naive_bay_list[i])
 

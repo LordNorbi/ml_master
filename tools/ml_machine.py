@@ -82,7 +82,7 @@ class ml_machine:
         #print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
-    def createSVM_poly(self, mkernel='poly',mdegree=5,mcache_size=1024, mtol=0.0001, mclass_weight={0: 1,1:3}, mC=1):
+    def createSVM_poly(self, mkernel='rbf',mdegree=5,mcache_size=1024, mtol=0.001, mclass_weight=None, mC=1):
         newmachine = Machine()
         newmachine.name = "SVM_"+mkernel
         
@@ -100,7 +100,7 @@ class ml_machine:
         self.svm_pol_list.append(newmachine)
         return(len(self.svm_pol_list)-1)
 
-    def createDEC_tree(self, csplitter = 'best', cmax_depth = 3, cmin_samples_leaf = 5, cmin_samples_split = 2):
+    def createDEC_tree(self, csplitter = 'best', cmax_depth = 3, cmin_samples_leaf = 1, cmin_samples_split = 2):
         newmachine = Machine()
         newmachine.name="DEC_tree"
 
@@ -135,7 +135,7 @@ class ml_machine:
         self.k_nearest_list.append(newmachine)
         return(len(self.k_nearest_list)-1)
 
-    def createLOGIST_reg(self, csolver='sag', cpenalty='l2', ctol=0.0001, cmax_iter=100):
+    def createLOGIST_reg(self, csolver='liblinear', cpenalty='l2', ctol=0.0001, cmax_iter=100):
         newmachine = Machine()
         newmachine.name = "logist_reg"
         #self.output("Logistic_reg poly created training will start soon...")
