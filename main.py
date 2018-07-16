@@ -146,7 +146,7 @@ def main():
         for t in tol:
             #for c in cs:
                     logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c))
-                    i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c)
+                    i = m.createSVM_poly(mkernel = 'rbf', mtol = t)# mC = c)
                     m.bench(m.svm_pol_list[i])
                     m.saveMachine(db_connection,m.svm_pol_list[i])
     t = 'None'
@@ -156,7 +156,7 @@ def main():
             #for x in xs:
             #for c in cs:
                     logger.info("SVM: poly, tol: "+str(t)+", C: "+str(c))
-                    i = m.createSVM_poly(mkernel = 'poly', mtol = t, mC = c, mdegree=x)
+                    i = m.createSVM_poly(mkernel = 'poly', mtol = t)#), mC = c, mdegree=x)
                     m.bench(m.svm_pol_list[i])
                     m.saveMachine(db_connection,m.svm_pol_list[i])
 
