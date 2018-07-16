@@ -8,6 +8,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
 
 from .machine import Machine
 
@@ -150,13 +152,20 @@ class ml_machine:
         self.logist_reg_list.append(newmachine)
         return(len(self.logist_reg_list)-1)
 
-    def createNAIVE_bay(self):
+    def createNAIVE_bay(self,type = 'gaussian'):
         newmachine = Machine()
-        newmachine.name = "naive_bay"
+        newmachine.name = "naive_bay_"+type
         #self.output("naive:bay poly created training will start soon...")
-        
-        newmachine.unfitted = GaussianNB()
-        
+        if type == 'gaussian':
+            newmachine.unfitted = GaussianNB()
+        if type == 'multinomial':
+            newmachine.unfitted = MultinomialNB()
+        if type == 'bernoulli':
+            newmachine.unfitted = BernoulliNB()
+        if newmachine.unfitted == None:
+            print("NB type not available! NB was not created!")
+            return()
+
         start = time.time()
         newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)
         end = time.time()
