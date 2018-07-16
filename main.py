@@ -121,10 +121,10 @@ def main():
     #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
     #m.bench(m.dec_tree)
 
-    svmtune = False
-    dectune = False
-    knntune = False
-    logtune = False
+    svmtune = True
+    dectune = True
+    knntune = True
+    logtune = True
     navtune = True
     
     svm = False
@@ -138,9 +138,9 @@ def main():
     #kernel=['poly','rbf']                                      #   -
     tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
     cs = [1, 1.5, 2, 5, 10]                                     #   5
-    ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
+    #ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
     xs = [5,9]                                                  #   2
-                                                                # 250
+                                                                #  50
     if svmtune:
        # for k in kernel:
             for t in tol:
@@ -205,12 +205,14 @@ def main():
                     m.saveMachine(db_connection,m.k_nearest_list[i])
 
 
-    verfahren = ['gaussian','multinomial','bernoulli']
+    verfahren = ['gaussian','multinomial','bernoulli']          #   3
     if navtune:
         for ver in verfahren:
+            logger.info("NaB:  Verfahren: "ver)
             i = m.createNAIVE_bay(type = ver)
             m.bench(m.naive_bay_list[i])
             m.saveMachine(db_connection,m.naive_bay_list[i])
+
 
     if svm:
         i = m.createSVM_poly()
