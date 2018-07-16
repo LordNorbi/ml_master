@@ -149,7 +149,8 @@ def main():
                     i = m.createSVM_poly(mkernel = 'rbf', mtol = t, mC = c)
                     m.bench(m.svm_pol_list[i])
                     m.saveMachine(db_connection,m.svm_pol_list[i])
-
+    t = 'None'
+    x= 'None'
     if svmtune:
         for t in tol:
             #for x in xs:
