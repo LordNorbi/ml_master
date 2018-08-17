@@ -82,12 +82,12 @@ class ml_machine:
         #print("ML: "+line)
 
     #@profile #for memory usage with python -m memory_profiler main.py
-    def createSVM_poly(self, mkernel='rbf',mdegree=5,mcache_size=1024, mtol=0.001, mclass_weight=None, mC=1):
+    def createSVM_poly(self, mkernel='rbf',mdegree=5,mcache_size=1024, mtol=0.001, mclass_weight=None, mC=1, mgamma = 'auto'):
         newmachine = Machine()
         newmachine.name = "SVM_"+mkernel
         
         #self.output("SVM poly created training will start soon...")
-        newmachine.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC)
+        newmachine.unfitted = svm.SVC(kernel=mkernel, degree=mdegree,cache_size=mcache_size, tol=mtol, class_weight=mclass_weight, C=mC, gamma=mgamma)
         #self.output("unfitted")
         
         start = time.time()
@@ -135,12 +135,12 @@ class ml_machine:
         self.k_nearest_list.append(newmachine)
         return(len(self.k_nearest_list)-1)
 
-    def createLOGIST_reg(self, csolver='liblinear', cpenalty='l2', ctol=0.0001, cmax_iter=100):
+    def createLOGIST_reg(self, csolver='liblinear', cpenalty='l2', ctol=0.0001, cmax_iter=100, cc = 1.0):
         newmachine = Machine()
         newmachine.name = "logist_reg"
         #self.output("Logistic_reg poly created training will start soon...")
         
-        newmachine.unfitted = linear_model.LogisticRegression(solver=csolver,penalty=cpenalty,tol=ctol, max_iter=cmax_iter)
+        newmachine.unfitted = linear_model.LogisticRegression(solver=csolver,penalty=cpenalty,tol=ctol, max_iter=cmax_iter, C=cc)
 
         start = time.time()
         newmachine.fitted = newmachine.unfitted.fit(self.X_train, self.y_train)

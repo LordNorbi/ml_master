@@ -6,13 +6,18 @@ import logging
 
 from tools.ml_machine import ml_machine as ml
 from tools.machine import Machine
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report
+from sklearn.svm import SVC
 
-#db_name = "db/big_set"+".db"
-db_name = "db/all_sets"+".db"
 
+#define the name of the database
+db_name = "db/all-set_final-datasets"+".db"
 
-table_name = "Dataset2"
-create_new_data = False # True or False
+#define the Datatset (name of the table in the database)
+table_name = "Dataset5"
+
 db_connection = None
 
 def output(msg):
@@ -29,7 +34,7 @@ def checkDB():
     output("db_name:" + db_name+" table_name: "+ table_name)
     output(db_name+" contains "+str(getNumberOfEntries())+" entries and "+str(getMachines())+" learned Machines")
 
-
+#creates the "Machine" Table. The Score of trainied Machines are stored in the Machine Table.
 def createMLTable():
     db_cursor = db_connection.cursor()
     sql = "CREATE TABLE IF NOT EXISTS Machines(Id INT, Name STRING, Score FLOAT, Precision_0 FLOAT, Recall_0 FLOAT, F1_0 FLOAT, Support_0 FLOAT, Precision_1 FLOAT, Recall_1 FLOAT, F1_1 FLOAT, Support_1 FLOAT, Duration FLOAT, Time String, Object STRING)"
@@ -42,18 +47,21 @@ def closeDB():
     db_connection.commit()
     db_connection.close()
 
+#returns the number of entries in the selectes dataset of the db.
 def getNumberOfEntries():
     sql = "SELECT count(Set_ID) FROM "+table_name+" where Set_ID >= 0" # fix id to the name of the id in yout table
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
 
+#returnes the count of the saved machines in the db.
 def getMachines():
     sql = "SELECT count(Id) FROM Machines where Id >= 0"
     db_cursor = db_connection.cursor()
     db_cursor.execute(sql)
     return db_cursor.fetchone()[0]
 
+#returns the selected dataset.
 def getData():
     sql = "SELECT * FROM "+table_name
     db_cursor = db_connection.cursor()
@@ -85,6 +93,7 @@ def getData():
     
     return data[:,range],data[:, (len(data[0])-1)]
 
+#prints the saved machines scores
 def getOverviewOfResults():
     #get data from db
     sql = "SELECT Name, Score FROM Machines where Id >= 0"
@@ -102,6 +111,27 @@ def getOverviewOfResults():
     print(data)
     return()
 
+#returns the saves machine scores
+def getResults():
+    #get data from db
+    sql = "SELECT Score FROM Machines where Id >= 0"
+    db_cursor = db_connection.cursor()
+    db_cursor.execute(sql)
+    
+    #extract data
+    data = []
+    currentline = db_cursor.fetchone()
+    while currentline != None:
+        #print(currentline)
+        data.append(currentline[0])
+        currentline = db_cursor.fetchone()
+    
+    data = np.array(data)
+    print(data)
+    return()
+
+
+
 def main():
     
     logger = logging.getLogger('OutputMonitorLogger')
@@ -114,107 +144,98 @@ def main():
     logger.info("-------------------------------------------")
     
     checkDB()
+    #gets data
     X_data, y_data = getData()
+    #creates helper-class
     m = ml(X_data, y_data, logger)
 
-    #m.dec_tree = Machine()
-    #m.dec_tree.fitted = m.loadMachine("1_DEC_tree_2018-03-14.pkl")
-    #m.bench(m.dec_tree)
 
+    #choose what you wanna do. Code see below
     svmtune = False
     dectune = False
     knntune = False
     logtune = False
     navtune = False
     
-    svm = True
-    dec = True
-    knn = True
-    log = True
-    nav = True
+    svm = False
+    dec = False
+    knn = False
+    log = False
+    nav = False
 
 
 
-    #kernel=['poly','rbf']                                      #   -
-    tol = [1, 0.1, 5, 0.001, 0.0001]
-    tol = [0.000001, 0.00001,0.0001,0.001, 0.01, 0.1, 1, 10, 100]
-    cs = [1, 1.5, 2, 5, 10]                                     #   5
-    #ws = [{0:1,1:1},{0:1,1:3},{0:3,1:1},{0:10,1:1},{0:1,1:10}]  #   5
-    xs = [5,7,9,12]                                                  #   2
-    c= 'None'                                                                #  50
+    kernel=['poly','rbf']
+    degree = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    tol = [0.001, 0.01, 0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.50, 5, 10]
+    cs = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 5, 10]
+    # creates 15*15*11 + 15*11 Machiens (training&testing)
     if svmtune:
-        for t in tol:
-            #for c in cs:
-                    logger.info("SVM: rbf, tol: "+str(t)+", C: "+str(c))
-                    i = m.createSVM_poly(mkernel = 'rbf', mtol = t)# mC = c)
-                    m.bench(m.svm_pol_list[i])
-                    m.saveMachine(db_connection,m.svm_pol_list[i])
-    t = 'None'
-    x= 'None'
-    if svmtune:
-        for t in tol:
-            #for x in xs:
-            #for c in cs:
-                    logger.info("SVM: poly, tol: "+str(t)+", C: "+str(c))
-                    i = m.createSVM_poly(mkernel = 'poly', mtol = t)#), mC = c, mdegree=x)
-                    m.bench(m.svm_pol_list[i])
-                    m.saveMachine(db_connection,m.svm_pol_list[i])
+        for ker in kernel:
+            if ker = 'poly':
+                for deg in degree:
+                    for t in tol:
+                        for c in cs:
+                            logger.info("SVM: "+ker+" degree: "+str(deg)+ " tol: "+str(t) + "c: "+str(c))
+                            i = m.createSVM_poly(mkernel = ker, mdegree=deg, mC=c, mtol=t)
+                            m.bench(m.svm_pol_list[i])
+                            m.saveMachine(db_connection,m.svm_pol_list[i])
+            #rbf kernel dont use degree
+            else:
+                    for t in tol:
+                        for c in cs:
+                            logger.info("SVM: "+ker+" degree: "+str(deg)+ " tol: "+str(t) + "c: "+str(c))
+                            i = m.createSVM_poly(mkernel = ker, mdegree=deg, mC=c, mtol=t)
+                            m.bench(m.svm_pol_list[i])
+                            m.saveMachine(db_connection,m.svm_pol_list[i])
 
 
-    solv=['sag','saga']                                         #   2
-    pen = ['str','l1','l2']                                     #   3
-    iter = [500,1000,10000]                                     #   3
-    tol = [1, 0.1, 5, 0.001, 0.0001]                            #   5
-                                                                #  60
+
+    solv=['sag','saga','liblinear']#be carefull some solver just support l2 penalty!
+    pen = ['str','l1','l2']
+    tol = [0.001, 0.01, 0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.50, 5, 10]
+    cs = [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 5, 10]
+    # creates 3*3*15*11 Machiens (training&testing)
     if logtune:
         for so in solv:
             for p in pen:
                 for t in tol:
-                    for it in iter:
-                        if so =='sag':
-                            if p =='l2':
-                                logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
-                                i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
-                                m.bench(m.logist_reg_list[i])
-                                m.saveMachine(db_connection,m.logist_reg_list[i])
-                        else:
-                            logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  iterations: "+str(it))
-                            i = m.createLOGIST_reg(csolver=so, cpenalty=p, ctol=t, cmax_iter=it)
-                            m.bench(m.logist_reg_list[i])
-                            m.saveMachine(db_connection,m.logist_reg_list[i])
+                    for c in cs:
+                        logger.info("Log:  solv: "+so+",  penalty: "+p+",  tol:"+ str(t) + ",  c: "+str(c))
+                        i = m.createLOGIST_reg(csolver=so,cpenalty=p, ctol = t, cc = c)
+                        m.bench(m.logist_reg_list[i])
+                        m.saveMachine(db_connection,m.logist_reg_list[i])
     
     
-    splitter = ['best','random']                                #   2
-    max_depth = [None,10,15,20]                                 #   4
-    min_samples_split = [2,5,10]                                #   3
-    min_samples_leaf = [1,2,5,10]                               #   4
-                                                                #  96
+    splitter = ['best','random']
+    max_depth = [None,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,35,40,45,50]
+    min_samples_split = [5,10,20,30,40,50,100,150,200,250,300,350,400,450]
+    #creates 2*35*14 Machiens (training&testing)
     if dectune:
         for split in splitter:
             for md in max_depth:
                 for mss in min_samples_split:
-                    for msl in min_samples_leaf:
-                        logger.info("Log:  splitter: "+split+",  max_depth: "+str(md)+",  min_sample_split:"+ str(mss) + ",  min_sample_leaf: "+str(msl))
-                        i = m.createDEC_tree(csplitter = split, cmax_depth = md, cmin_samples_leaf = msl, cmin_samples_split = mss)
+                        logger.info("DEC:  splitter: "+split+",  max_depth: "+str(md)+",  min_sample_split:"+ str(mss))
+                        i = m.createDEC_tree(cmin_samples_split = mss, cmax_depth = md, csplitter = split)
                         m.bench(m.dec_tree_list[i])
                         m.saveMachine(db_connection,m.dec_tree_list[i])
 
 
-    ks = [1,2,5,10,25]                                          #   5
-    weights = ['uniform', 'distance']                           #   2
-    algorithm = ['ball_tree', 'kd_tree', 'brute']               #   3
-                                                                #  30
+    ks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,35,40,45,50]
+    weights = ['uniform', 'distance']
+    algorithm = ['auto','ball_tree', 'kd_tree', 'brute']
+    # generates 34*2*4 Machines. (train&test)
     if knntune:
-        for k in ks:
-            for w in weights:
-                for al in algorithm:
-                    logger.info("KNN:  K: "+str(k)+",  algorithm: "+al+",  weight:"+ w)
+        for al in algorithm:
+            for k in ks:
+                for w in weights:
+                    logger.info("KNN:   algorithm: "+al+",    K: "+str(k)+",    weight:"+ w)
                     i = m.createK_nearest(neighbors = k, cweights = w, calgorithm=al )
                     m.bench(m.k_nearest_list[i])
                     m.saveMachine(db_connection,m.k_nearest_list[i])
 
 
-    verfahren = ['gaussian','multinomial','bernoulli']          #   3
+    verfahren = ['gaussian','multinomial','bernoulli']
     if navtune:
         for ver in verfahren:
             logger.info("NaB:  Verfahren: "+ver)
@@ -254,9 +275,8 @@ def main():
         m.bench(m.naive_bay_list[i])
         m.saveMachine(db_connection,m.naive_bay_list[i])
 
-    getOverviewOfResults()
 
-    #getData()
+    getResults()
 
     closeDB()
 
