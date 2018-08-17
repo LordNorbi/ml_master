@@ -1,0 +1,516 @@
+
+Insert into Dataset3 (Set_ID)
+Select Set_ID
+from Task group by Set_ID 
+having Count(Task_ID) = 3;
+
+
+Update Dataset3 Set Exit_Value=(
+select Exit_Value
+from TaskSet
+Where Dataset3.Set_ID = TaskSet.Set_ID);
+
+
+Update Dataset3 Set Exit_Value = -1 
+where Exit_Value < 0;
+
+
+
+UPDATE Dataset3 SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey")
+where Dataset3.Priority01 is null;
+UPDATE Dataset3 SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi")
+where Dataset3.Priority01 is null;
+UPDATE Dataset3 SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42")
+where Dataset3.Priority01 is null;
+UPDATE Dataset3 SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod")
+where Dataset3.Priority01 is null;
+UPDATE Dataset3 SET Priority01=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Deadline01=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Quota01=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+PKG01=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Arg01=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Period01=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+number_of_jobs01=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+offset01=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul")
+where Dataset3.Priority01 is null;
+UPDATE Dataset3 SET Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey")
+where Dataset3.Priority02 is null AND Dataset3.PKG01 <> "hey";
+UPDATE Dataset3 SET Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi")
+where Dataset3.Priority02 is null AND Dataset3.PKG01 <> "pi";
+UPDATE Dataset3 SET Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42")
+where Dataset3.Priority02 is null AND Dataset3.PKG01 <> "cond_42";
+UPDATE Dataset3 SET Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod")
+where Dataset3.Priority02 is null AND Dataset3.PKG01 <> "cond_mod";
+UPDATE Dataset3 SET Priority02=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Deadline02=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Quota02=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+PKG02=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Arg02=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Period02=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+number_of_jobs02=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+offset02=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul")
+where Dataset3.Priority02 is null AND Dataset3.PKG01 <> "tumatmul";
+UPDATE Dataset3 SET Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="hey")
+where Dataset3.Priority03 is null AND Dataset3.PKG01 <> "hey" AND Dataset3.PKG02 <> "hey";
+UPDATE Dataset3 SET Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="pi")
+where Dataset3.Priority03 is null AND Dataset3.PKG01 <> "pi" AND Dataset3.PKG02 <> "pi";
+UPDATE Dataset3 SET Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_42")
+where Dataset3.Priority03 is null AND Dataset3.PKG01 <> "cond_42" AND Dataset3.PKG02 <> "cond_42";
+UPDATE Dataset3 SET Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="cond_mod")
+where Dataset3.Priority03 is null AND Dataset3.PKG01 <> "cond_mod" AND Dataset3.PKG02 <> "cond_mod";
+UPDATE Dataset3 SET Priority03=(
+SELECT Task.priority
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Deadline03=(
+SELECT Task.deadline
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Quota03=(
+SELECT Task.quota
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+PKG03=(
+SELECT Task.pkg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Arg03=(
+SELECT Task.arg
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+Period03=(
+SELECT Task.period
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+number_of_jobs03=(
+SELECT Task.number_of_jobs
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul"),
+offset03=(
+SELECT Task.offset
+FROM Task
+WHERE Dataset3.Set_ID=Task.Set_ID AND Task.PKG="tumatmul")
+where Dataset3.Priority03 is null AND Dataset3.PKG01 <> "tumatmul" AND Dataset3.PKG02 <> "tumatmul";
+
+
+

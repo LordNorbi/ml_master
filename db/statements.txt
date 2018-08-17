@@ -1,0 +1,84 @@
+CREATE TABLE IF NOT EXISTS TaskSet (Set_ID INTEGER PRIMARY KEY,Exit_Value INT)
+
+CREATE TABLE IF NOT EXISTS Task (Task_ID INTEGER, Set_ID INTEGER, Priority INT, Deadline INT, Quota STRING, PKG STRING, Arg INT, Period INT, Number_of_Jobs INT, Offset INT, PRIMARY KEY (Task_ID, Set_ID))
+
+CREATE TABLE IF NOT EXISTS Job (Job_ID INTEGER, Task_ID INTEGER, Set_ID INTEGER, Start_Date INT, End_Date INT, Exit_Value STRING, PRIMARY KEY (Job_ID, Task_ID, Set_ID))
+
+CREATE TABLE Dataset (
+    Set_ID INTEGER PRIMARY KEY,
+
+    Priority01 INT,
+    Deadline01 INT,
+    Quota01 STRING,
+    PKG01 STRING,
+    Arg01 INT,
+    Period01 INT,
+    Number_of_Jobs01 INT,
+    Offset01 INT,
+    Priority02 INT,
+    Deadline02 INT,
+    Quota02 STRING,
+    PKG02 STRING,
+    Arg02 INT,
+    Period02 INT,
+    Number_of_Jobs02 INT,
+    Offset02 INT,
+    Priority03 INT,
+    Deadline03 INT,
+    Quota03 STRING,
+    PKG03 STRING,
+    Arg03 INT,
+    Period03 INT,
+    Number_of_Jobs03 INT,
+    Offset03 INT,
+    Priority04 INT,
+    Deadline04 INT,
+    Quota04 STRING,
+    PKG04 STRING,
+    Arg04 INT,
+    Period04 INT,
+    Number_of_Jobs04 INT,
+    Offset04 INT,
+    Priority05 INT,
+    Deadline05 INT,
+    Quota05 STRING,
+    PKG05 STRING,
+    Arg05 INT,
+    Period05 INT,
+    Number_of_Jobs05 INT,
+    Offset05 INT,
+
+
+    Exit_Value INT
+)
+
+SELECT TaskSet.Set_ID, TaskSet.Suc FROM TaskSet
+select * from Dataset
+
+
+UPDATE Taskset
+SET Exit_value = -2
+WHERE TaskSet.Set_ID in (select TaskSet.Set_ID
+from TaskSet
+inner join Job on TaskSet.Set_ID = Job.Set_ID
+where Job.Exit_Value = 'EXIT_PERIOD')
+
+UPDATE Taskset
+SET Exit_value = -3
+WHERE TaskSet.Set_ID in (select TaskSet.Set_ID
+from TaskSet
+inner join Job on TaskSet.Set_ID = Job.Set_ID
+where Job.Exit_Value = 'None')
+
+UPDATE Taskset
+SET Exit_value = -4
+WHERE TaskSet.Set_ID NOT IN (
+select TaskSet.Set_ID
+from TaskSet
+left join Job on TaskSet.Set_ID = Job.Set_ID)
+
+UPDATE Taskset
+SET Exit_value = 1
+WHERE Exit_value = 0
+
+
